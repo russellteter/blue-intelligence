@@ -21,9 +21,9 @@ describe('ChamberToggle Component', () => {
     const houseButton = screen.getByText('House (124)');
     const senateButton = screen.getByText('Senate (46)');
 
-    // House should have active styling (glassmorphic 'active' class)
-    expect(houseButton).toHaveClass('active');
-    expect(senateButton).not.toHaveClass('active');
+    // House should have active styling (indicated by aria-selected)
+    expect(houseButton).toHaveAttribute('aria-selected', 'true');
+    expect(senateButton).toHaveAttribute('aria-selected', 'false');
   });
 
   it('shows Senate as active when chamber is senate', () => {
@@ -32,8 +32,8 @@ describe('ChamberToggle Component', () => {
     const houseButton = screen.getByText('House (124)');
     const senateButton = screen.getByText('Senate (46)');
 
-    expect(senateButton).toHaveClass('active');
-    expect(houseButton).not.toHaveClass('active');
+    expect(senateButton).toHaveAttribute('aria-selected', 'true');
+    expect(houseButton).toHaveAttribute('aria-selected', 'false');
   });
 
   it('calls onChange with house when House button is clicked', () => {

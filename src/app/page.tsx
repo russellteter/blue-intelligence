@@ -71,13 +71,21 @@ export default function Home() {
     if (urlChamber === 'senate') setChamber('senate');
     if (urlDistrict) setSelectedDistrict(parseInt(urlDistrict, 10));
 
+    // Parse Republican toggle params
+    const urlShowRepublican = params.get('showRepublican');
+    const urlRepublicanMode = params.get('republicanMode');
+
     const parsedFilters: FilterState = {
       party: urlParty ? urlParty.split(',').filter(Boolean) : [],
       hasCandidate: (urlHasCandidate === 'yes' || urlHasCandidate === 'no') ? urlHasCandidate : 'all',
       contested: (urlContested === 'yes' || urlContested === 'no') ? urlContested : 'all',
       opportunity: urlOpportunity ? urlOpportunity.split(',').filter(Boolean) : [],
+      showRepublicanData: urlShowRepublican === 'true',
+      republicanDataMode: (urlRepublicanMode === 'incumbents' || urlRepublicanMode === 'challengers' || urlRepublicanMode === 'all')
+        ? urlRepublicanMode
+        : 'none',
     };
-    if (urlParty || urlHasCandidate || urlContested || urlOpportunity) {
+    if (urlParty || urlHasCandidate || urlContested || urlOpportunity || urlShowRepublican || urlRepublicanMode) {
       setFilters(parsedFilters);
     }
   }, []);
@@ -93,6 +101,8 @@ export default function Home() {
     if (filters.hasCandidate !== 'all') params.set('hasCandidate', filters.hasCandidate);
     if (filters.contested !== 'all') params.set('contested', filters.contested);
     if (filters.opportunity.length > 0) params.set('opportunity', filters.opportunity.join(','));
+    if (filters.showRepublicanData) params.set('showRepublican', 'true');
+    if (filters.republicanDataMode !== 'none') params.set('republicanMode', filters.republicanDataMode);
 
     const newUrl = `${window.location.pathname}?${params.toString()}`;
     window.history.replaceState({}, '', newUrl);
@@ -456,7 +466,7 @@ export default function Home() {
       </header>
 
       {/* Active Filter Pills - Shows when filters are applied */}
-      {(filters.party.length > 0 || filters.hasCandidate !== 'all' || filters.contested !== 'all' || filters.opportunity.length > 0) && (
+      {(filters.party.length > 0 || filters.hasCandidate !== 'all' || filters.contested !== 'all' || filters.opportunity.length > 0 || filters.showRepublicanData) && (
         <div
           className="px-4 py-2 border-b animate-entrance"
           style={{
@@ -572,6 +582,29 @@ export default function Home() {
               );
             })}
 
+            {/* Republican data filter */}
+            {filters.showRepublicanData && (
+              <button
+                onClick={() => setFilters((prev) => ({
+                  ...prev,
+                  showRepublicanData: false,
+                  republicanDataMode: 'none',
+                }))}
+                className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-medium transition-all hover:opacity-80 focus-ring"
+                style={{
+                  background: 'linear-gradient(135deg, #FEF2F2 0%, #FECACA 100%)',
+                  color: '#DC2626',
+                  border: '1px solid rgba(220, 38, 38, 0.3)',
+                }}
+                aria-label="Remove Republican data filter"
+              >
+                Republicans: {filters.republicanDataMode === 'all' ? 'All' : filters.republicanDataMode === 'incumbents' ? 'Incumbents' : 'Challengers'}
+                <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              </button>
+            )}
+
             {/* Clear all filters */}
             <button
               onClick={() => setFilters(defaultFilters)}
@@ -645,12 +678,14 @@ export default function Home() {
               onDistrictClick={setSelectedDistrict}
               onDistrictHover={setHoveredDistrict}
               filteredDistricts={filteredDistricts}
+              showRepublicanData={filters.showRepublicanData}
+              republicanDataMode={filters.republicanDataMode}
             />
           </div>
 
           {/* Legend - Glassmorphic */}
           <div className="glass-surface rounded-lg p-4 mt-4 animate-entrance stagger-4">
-            <Legend />
+            <Legend showRepublicanData={filters.showRepublicanData} />
           </div>
 
           {/* Hover info - Glassmorphic with enhanced styling */}
@@ -676,6 +711,8 @@ export default function Home() {
             district={selectedDistrictData}
             electionHistory={selectedDistrictElections}
             onClose={() => setSelectedDistrict(null)}
+            showRepublicanData={filters.showRepublicanData}
+            republicanDataMode={filters.republicanDataMode}
           />
         </div>
       </div>

@@ -159,6 +159,9 @@ describe('FilterPanel Component', () => {
       party: ['Democratic', 'Republican'],
       hasCandidate: 'yes',
       contested: 'all',
+      opportunity: [],
+      showRepublicanData: false,
+      republicanDataMode: 'none',
     };
 
     render(
@@ -177,6 +180,9 @@ describe('FilterPanel Component', () => {
       party: ['Democratic'],
       hasCandidate: 'all',
       contested: 'all',
+      opportunity: [],
+      showRepublicanData: false,
+      republicanDataMode: 'none',
     };
 
     render(
@@ -196,6 +202,9 @@ describe('FilterPanel Component', () => {
       party: ['Democratic', 'Republican'],
       hasCandidate: 'yes',
       contested: 'yes',
+      opportunity: [],
+      showRepublicanData: false,
+      republicanDataMode: 'none',
     };
 
     render(
@@ -229,6 +238,9 @@ describe('FilterPanel Component', () => {
       party: ['Democratic'],
       hasCandidate: 'yes',
       contested: 'all',
+      opportunity: [],
+      showRepublicanData: false,
+      republicanDataMode: 'none',
     };
 
     render(

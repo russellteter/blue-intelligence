@@ -8,6 +8,7 @@ interface AnimatedCounterProps {
   suffix?: string;
   prefix?: string;
   className?: string;
+  style?: React.CSSProperties;
   formatNumber?: (num: number) => string;
 }
 
@@ -22,6 +23,7 @@ export function AnimatedCounter({
   suffix = '',
   prefix = '',
   className = '',
+  style,
   formatNumber: customFormat,
 }: AnimatedCounterProps) {
   const [displayValue, setDisplayValue] = useState(0);
@@ -102,7 +104,7 @@ export function AnimatedCounter({
     <span
       ref={elementRef}
       className={className}
-      style={{ fontVariantNumeric: 'tabular-nums' }}
+      style={{ fontVariantNumeric: 'tabular-nums', ...style }}
     >
       {prefix}{formatNumber(displayValue)}{suffix}
     </span>

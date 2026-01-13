@@ -21,6 +21,8 @@ interface DistrictMapProps {
   onDistrictClick: (districtNumber: number) => void;
   onDistrictHover: (districtNumber: number | null) => void;
   filteredDistricts?: Set<number>;
+  showRepublicanData?: boolean;
+  republicanDataMode?: 'none' | 'incumbents' | 'challengers' | 'all';
 }
 
 export default function DistrictMap({
@@ -31,6 +33,8 @@ export default function DistrictMap({
   onDistrictClick,
   onDistrictHover,
   filteredDistricts,
+  showRepublicanData = false,
+  republicanDataMode = 'none',
 }: DistrictMapProps) {
   const containerRef = useRef<HTMLDivElement>(null);
   const [rawSvgContent, setRawSvgContent] = useState<string>('');
@@ -97,7 +101,7 @@ export default function DistrictMap({
       const districtNum = parseInt(match[1], 10);
       const districtData = candidatesData[chamber][String(districtNum)];
       const opportunityInfo = opportunityData?.[chamber]?.[String(districtNum)];
-      const color = getOpportunityColor(opportunityInfo, districtData);
+      const color = getOpportunityColor(opportunityInfo, districtData, showRepublicanData, republicanDataMode);
       const statusLabel = getDistrictStatusLabel(districtData, opportunityInfo);
 
       // Apply fill color directly to SVG string
@@ -137,7 +141,7 @@ export default function DistrictMap({
     });
 
     return new XMLSerializer().serializeToString(svg);
-  }, [rawSvgContent, chamber, candidatesData, opportunityData, selectedDistrict, filteredDistricts, justSelected]);
+  }, [rawSvgContent, chamber, candidatesData, opportunityData, selectedDistrict, filteredDistricts, justSelected, showRepublicanData, republicanDataMode]);
 
   // Handle click events via event delegation (more efficient than per-path listeners)
   const handleClick = useCallback((e: React.MouseEvent) => {
@@ -240,29 +244,55 @@ export default function DistrictMap({
  * - Green - High Opportunity (score 70+)
  * - Teal - Emerging (score 50-69)
  * - Amber - Build (score 30-49)
- * - Purple - Defensive (Dem incumbent)
+ * - Blue - Defensive (Dem incumbent)
  * - Gray - Non-competitive (score <30) or no data
  * - Light gray - No candidates filed
+ *
+ * When Republican data is shown:
+ * - Split coloring for contested districts
+ * - Red (#DC2626) for Republican-only districts
  */
 function getOpportunityColor(
   opportunity: DistrictOpportunity | undefined,
-  district: District | undefined
+  district: District | undefined,
+  showRepublicanData: boolean = false,
+  republicanDataMode: 'none' | 'incumbents' | 'challengers' | 'all' = 'none'
 ): string {
   // No candidates = light gray
   if (!district || district.candidates.length === 0) {
     return '#f3f4f6'; // gray-100
   }
 
-  // If we have opportunity data, use tier colors
+  const hasDemocrat = district.candidates.some(
+    (c) => c.party?.toLowerCase() === 'democratic'
+  );
+  const hasRepublican = district.candidates.some(
+    (c) => c.party?.toLowerCase() === 'republican'
+  );
+
+  // When Republican toggle is enabled, show party-based coloring for certain scenarios
+  if (showRepublicanData && republicanDataMode !== 'none') {
+    // Contested districts - show purple gradient (or use opportunity tier if available)
+    if (hasDemocrat && hasRepublican) {
+      // If opportunity data exists, still use tier color for strategic view
+      if (opportunity) {
+        return TIER_COLORS[opportunity.tier] || TIER_COLORS.NON_COMPETITIVE;
+      }
+      return '#a855f7'; // Purple - both parties
+    }
+
+    // Republican-only districts - show red
+    if (hasRepublican && !hasDemocrat) {
+      return '#DC2626'; // Red - Republican
+    }
+  }
+
+  // If we have opportunity data, use tier colors (default behavior)
   if (opportunity) {
     return TIER_COLORS[opportunity.tier] || TIER_COLORS.NON_COMPETITIVE;
   }
 
   // Fallback: use basic Democratic presence coloring
-  const hasDemocrat = district.candidates.some(
-    (c) => c.party?.toLowerCase() === 'democratic'
-  );
-
   return hasDemocrat ? '#4739E7' : '#9ca3af';
 }
 
