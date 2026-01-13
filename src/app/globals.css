@@ -62,16 +62,6 @@ svg path[id^="senate-"]:hover,
   outline: none;
 }
 
-/* Contested race beacon - pulsing glow for competitive districts */
-@keyframes contested-beacon {
-  0%, 100% { filter: drop-shadow(0 0 4px rgba(168, 85, 247, 0.3)); }
-  50% { filter: drop-shadow(0 0 12px rgba(168, 85, 247, 0.6)); }
-}
-
-.district-path[data-contested="true"] {
-  animation: contested-beacon 3s ease-in-out infinite;
-}
-
 /* Selection burst animation - celebratory burst when district selected */
 @keyframes selection-burst {
   0% { filter: drop-shadow(0 0 0 transparent); }
@@ -84,10 +74,6 @@ svg path[id^="senate-"]:hover,
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .district-path[data-contested="true"] {
-    animation: none;
-    filter: drop-shadow(0 0 6px rgba(168, 85, 247, 0.4));
-  }
   .district-path.just-selected {
     animation: none;
   }
@@ -275,7 +261,6 @@ svg path[id^="senate-"]:hover,
 
 /* KPI Card Variants */
 .kpi-card.democrat .value { color: var(--class-purple); }
-.kpi-card.republican .value { color: var(--color-at-risk); }
 .kpi-card.unknown .value { color: #9ca3af; }
 .kpi-card.empty .value { color: #d1d5db; }
 
@@ -294,18 +279,6 @@ svg path[id^="senate-"]:hover,
   background: linear-gradient(135deg, #EEF2FF 0%, #E0E7FF 100%);
   color: var(--class-purple);
   border: 1px solid rgba(71, 57, 231, 0.3);
-}
-
-.badge-republican {
-  background: linear-gradient(135deg, #FEF2F2 0%, #FEE2E2 100%);
-  color: var(--color-at-risk);
-  border: 1px solid rgba(220, 38, 38, 0.3);
-}
-
-.badge-both {
-  background: linear-gradient(135deg, #ECFDF5 0%, #D1FAE5 100%);
-  color: var(--color-excellent);
-  border: 1px solid rgba(5, 150, 105, 0.3);
 }
 
 .badge-unknown {
@@ -896,11 +869,6 @@ svg path[id^="senate-"]:hover,
 .party-dot.democrat {
   background: var(--class-purple);
   box-shadow: 0 0 4px rgba(71, 57, 231, 0.4);
-}
-
-.party-dot.republican {
-  background: var(--color-at-risk);
-  box-shadow: 0 0 4px rgba(220, 38, 38, 0.4);
 }
 
 .candidate-count {

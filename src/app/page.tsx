@@ -435,27 +435,21 @@ export default function Home() {
                 }))}
                 className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-medium transition-all hover:opacity-80 focus-ring"
                 style={{
-                  background: party === 'democratic'
+                  background: party === 'Democratic'
                     ? 'linear-gradient(135deg, #EEF2FF 0%, #E0E7FF 100%)'
-                    : party === 'republican'
-                    ? 'linear-gradient(135deg, #FEF2F2 0%, #FEE2E2 100%)'
                     : 'linear-gradient(135deg, #FFFCF0 0%, #FEF8E0 100%)',
-                  color: party === 'democratic'
+                  color: party === 'Democratic'
                     ? 'var(--class-purple)'
-                    : party === 'republican'
-                    ? 'var(--color-at-risk)'
                     : '#92400E',
                   border: `1px solid ${
-                    party === 'democratic'
+                    party === 'Democratic'
                       ? 'rgba(71, 57, 231, 0.3)'
-                      : party === 'republican'
-                      ? 'rgba(220, 38, 38, 0.3)'
                       : 'rgba(217, 119, 6, 0.2)'
                   }`,
                 }}
                 aria-label={`Remove ${party} filter`}
               >
-                {party === 'democratic' ? 'Democrat' : party === 'republican' ? 'Republican' : 'Unknown Party'}
+                {party === 'Democratic' ? 'Democrat' : 'Unknown Party'}
                 <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
                 </svg>
