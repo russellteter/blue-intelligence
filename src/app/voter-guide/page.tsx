@@ -228,7 +228,7 @@ function VoterGuideContent() {
       // Update URL with address (without triggering navigation)
       const newUrl = new URL(window.location.href);
       newUrl.searchParams.set('address', encodeURIComponent(displayName));
-      router.replace(newUrl.pathname + newUrl.search, { scroll: false });
+      router.replace('?' + newUrl.search, { scroll: false });
 
     } catch (err) {
       console.error('Lookup error:', err);
@@ -293,7 +293,7 @@ function VoterGuideContent() {
     setInitialAddress('');
     setShareUrl(null);
     // Clear URL params
-    router.replace(window.location.pathname, { scroll: false });
+    router.replace('/voter-guide', { scroll: false });
   };
 
   const handleCopyShareLink = async () => {
