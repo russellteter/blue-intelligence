@@ -25,11 +25,12 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
-/* SVG Map Fallback Styles */
-/* Ensure district paths have default styling before JavaScript applies colors */
+/* SVG Map Styles */
+/* NOTE: Do NOT set fill here - JavaScript sets fill colors dynamically */
+/* CSS fill would override JavaScript setAttribute('fill', color) */
 svg path[id^="house-"],
 svg path[id^="senate-"] {
-  fill: #f3f4f6; /* gray-100 - default for no candidates */
+  /* fill is set by JavaScript in DistrictMap.tsx based on candidate data */
   stroke: #374151; /* gray-700 - border color */
   stroke-width: 0.5;
   cursor: pointer;
