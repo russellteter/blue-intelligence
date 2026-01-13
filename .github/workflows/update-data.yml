@@ -24,9 +24,19 @@ jobs:
         run: pip install requests
 
       - name: Fetch latest Ethics monitor data
+        env:
+          GH_TOKEN: ${{ secrets.ETHICS_MONITOR_PAT }}
         run: |
-          curl -sL -o /tmp/ethics-data.json \
-            https://raw.githubusercontent.com/russellteter/sc-ethics-monitor/main/state.json
+          # Use gh api to access private repo (requires PAT with repo scope)
+          gh api repos/russellteter/sc-ethics-monitor/contents/state.json \
+            --jq '.content' | base64 -d > /tmp/ethics-data.json
+
+          # Verify we got valid JSON
+          if ! python -c "import json; json.load(open('/tmp/ethics-data.json'))"; then
+            echo "Error: Failed to fetch valid JSON from ethics monitor repo"
+            echo "Make sure ETHICS_MONITOR_PAT secret is set with repo scope"
+            exit 1
+          fi
 
       - name: Process and merge data
         run: python scripts/process-data.py /tmp/ethics-data.json
