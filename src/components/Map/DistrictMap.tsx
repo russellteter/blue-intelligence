@@ -88,19 +88,9 @@ export default function DistrictMap({
       const color = getDistrictColor(districtData);
       const statusLabel = getDistrictStatusLabel(districtData);
 
-      // Check if district is contested (both parties running)
-      const hasDem = districtData?.candidates.some((c) => c.party?.toLowerCase() === 'democratic');
-      const hasRep = districtData?.candidates.some((c) => c.party?.toLowerCase() === 'republican');
-      const isContested = hasDem && hasRep;
-
       // Apply fill color directly to SVG string
       path.setAttribute('fill', color);
       path.setAttribute('data-district', String(districtNum));
-
-      // Add contested indicator for beacon animation
-      if (isContested) {
-        path.setAttribute('data-contested', 'true');
-      }
 
       // Build CSS class list
       const classes = ['district-path'];
@@ -235,35 +225,23 @@ export default function DistrictMap({
  * Uses CSS variable fallbacks for consistency with design system.
  *
  * Color scheme:
- * - Gray - No candidates filed (vacant)
- * - Amber - Candidates filed but party unknown (needs enrichment)
- * - Purple/Blue - Democrat(s) only
- * - Red - Republican(s) only
- * - Purple (bright) - Both parties (contested)
+ * - Light gray - No candidates filed (vacant)
+ * - Gray - Candidates filed but no Democrat (unknown/other)
+ * - Purple/Blue - Democrat(s) running
  */
 function getDistrictColor(district: District | undefined): string {
   if (!district || district.candidates.length === 0) {
-    return '#f3f4f6'; // gray-100 - no candidates (vacant)
+    return '#f3f4f6'; // gray-100 - no candidates
   }
 
-  // Check if any Democrat is running
   const hasDemocrat = district.candidates.some(
     (c) => c.party?.toLowerCase() === 'democratic'
   );
 
-  // Check if any Republican is running
-  const hasRepublican = district.candidates.some(
-    (c) => c.party?.toLowerCase() === 'republican'
-  );
-
-  if (hasDemocrat && hasRepublican) {
-    return '#a855f7'; // purple-500 - contested (both parties)
-  } else if (hasDemocrat) {
-    return '#4739E7'; // class-purple - Democrat only
-  } else if (hasRepublican) {
-    return '#DC2626'; // red-600 - Republican only
+  if (hasDemocrat) {
+    return '#4739E7'; // class-purple - Democrat
   } else {
-    return '#9ca3af'; // gray-400 - candidates with unknown party
+    return '#9ca3af'; // gray-400 - unknown (includes Republicans)
   }
 }
 
@@ -279,19 +257,12 @@ function getDistrictStatusLabel(district: District | undefined): string {
   const hasDemocrat = district.candidates.some(
     (c) => c.party?.toLowerCase() === 'democratic'
   );
-  const hasRepublican = district.candidates.some(
-    (c) => c.party?.toLowerCase() === 'republican'
-  );
 
   const candidateCount = district.candidates.length;
   const candidateText = candidateCount === 1 ? '1 candidate' : `${candidateCount} candidates`;
 
-  if (hasDemocrat && hasRepublican) {
-    return `Contested race with ${candidateText}, both Democratic and Republican`;
-  } else if (hasDemocrat) {
+  if (hasDemocrat) {
     return `${candidateText}, Democratic`;
-  } else if (hasRepublican) {
-    return `${candidateText}, Republican`;
   } else {
     return `${candidateText} filed, party unknown`;
   }

@@ -352,24 +352,24 @@ export default function Home() {
         onClose={() => setShowShortcuts(false)}
       />
 
-      {/* Header - Glassmorphic */}
-      <header className="glass-surface border-b animate-entrance stagger-1" style={{ borderColor: 'var(--class-purple-light)' }}>
-        <div className="max-w-7xl mx-auto px-4 py-4">
-          <div className="flex flex-col gap-4">
-            {/* Top row: Title and Chamber toggle */}
-            <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
-              <div>
-                <h1 className="text-2xl font-bold font-display" style={{ color: 'var(--text-color)' }}>
+      {/* Header - Glassmorphic, Sticky */}
+      <header className="glass-surface border-b animate-entrance stagger-1 sticky top-0 z-40" style={{ borderColor: 'var(--class-purple-light)' }}>
+        <div className="max-w-7xl mx-auto px-4 py-2">
+          <div className="flex flex-col gap-2">
+            {/* Row 1: Title + Chamber Toggle + Help */}
+            <div className="flex items-center justify-between gap-3">
+              <div className="flex-1">
+                <h1 className="text-xl font-bold font-display" style={{ color: 'var(--text-color)' }}>
                   SC 2026 Election Map
                 </h1>
-                <p className="text-sm mt-1" style={{ color: 'var(--text-muted)' }}>
+                <p className="text-xs mt-0.5" style={{ color: 'var(--text-muted)' }}>
                   Tracking {chamber === 'house' ? '124 House' : '46 Senate'} districts
                   {filteredDistricts.size < districtCount && (
                     <span> • Showing {filteredDistricts.size} of {districtCount}</span>
                   )}
                 </p>
               </div>
-              <div className="flex items-center gap-3">
+              <div className="flex items-center gap-2">
                 <ChamberToggle chamber={chamber} onChange={setChamber} />
                 <button
                   type="button"
@@ -383,15 +383,15 @@ export default function Home() {
                   aria-label="Show keyboard shortcuts"
                   title="Keyboard shortcuts (?)"
                 >
-                  <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                   </svg>
                 </button>
               </div>
             </div>
 
-            {/* Bottom row: Search and Filters */}
-            <div className="flex flex-col sm:flex-row gap-3">
+            {/* Row 2: Search + Filter */}
+            <div className="flex flex-col sm:flex-row gap-2">
               <SearchBar
                 candidatesData={candidatesData}
                 onSelectResult={(result) => {
@@ -536,25 +536,18 @@ export default function Home() {
                 animationDelay={0}
               />
               <KPICard
-                label="Republicans"
-                value={stats.republicans}
-                variant="republican"
-                showPulse
-                animationDelay={50}
-              />
-              <KPICard
                 label="Unknown Party"
                 value={stats.unknown}
                 variant="unknown"
-                animationDelay={100}
+                animationDelay={50}
               />
               <KPICard
                 label="No Candidates"
                 value={stats.empty}
                 variant="empty"
-                animationDelay={150}
+                animationDelay={100}
               />
-              <div className="kpi-card animate-entrance" style={{ animationDelay: '200ms' }}>
+              <div className="kpi-card animate-entrance" style={{ animationDelay: '150ms' }}>
                 <div className="label">Party Data</div>
                 <div className="value font-display" style={{ color: 'var(--class-purple)' }}>{stats.enrichmentPercent}%</div>
                 <div className="mt-2 w-full rounded-full h-1.5" style={{ background: 'var(--class-purple-light)' }}>
@@ -658,7 +651,6 @@ export default function Home() {
 
 function calculateStats(data: CandidatesData, chamber: 'house' | 'senate') {
   let democrats = 0;
-  let republicans = 0;
   let unknown = 0;
   let empty = 0;
   let totalCandidates = 0;
@@ -672,13 +664,9 @@ function calculateStats(data: CandidatesData, chamber: 'house' | 'senate') {
       const hasDem = district.candidates.some(
         (c) => c.party?.toLowerCase() === 'democratic'
       );
-      const hasRep = district.candidates.some(
-        (c) => c.party?.toLowerCase() === 'republican'
-      );
 
       if (hasDem) democrats++;
-      if (hasRep) republicans++;
-      if (!hasDem && !hasRep) unknown++;
+      if (!hasDem) unknown++; // Count non-Democrats as unknown
 
       // Count individual candidates for enrichment stats
       for (const candidate of district.candidates) {
@@ -694,5 +682,5 @@ function calculateStats(data: CandidatesData, chamber: 'house' | 'senate') {
     ? Math.round((enrichedCandidates / totalCandidates) * 100)
     : 0;
 
-  return { democrats, republicans, unknown, empty, totalCandidates, enrichedCandidates, enrichmentPercent };
+  return { democrats, unknown, empty, totalCandidates, enrichedCandidates, enrichmentPercent };
 }

@@ -67,7 +67,6 @@ export default function MapTooltip({ district, chamber, mousePosition }: MapTool
 
   // Count candidates by party
   const hasDem = district.candidates.some((c) => c.party?.toLowerCase() === 'democratic');
-  const hasRep = district.candidates.some((c) => c.party?.toLowerCase() === 'republican');
   const candidateCount = district.candidates.length;
 
   // Determine display text
@@ -95,10 +94,9 @@ export default function MapTooltip({ district, chamber, mousePosition }: MapTool
 
       <div className="tooltip-body">
         <div className="tooltip-candidates">
-          {candidateCount > 0 && (
+          {candidateCount > 0 && hasDem && (
             <div className="party-dots">
-              {hasDem && <span className="party-dot democrat" title="Democrat running" />}
-              {hasRep && <span className="party-dot republican" title="Republican running" />}
+              <span className="party-dot democrat" title="Democrat running" />
             </div>
           )}
           <span className="candidate-count">{candidateText}</span>

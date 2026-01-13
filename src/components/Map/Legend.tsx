@@ -14,16 +14,6 @@ export default function Legend({ className = '' }: LegendProps) {
       symbol: 'D',
     },
     {
-      badgeClass: 'badge-republican',
-      label: 'Republican Running',
-      symbol: 'R',
-    },
-    {
-      badgeClass: 'badge-both',
-      label: 'Both Parties (Contested)',
-      symbol: 'C',
-    },
-    {
       badgeClass: 'badge-unknown',
       label: 'Filed (Party Unknown)',
       symbol: '?',
