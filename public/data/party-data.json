@@ -1,0 +1,22 @@
+{
+  "lastUpdated": "2026-01-13T04:15:00Z",
+  "candidates": {
+    "Morgan, Tyler A": {
+      "party": "Democratic",
+      "verified": true,
+      "source": "SC House Democratic Caucus",
+      "district": "house-113"
+    },
+    "Waters, Courtney": {
+      "party": "Democratic",
+      "verified": true,
+      "source": "Incumbent - SC House Democratic Caucus",
+      "district": "house-113"
+    }
+  },
+  "notes": {
+    "purpose": "Manual party enrichment for candidates detected via SC Ethics filings",
+    "instructions": "Add candidates here when party is verified via news, social media, or official sources",
+    "format": "Use candidate name exactly as it appears in candidates.json"
+  }
+}

@@ -41,3 +41,221 @@ svg path[id^="house-"]:hover,
 svg path[id^="senate-"]:hover {
   opacity: 0.8;
 }
+
+/* ================================================
+   GLASSMORPHIC DESIGN SYSTEM TOKENS
+   SC Election Map 2026
+   Design System: /glassmorphic-dashboard
+   ================================================ */
+
+:root {
+  /* PRIMARY COLORS */
+  --class-purple: #4739E7;
+  --class-purple-light: #DAD7FA;
+  --class-purple-bg: #F6F6FE;
+  --glass-background: #EDECFD;
+  --text-color: #0A1849;
+  --yellow-accent: #FFBA00;
+  --card-bg: #FFFFFF;
+
+  /* STATUS COLORS (SEMANTIC) */
+  --color-excellent: #059669;      /* Green - both parties running */
+  --color-healthy: #4739E7;        /* Purple - democrat running */
+  --color-attention: #FFBA00;      /* Yellow - party unknown */
+  --color-at-risk: #DC2626;        /* Red - republican running */
+  --color-empty: #DAD7FA;          /* Light purple - no candidates */
+
+  /* ELECTION MAP COLORS */
+  --map-democrat: #4739E7;
+  --map-republican: #DC2626;
+  --map-both-parties: #a855f7;
+  --map-unknown: #9ca3af;
+  --map-empty: #f3f4f6;
+  --map-stroke: #374151;
+
+  /* TYPOGRAPHY */
+  --font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-size-xs: 0.75rem;
+  --font-size-sm: 0.875rem;
+  --font-size-base: 1rem;
+  --font-size-lg: 1.125rem;
+  --font-size-xl: 1.25rem;
+  --font-size-2xl: 1.5rem;
+
+  /* SPACING */
+  --space-1: 2px;
+  --space-2: 4px;
+  --space-3: 8px;
+  --space-4: 12px;
+  --space-5: 16px;
+  --space-6: 20px;
+
+  /* BORDER RADIUS */
+  --radius-sm: 4px;
+  --radius-md: 6px;
+  --radius-lg: 8px;
+  --radius-pill: 12px;
+
+  /* SHADOWS */
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.06), 0 1px 2px rgba(0, 0, 0, 0.04);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.05), 0 2px 4px rgba(0, 0, 0, 0.03);
+  --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.08), 0 4px 6px rgba(0, 0, 0, 0.04);
+
+  /* TRANSITIONS */
+  --transition-fast: 0.15s ease;
+  --transition-normal: 0.25s ease;
+}
+
+/* GLASSMORPHIC SURFACES */
+.glass-surface {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(246, 246, 254, 0.9) 100%);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(71, 57, 231, 0.08);
+  box-shadow: var(--shadow-md);
+}
+
+/* KPI CARD STYLES */
+.kpi-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-5);
+}
+
+@media (max-width: 640px) {
+  .kpi-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.kpi-card {
+  background: var(--card-bg);
+  border: 1px solid var(--class-purple-light);
+  border-radius: var(--radius-md);
+  padding: var(--space-5);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  transition: all var(--transition-fast);
+}
+
+.kpi-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: var(--class-purple);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform var(--transition-normal);
+}
+
+.kpi-card:hover {
+  border-color: var(--class-purple);
+  box-shadow: var(--shadow-md);
+}
+
+.kpi-card:hover::before {
+  transform: scaleX(1);
+}
+
+.kpi-card .label {
+  font-size: var(--font-size-sm);
+  color: #6b7280;
+  margin-bottom: var(--space-2);
+  font-weight: 500;
+}
+
+.kpi-card .value {
+  font-size: var(--font-size-2xl);
+  font-weight: 700;
+  color: var(--text-color);
+  font-variant-numeric: tabular-nums;
+}
+
+/* KPI Card Variants */
+.kpi-card.democrat .value { color: var(--class-purple); }
+.kpi-card.republican .value { color: var(--color-at-risk); }
+.kpi-card.unknown .value { color: #9ca3af; }
+.kpi-card.empty .value { color: #d1d5db; }
+
+/* STATUS BADGES */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-2) var(--space-3);
+  font-size: var(--font-size-xs);
+  font-weight: 600;
+  border-radius: var(--radius-pill);
+}
+
+.badge-democrat {
+  background: linear-gradient(135deg, #EEF2FF 0%, #E0E7FF 100%);
+  color: var(--class-purple);
+  border: 1px solid rgba(71, 57, 231, 0.3);
+}
+
+.badge-republican {
+  background: linear-gradient(135deg, #FEF2F2 0%, #FEE2E2 100%);
+  color: var(--color-at-risk);
+  border: 1px solid rgba(220, 38, 38, 0.3);
+}
+
+.badge-both {
+  background: linear-gradient(135deg, #ECFDF5 0%, #D1FAE5 100%);
+  color: var(--color-excellent);
+  border: 1px solid rgba(5, 150, 105, 0.3);
+}
+
+.badge-unknown {
+  background: linear-gradient(135deg, #F9FAFB 0%, #F3F4F6 100%);
+  color: #6b7280;
+  border: 1px solid rgba(107, 114, 128, 0.3);
+}
+
+/* CHAMBER TOGGLE */
+.chamber-toggle {
+  display: inline-flex;
+  background: var(--class-purple-bg);
+  border-radius: var(--radius-lg);
+  padding: var(--space-2);
+  border: 1px solid var(--class-purple-light);
+}
+
+.chamber-toggle-btn {
+  padding: var(--space-3) var(--space-5);
+  font-size: var(--font-size-sm);
+  font-weight: 500;
+  border-radius: var(--radius-md);
+  border: none;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  background: transparent;
+  color: #6b7280;
+}
+
+.chamber-toggle-btn.active {
+  background: var(--card-bg);
+  color: var(--class-purple);
+  box-shadow: var(--shadow-sm);
+  font-weight: 600;
+}
+
+/* ANIMATED COUNTER */
+@keyframes count-up {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-count {
+  animation: count-up 0.6s ease-out forwards;
+}
+
+/* REDUCED MOTION */
+@media (prefers-reduced-motion: reduce) {
+  .kpi-card::before { transition: none; }
+  .animate-count { animation: none; }
+}
