@@ -93,7 +93,7 @@ svg path[id^="senate-"]:hover,
   --glass-background: #EDECFD;
   --text-color: #0A1849;
   --text-muted: #4A5568;
-  --yellow-accent: #FFBA00;
+  --yellow-accent: #D97706;       /* WCAG AA compliant amber */
   --card-bg: #FFFFFF;
 
   /* ACCENT COLORS (SHARP) */
@@ -105,7 +105,7 @@ svg path[id^="senate-"]:hover,
   /* STATUS COLORS (SEMANTIC) */
   --color-excellent: #059669;      /* Green - both parties running */
   --color-healthy: #4739E7;        /* Purple - democrat running */
-  --color-attention: #FFBA00;      /* Yellow - party unknown */
+  --color-attention: #D97706;      /* Amber - party unknown (WCAG AA: 4.6:1 contrast) */
   --color-at-risk: #DC2626;        /* Red - republican running */
   --color-empty: #DAD7FA;          /* Light purple - no candidates */
 
@@ -153,7 +153,19 @@ svg path[id^="senate-"]:hover,
   --space-4: 12px;
   --space-5: 16px;
   --space-6: 20px;
+  --space-7: 24px;
   --space-8: 32px;
+
+  /* TYPOGRAPHY - LETTER SPACING */
+  --letter-spacing-tight: -0.02em;
+  --letter-spacing-normal: 0;
+  --letter-spacing-wide: 0.05em;
+  --letter-spacing-caps: 0.12em;    /* For uppercase labels */
+
+  /* TYPOGRAPHY - LINE HEIGHT */
+  --line-height-tight: 1.1;
+  --line-height-normal: 1.5;
+  --line-height-relaxed: 1.75;
 
   /* BORDER RADIUS */
   --radius-sm: 4px;
@@ -183,8 +195,22 @@ svg path[id^="senate-"]:hover,
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   border: 1px solid rgba(71, 57, 231, 0.08);
-  box-shadow: var(--shadow-md);
+  box-shadow:
+    var(--shadow-md),
+    inset 0 1px 0 rgba(255, 255, 255, 0.8),
+    inset 0 -1px 0 rgba(71, 57, 231, 0.03);
   position: relative; /* Required for ::after pseudo-element */
+  transition: box-shadow var(--transition-normal), border-color var(--transition-fast);
+}
+
+/* Enhanced glass surface hover state */
+.glass-surface:hover {
+  border-color: rgba(71, 57, 231, 0.12);
+  box-shadow:
+    var(--shadow-lg),
+    inset 0 1px 0 rgba(255, 255, 255, 0.9),
+    inset 0 -1px 0 rgba(71, 57, 231, 0.05),
+    0 0 30px rgba(71, 57, 231, 0.05);
 }
 
 /* Noise texture overlay for premium depth */
@@ -197,6 +223,18 @@ svg path[id^="senate-"]:hover,
   mix-blend-mode: overlay;
   pointer-events: none;
   border-radius: inherit;
+}
+
+/* Glass surface elevated variant */
+.glass-surface-elevated {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.98) 0%, rgba(246, 246, 254, 0.95) 100%);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(71, 57, 231, 0.1);
+  box-shadow:
+    var(--shadow-lg),
+    inset 0 1px 0 rgba(255, 255, 255, 0.9),
+    0 0 40px rgba(71, 57, 231, 0.06);
 }
 
 /* KPI CARD STYLES */
@@ -416,7 +454,7 @@ svg path[id^="senate-"]:hover,
 
 /* ================================================
    KPI CARD ENHANCEMENTS
-   Pulsing indicators and hover effects
+   Pulsing indicators, hover effects, and gradient values
    ================================================ */
 
 .pulse-indicator {
@@ -442,11 +480,76 @@ svg path[id^="senate-"]:hover,
   100% { transform: scale(2.5); opacity: 0; }
 }
 
+/* Utility class for Badge component pulse animation */
+.animate-pulse-ring {
+  animation: pulse-ring 2s ease-out infinite;
+}
+
 /* Enhanced KPI card hover */
 .kpi-card:hover {
   border-color: var(--class-purple);
-  box-shadow: var(--shadow-lg), var(--glow-purple);
-  transform: translateY(-2px);
+  box-shadow:
+    var(--shadow-lg),
+    0 0 20px rgba(71, 57, 231, 0.12),
+    0 0 40px rgba(71, 57, 231, 0.06);
+  transform: translateY(-3px);
+}
+
+/* KPI card value gradient text */
+.kpi-value-gradient {
+  background: linear-gradient(
+    135deg,
+    var(--text-color) 0%,
+    var(--class-purple) 50%,
+    var(--text-color) 100%
+  );
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: gradient-shift 3s ease-in-out infinite;
+}
+
+@keyframes gradient-shift {
+  0%, 100% { background-position: 0% center; }
+  50% { background-position: 100% center; }
+}
+
+/* Variant-specific value colors with gradients */
+.kpi-card.democrat .kpi-value {
+  background: linear-gradient(135deg, #4739E7 0%, #7C3AED 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.kpi-card.contested .kpi-value {
+  background: linear-gradient(135deg, #059669 0%, #10B981 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.kpi-card.unknown .kpi-value {
+  background: linear-gradient(135deg, #6B7280 0%, #9CA3AF 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.kpi-card.empty .kpi-value {
+  background: linear-gradient(135deg, #9CA3AF 0%, #D1D5DB 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Reduced motion: disable gradient animation */
+@media (prefers-reduced-motion: reduce) {
+  .kpi-value-gradient {
+    animation: none;
+    background-position: 0% center;
+  }
 }
 
 /* ================================================
@@ -482,47 +585,101 @@ svg path[id^="senate-"]:hover,
 
 /* ================================================
    MAP INTERACTION ENHANCEMENTS
+   Premium hover effects and selection states
    ================================================ */
 
 .district-path {
   transition:
-    opacity 0.15s ease-in-out,
-    transform 0.15s ease-out,
-    filter 0.15s ease-out,
-    stroke-width 0.15s ease-out;
+    opacity 0.2s var(--ease-out-expo),
+    transform 0.2s var(--ease-out-expo),
+    filter 0.2s var(--ease-out-expo),
+    stroke-width 0.15s ease-out,
+    stroke 0.15s ease-out;
   transform-origin: center;
   transform-box: fill-box;
+  will-change: transform, filter;
 }
 
+/* Enhanced hover state with layered glow */
 .district-path:hover {
-  transform: scale(1.02);
-  filter: drop-shadow(0 0 6px rgba(71, 57, 231, 0.4));
-  stroke-width: 1;
+  transform: scale(1.025);
+  filter:
+    drop-shadow(0 0 4px rgba(71, 57, 231, 0.3))
+    drop-shadow(0 0 8px rgba(71, 57, 231, 0.2))
+    drop-shadow(0 0 16px rgba(71, 57, 231, 0.1));
+  stroke-width: 1.2;
+  stroke: rgba(71, 57, 231, 0.6);
+  z-index: 10;
 }
 
+/* Selected state with stronger emphasis */
 .district-path.selected {
-  filter: drop-shadow(0 0 12px rgba(71, 57, 231, 0.5));
+  filter:
+    drop-shadow(0 0 6px rgba(71, 57, 231, 0.5))
+    drop-shadow(0 0 12px rgba(71, 57, 231, 0.3))
+    drop-shadow(0 0 24px rgba(71, 57, 231, 0.15));
   stroke: var(--class-purple);
-  stroke-width: 2;
+  stroke-width: 2.5;
+  z-index: 20;
 }
 
+/* Selection burst animation - celebratory effect */
 @keyframes district-select-pulse {
   0% {
     transform: scale(1);
     filter: drop-shadow(0 0 0 transparent);
   }
-  50% {
-    transform: scale(1.04);
-    filter: drop-shadow(0 0 20px rgba(71, 57, 231, 0.5));
+  30% {
+    transform: scale(1.06);
+    filter:
+      drop-shadow(0 0 12px rgba(71, 57, 231, 0.6))
+      drop-shadow(0 0 24px rgba(71, 57, 231, 0.4));
   }
   100% {
     transform: scale(1.02);
-    filter: drop-shadow(0 0 12px rgba(71, 57, 231, 0.3));
+    filter:
+      drop-shadow(0 0 6px rgba(71, 57, 231, 0.5))
+      drop-shadow(0 0 12px rgba(71, 57, 231, 0.3));
   }
 }
 
 .district-path.just-selected {
-  animation: district-select-pulse 0.4s ease-out;
+  animation: district-select-pulse 0.5s var(--ease-out-expo);
+}
+
+/* Opportunity tier hover colors - match district fill */
+.district-path[data-tier="HIGH_OPPORTUNITY"]:hover {
+  filter:
+    drop-shadow(0 0 4px rgba(5, 150, 105, 0.4))
+    drop-shadow(0 0 10px rgba(5, 150, 105, 0.2));
+  stroke: rgba(5, 150, 105, 0.7);
+}
+
+.district-path[data-tier="EMERGING"]:hover {
+  filter:
+    drop-shadow(0 0 4px rgba(8, 145, 178, 0.4))
+    drop-shadow(0 0 10px rgba(8, 145, 178, 0.2));
+  stroke: rgba(8, 145, 178, 0.7);
+}
+
+.district-path[data-tier="DEFENSIVE"]:hover {
+  filter:
+    drop-shadow(0 0 4px rgba(54, 118, 235, 0.4))
+    drop-shadow(0 0 10px rgba(54, 118, 235, 0.2));
+  stroke: rgba(54, 118, 235, 0.7);
+}
+
+/* Mobile touch target enhancement */
+@media (max-width: 768px) {
+  .district-path {
+    stroke-width: 1;
+  }
+
+  .district-path:hover,
+  .district-path:active {
+    transform: scale(1.04);
+    stroke-width: 2;
+  }
 }
 
 /* ================================================
@@ -887,5 +1044,228 @@ svg path[id^="senate-"]:hover,
 @media (prefers-reduced-motion: reduce) {
   .map-tooltip {
     animation: none;
+  }
+}
+
+/* ================================================
+   MOBILE BOTTOM SHEET PATTERN
+   Slide-up panel for mobile devices
+   ================================================ */
+
+/* Bottom sheet overlay */
+.bottom-sheet-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+  z-index: 40;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.bottom-sheet-overlay.open {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Bottom sheet container */
+.bottom-sheet {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 50;
+  background: var(--gradient-glass);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  box-shadow:
+    0 -10px 40px rgba(71, 57, 231, 0.15),
+    0 -4px 16px rgba(0, 0, 0, 0.1);
+  transform: translateY(100%);
+  transition: transform 0.4s var(--ease-out-expo);
+  max-height: 85vh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.bottom-sheet.open {
+  transform: translateY(0);
+}
+
+/* Drag handle indicator */
+.bottom-sheet-handle {
+  width: 36px;
+  height: 4px;
+  background: var(--class-purple-light);
+  border-radius: 2px;
+  margin: 12px auto 8px;
+  flex-shrink: 0;
+}
+
+/* Bottom sheet content wrapper */
+.bottom-sheet-content {
+  flex: 1;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* ================================================
+   MOBILE-SPECIFIC RESPONSIVE STYLES
+   ================================================ */
+
+@media (max-width: 768px) {
+  /* Side panel becomes bottom sheet on mobile */
+  .side-panel-container {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 50;
+    max-height: 75vh;
+    border-radius: 20px 20px 0 0;
+    transform: translateY(100%);
+    transition: transform 0.4s var(--ease-out-expo);
+  }
+
+  .side-panel-container.open {
+    transform: translateY(0);
+  }
+
+  /* Larger touch targets */
+  .chamber-toggle-btn,
+  .filter-btn,
+  .action-btn {
+    min-height: 44px;
+    min-width: 44px;
+  }
+
+  /* Stack filters vertically on mobile */
+  .filter-row {
+    flex-direction: column;
+    gap: var(--space-3);
+  }
+
+  /* KPI grid: 2 columns on mobile */
+  .kpi-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-3);
+  }
+
+  /* Larger KPI values on mobile */
+  .kpi-card .value {
+    font-size: var(--font-size-xl);
+  }
+
+  /* Full-width header on mobile */
+  .sticky-header {
+    padding: var(--space-3);
+  }
+
+  /* Opportunity card specific mobile styles */
+  .opportunity-card {
+    padding: var(--space-4);
+  }
+
+  /* Better tap feedback on cards */
+  .opportunity-card:active {
+    transform: scale(0.98);
+    transition: transform 0.1s ease;
+  }
+
+  /* Hide table on mobile (handled in component) */
+  .opportunities-table {
+    display: none;
+  }
+
+  /* Mobile legend: horizontal scroll */
+  .legend-container {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: var(--space-2);
+  }
+
+  /* Mobile search bar */
+  .search-input {
+    font-size: 16px; /* Prevents iOS zoom on focus */
+  }
+}
+
+/* Small mobile screens */
+@media (max-width: 480px) {
+  /* Even more compact spacing */
+  .kpi-grid {
+    gap: var(--space-2);
+  }
+
+  .kpi-card {
+    padding: var(--space-3);
+  }
+
+  .kpi-card .value {
+    font-size: var(--font-size-lg);
+  }
+
+  /* Full-bleed cards */
+  .opportunity-card {
+    border-radius: var(--radius-md);
+    margin-left: calc(-1 * var(--space-2));
+    margin-right: calc(-1 * var(--space-2));
+    padding-left: var(--space-4);
+    padding-right: var(--space-4);
+  }
+}
+
+/* ================================================
+   PRINT STYLES
+   ================================================ */
+
+@media print {
+  .atmospheric-bg::before,
+  .glass-surface::after,
+  .bottom-sheet-overlay,
+  .toast-container {
+    display: none !important;
+  }
+
+  .glass-surface {
+    background: white !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    box-shadow: none !important;
+    border: 1px solid #e5e7eb !important;
+  }
+
+  .kpi-card {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  .district-path {
+    stroke-width: 0.5 !important;
+    filter: none !important;
+  }
+}
+
+/* ================================================
+   SAFE AREA INSETS (for notched devices)
+   ================================================ */
+
+@supports (padding-bottom: env(safe-area-inset-bottom)) {
+  .bottom-sheet {
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+
+  .sticky-header {
+    padding-top: max(var(--space-3), env(safe-area-inset-top));
+  }
+
+  .toast-container {
+    bottom: max(1rem, env(safe-area-inset-bottom));
   }
 }

@@ -31,7 +31,8 @@ export default function FilterPanel({
 
   const partyOptions = [
     { value: 'Democratic', label: 'Democrats', color: 'var(--class-purple, #4739E7)' },
-    { value: 'unknown', label: 'Unknown Party', color: 'var(--color-attention, #FFBA00)' },
+    { value: 'Republican', label: 'Republicans', color: 'var(--color-at-risk, #DC2626)' },
+    { value: 'unknown', label: 'Unknown Party', color: 'var(--color-attention, #D97706)' }, // WCAG AA compliant
   ];
 
   const opportunityOptions = [

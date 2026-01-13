@@ -3,6 +3,7 @@
 import { useState, useEffect, useMemo } from 'react';
 import Link from 'next/link';
 import type { OpportunityData, DistrictOpportunity, CandidatesData } from '@/types/schema';
+import OpportunityCard from '@/components/Dashboard/OpportunityCard';
 
 // Tier colors matching the map
 const TIER_COLORS = {
@@ -221,8 +222,30 @@ export default function OpportunitiesPage() {
         </p>
       </div>
 
-      {/* Table */}
-      <div className="max-w-7xl mx-auto px-4 pb-8">
+      {/* Mobile Cards View - Hidden on md+ screens */}
+      <div className="md:hidden max-w-7xl mx-auto px-4 pb-8">
+        <div className="space-y-3">
+          {sortedDistricts.map((district, index) => (
+            <OpportunityCard
+              key={district.districtNumber}
+              district={district}
+              chamber={chamber}
+              candidate={getCandidate(district.districtNumber)}
+              animationDelay={index * 30}
+            />
+          ))}
+          {sortedDistricts.length === 0 && (
+            <div className="glass-surface rounded-xl p-8 text-center">
+              <p style={{ color: 'var(--text-muted)' }}>
+                No districts match your filters
+              </p>
+            </div>
+          )}
+        </div>
+      </div>
+
+      {/* Desktop Table - Hidden on mobile */}
+      <div className="hidden md:block max-w-7xl mx-auto px-4 pb-8">
         <div className="glass-surface rounded-xl overflow-hidden">
           <div className="overflow-x-auto">
             <table className="w-full">
@@ -380,3 +403,4 @@ export default function OpportunitiesPage() {
     </div>
   );
 }
+
