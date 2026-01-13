@@ -3,88 +3,38 @@ interface LegendProps {
 }
 
 /**
- * Legend component with opportunity tier styling.
- * Shows strategic opportunity levels for Democratic strategists.
- * Uses color AND symbol indicators for accessibility (WCAG 1.4.1).
+ * Compact legend component for opportunity tiers.
+ * Minimal chart-style legend with small color indicators.
  */
 export default function Legend({ className = '' }: LegendProps) {
   const items = [
-    {
-      color: '#059669',
-      bgColor: 'rgba(5, 150, 105, 0.1)',
-      borderColor: 'rgba(5, 150, 105, 0.3)',
-      label: 'High Opportunity',
-      symbol: '★',
-      description: 'Score 70+',
-    },
-    {
-      color: '#0891B2',
-      bgColor: 'rgba(8, 145, 178, 0.1)',
-      borderColor: 'rgba(8, 145, 178, 0.3)',
-      label: 'Emerging',
-      symbol: '↗',
-      description: 'Score 50-69',
-    },
-    {
-      color: '#D97706',
-      bgColor: 'rgba(217, 119, 6, 0.1)',
-      borderColor: 'rgba(217, 119, 6, 0.3)',
-      label: 'Build',
-      symbol: '◆',
-      description: 'Score 30-49',
-    },
-    {
-      color: '#7C3AED',
-      bgColor: 'rgba(124, 58, 237, 0.1)',
-      borderColor: 'rgba(124, 58, 237, 0.3)',
-      label: 'Defensive',
-      symbol: '⛉',
-      description: 'Dem Incumbent',
-    },
-    {
-      color: '#9CA3AF',
-      bgColor: 'rgba(156, 163, 175, 0.1)',
-      borderColor: 'rgba(156, 163, 175, 0.3)',
-      label: 'Non-Competitive',
-      symbol: '–',
-      description: 'Score <30',
-    },
-    {
-      color: '#D1D5DB',
-      bgColor: 'rgba(209, 213, 219, 0.1)',
-      borderColor: 'rgba(209, 213, 219, 0.3)',
-      label: 'No Candidates',
-      symbol: '○',
-      description: 'Empty',
-    },
+    { color: '#059669', label: 'High', description: 'High Opportunity (Score 70+)' },
+    { color: '#0891B2', label: 'Emerging', description: 'Emerging (Score 50-69)' },
+    { color: '#D97706', label: 'Build', description: 'Build (Score 30-49)' },
+    { color: '#3676eb', label: 'Defensive', description: 'Defensive (Dem Incumbent)' },
+    { color: '#9CA3AF', label: 'Low', description: 'Non-Competitive (Score <30)' },
+    { color: '#D1D5DB', label: 'Empty', description: 'No Candidates' },
   ];
 
   return (
     <div
-      className={`flex flex-wrap gap-2 justify-center ${className}`}
+      className={`inline-flex items-center gap-3 ${className}`}
       role="list"
       aria-label="Opportunity tier legend"
     >
       {items.map((item) => (
         <div
           key={item.label}
-          className="inline-flex items-center gap-1.5 px-2 py-1 rounded-md text-xs font-medium transition-all hover:scale-105"
-          style={{
-            background: item.bgColor,
-            border: `1px solid ${item.borderColor}`,
-            color: item.color,
-          }}
+          className="inline-flex items-center gap-1 cursor-default"
           role="listitem"
           title={item.description}
         >
           <span
-            className="w-3 h-3 rounded-sm flex items-center justify-center text-[10px]"
-            style={{ background: item.color, color: 'white' }}
+            className="w-2 h-2 rounded-sm flex-shrink-0"
+            style={{ backgroundColor: item.color }}
             aria-hidden="true"
-          >
-            {item.symbol}
-          </span>
-          <span>{item.label}</span>
+          />
+          <span className="text-[10px] text-gray-500 leading-none">{item.label}</span>
         </div>
       ))}
     </div>

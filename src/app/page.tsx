@@ -562,8 +562,8 @@ export default function Home() {
 
               {/* Defensive */}
               <div className="kpi-card animate-entrance" style={{ animationDelay: '100ms' }}>
-                <div className="label" style={{ color: '#7C3AED' }}>Defensive</div>
-                <div className="value font-display" style={{ color: '#7C3AED' }}>{opportunityStats.defensive}</div>
+                <div className="label" style={{ color: '#3676eb' }}>Defensive</div>
+                <div className="value font-display" style={{ color: '#3676eb' }}>{opportunityStats.defensive}</div>
                 <div className="text-xs mt-1" style={{ color: 'var(--text-muted)' }}>Dem incumbent</div>
               </div>
 

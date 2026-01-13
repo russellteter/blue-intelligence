@@ -9,7 +9,7 @@ const TIER_COLORS = {
   HIGH_OPPORTUNITY: '#059669',  // Green - emerald-600
   EMERGING: '#0891B2',          // Teal - cyan-600
   BUILD: '#D97706',             // Amber - amber-600
-  DEFENSIVE: '#7C3AED',         // Purple - violet-600
+  DEFENSIVE: '#3676eb',         // Blue - defensive seats
   NON_COMPETITIVE: '#9CA3AF',   // Gray - gray-400
 } as const;
 
