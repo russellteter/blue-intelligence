@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState, useMemo, useCallback } from 'react';
 
 interface Candidate {
   name: string;
@@ -39,12 +39,10 @@ export default function DistrictMap({
   onDistrictHover,
 }: DistrictMapProps) {
   const containerRef = useRef<HTMLDivElement>(null);
-  const [svgContent, setSvgContent] = useState<string>('');
-  const [isLoaded, setIsLoaded] = useState(false);
+  const [rawSvgContent, setRawSvgContent] = useState<string>('');
 
   // Load SVG
   useEffect(() => {
-    // Use relative path from current page
     const basePath = window.location.pathname.includes('/sc-election-map-2026')
       ? '/sc-election-map-2026'
       : '';
@@ -52,18 +50,20 @@ export default function DistrictMap({
     fetch(svgPath)
       .then((res) => res.text())
       .then((svg) => {
-        setSvgContent(svg);
-        setIsLoaded(true);
+        setRawSvgContent(svg);
       })
       .catch((err) => console.error('Failed to load SVG:', err));
   }, [chamber]);
 
-  // Apply styles and event handlers after SVG is loaded
-  useEffect(() => {
-    if (!isLoaded || !containerRef.current) return;
+  // Process SVG to add fills BEFORE rendering (fixes dangerouslySetInnerHTML reset issue)
+  const processedSvgContent = useMemo(() => {
+    if (!rawSvgContent) return '';
 
-    const svg = containerRef.current.querySelector('svg');
-    if (!svg) return;
+    // Parse the SVG and add fill colors to each path
+    const parser = new DOMParser();
+    const doc = parser.parseFromString(rawSvgContent, 'image/svg+xml');
+    const svg = doc.querySelector('svg');
+    if (!svg) return rawSvgContent;
 
     // Make SVG responsive
     svg.setAttribute('width', '100%');
@@ -71,61 +71,91 @@ export default function DistrictMap({
     svg.style.maxWidth = '100%';
     svg.style.height = 'auto';
 
-    // Get all district paths
+    // Process all district paths
     const paths = svg.querySelectorAll('path[id]');
-
     paths.forEach((path) => {
       const id = path.getAttribute('id');
       if (!id) return;
 
-      // Extract district number from id (e.g., "house-70" -> 70)
       const match = id.match(/(?:house|senate)-(\d+)/);
       if (!match) return;
 
       const districtNum = parseInt(match[1], 10);
       const districtData = candidatesData[chamber][String(districtNum)];
-
-      // Determine color based on candidates
       const color = getDistrictColor(districtData);
 
-      // Clone first to remove existing event listeners
-      const newPath = path.cloneNode(true) as Element;
-
-      // Apply styles to the CLONED element (not the original)
-      newPath.setAttribute('fill', color);
-      newPath.setAttribute('stroke', '#374151');
-      newPath.setAttribute('stroke-width', '0.5');
-      newPath.setAttribute('cursor', 'pointer');
-      newPath.setAttribute('data-district', String(districtNum));
-      newPath.setAttribute('opacity', '1');
+      // Apply fill color directly to SVG string
+      path.setAttribute('fill', color);
+      path.setAttribute('stroke', '#374151');
+      path.setAttribute('stroke-width', '0.5');
+      path.setAttribute('cursor', 'pointer');
+      path.setAttribute('data-district', String(districtNum));
 
       // Apply selected state
       if (selectedDistrict === districtNum) {
-        newPath.setAttribute('stroke', '#1e3a8a');
-        newPath.setAttribute('stroke-width', '2');
+        path.setAttribute('stroke', '#1e3a8a');
+        path.setAttribute('stroke-width', '2');
       }
-
-      // Replace original with styled clone
-      path.parentNode?.replaceChild(newPath, path);
-
-      // Add event listeners to the new element
-      newPath.addEventListener('click', () => onDistrictClick(districtNum));
-      newPath.addEventListener('mouseenter', () => {
-        onDistrictHover(districtNum);
-        newPath.setAttribute('opacity', '0.8');
-      });
-      newPath.addEventListener('mouseleave', () => {
-        onDistrictHover(null);
-        newPath.setAttribute('opacity', '1');
-      });
     });
-  }, [isLoaded, svgContent, chamber, candidatesData, selectedDistrict, onDistrictClick, onDistrictHover]);
+
+    return new XMLSerializer().serializeToString(svg);
+  }, [rawSvgContent, chamber, candidatesData, selectedDistrict]);
+
+  // Handle click events via event delegation (more efficient than per-path listeners)
+  const handleClick = useCallback((e: React.MouseEvent) => {
+    const target = e.target as Element;
+    const path = target.closest('path[data-district]');
+    if (path) {
+      const districtNum = parseInt(path.getAttribute('data-district') || '0', 10);
+      if (districtNum > 0) {
+        onDistrictClick(districtNum);
+      }
+    }
+  }, [onDistrictClick]);
+
+  // Handle hover events via event delegation
+  const handleMouseMove = useCallback((e: React.MouseEvent) => {
+    const target = e.target as Element;
+    const path = target.closest('path[data-district]');
+    if (path) {
+      const districtNum = parseInt(path.getAttribute('data-district') || '0', 10);
+      if (districtNum > 0) {
+        onDistrictHover(districtNum);
+        path.setAttribute('opacity', '0.8');
+      }
+    }
+  }, [onDistrictHover]);
+
+  const handleMouseLeave = useCallback((e: React.MouseEvent) => {
+    // Reset opacity on all paths when leaving
+    const container = e.currentTarget as Element;
+    const paths = container.querySelectorAll('path[data-district]');
+    paths.forEach(p => p.setAttribute('opacity', '1'));
+    onDistrictHover(null);
+  }, [onDistrictHover]);
+
+  // Reset opacity when mouse leaves a path but stays in container
+  const handleMouseOver = useCallback((e: React.MouseEvent) => {
+    const target = e.target as Element;
+    const relatedTarget = e.relatedTarget as Element | null;
+
+    // If we left a path, reset its opacity
+    if (relatedTarget?.closest('path[data-district]') &&
+        !target.closest('path[data-district]')) {
+      const paths = containerRef.current?.querySelectorAll('path[data-district]');
+      paths?.forEach(p => p.setAttribute('opacity', '1'));
+    }
+  }, []);
 
   return (
     <div
       ref={containerRef}
       className="w-full h-full"
-      dangerouslySetInnerHTML={{ __html: svgContent }}
+      onClick={handleClick}
+      onMouseMove={handleMouseMove}
+      onMouseLeave={handleMouseLeave}
+      onMouseOut={handleMouseOver}
+      dangerouslySetInnerHTML={{ __html: processedSvgContent }}
     />
   );
 }
