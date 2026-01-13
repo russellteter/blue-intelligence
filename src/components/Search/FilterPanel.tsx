@@ -6,6 +6,7 @@ export interface FilterState {
   party: string[];
   hasCandidate: 'all' | 'yes' | 'no';
   contested: 'all' | 'yes' | 'no';
+  opportunity: string[];
 }
 
 interface FilterPanelProps {
@@ -18,6 +19,7 @@ export const defaultFilters: FilterState = {
   party: [],
   hasCandidate: 'all',
   contested: 'all',
+  opportunity: [],
 };
 
 export default function FilterPanel({
@@ -32,6 +34,13 @@ export default function FilterPanel({
     { value: 'unknown', label: 'Unknown Party', color: 'var(--color-attention, #FFBA00)' },
   ];
 
+  const opportunityOptions = [
+    { value: 'HIGH_OPPORTUNITY', label: 'High Opportunity', color: '#059669' },
+    { value: 'EMERGING', label: 'Emerging', color: '#0891B2' },
+    { value: 'needsCandidate', label: 'Needs Candidate', color: '#F59E0B' },
+    { value: 'DEFENSIVE', label: 'Defensive', color: '#3676eb' },
+  ];
+
   const toggleParty = (party: string) => {
     const newParties = filters.party.includes(party)
       ? filters.party.filter((p) => p !== party)
@@ -39,10 +48,18 @@ export default function FilterPanel({
     onFilterChange({ ...filters, party: newParties });
   };
 
+  const toggleOpportunity = (opportunity: string) => {
+    const newOpportunities = filters.opportunity.includes(opportunity)
+      ? filters.opportunity.filter((o) => o !== opportunity)
+      : [...filters.opportunity, opportunity];
+    onFilterChange({ ...filters, opportunity: newOpportunities });
+  };
+
   const activeFilterCount =
     filters.party.length +
     (filters.hasCandidate !== 'all' ? 1 : 0) +
-    (filters.contested !== 'all' ? 1 : 0);
+    (filters.contested !== 'all' ? 1 : 0) +
+    filters.opportunity.length;
 
   const clearFilters = () => {
     onFilterChange(defaultFilters);
@@ -211,6 +228,37 @@ export default function FilterPanel({
                       background: isSelected ? 'var(--class-purple, #4739E7)' : 'transparent',
                       borderColor: 'var(--class-purple-light, #DAD7FA)',
                       color: isSelected ? 'white' : 'var(--text-color, #0A1849)',
+                    }}
+                    aria-pressed={isSelected}
+                  >
+                    {option.label}
+                  </button>
+                );
+              })}
+            </div>
+          </fieldset>
+
+          {/* Opportunity Tier filter */}
+          <fieldset className="mb-4">
+            <legend
+              className="text-xs font-semibold uppercase tracking-wider mb-2"
+              style={{ color: 'var(--color-text-muted, #4A5568)' }}
+            >
+              Opportunity Tier
+            </legend>
+            <div className="flex flex-wrap gap-2">
+              {opportunityOptions.map((option) => {
+                const isSelected = filters.opportunity.includes(option.value);
+                return (
+                  <button
+                    key={option.value}
+                    type="button"
+                    onClick={() => toggleOpportunity(option.value)}
+                    className="px-3 py-1.5 text-xs font-medium rounded-full border transition-all"
+                    style={{
+                      background: isSelected ? option.color : 'transparent',
+                      borderColor: option.color,
+                      color: isSelected ? 'white' : option.color,
                     }}
                     aria-pressed={isSelected}
                   >

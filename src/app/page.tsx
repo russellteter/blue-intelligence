@@ -66,6 +66,7 @@ export default function Home() {
     const urlParty = params.get('party');
     const urlHasCandidate = params.get('hasCandidate');
     const urlContested = params.get('contested');
+    const urlOpportunity = params.get('opportunity');
 
     if (urlChamber === 'senate') setChamber('senate');
     if (urlDistrict) setSelectedDistrict(parseInt(urlDistrict, 10));
@@ -74,8 +75,9 @@ export default function Home() {
       party: urlParty ? urlParty.split(',').filter(Boolean) : [],
       hasCandidate: (urlHasCandidate === 'yes' || urlHasCandidate === 'no') ? urlHasCandidate : 'all',
       contested: (urlContested === 'yes' || urlContested === 'no') ? urlContested : 'all',
+      opportunity: urlOpportunity ? urlOpportunity.split(',').filter(Boolean) : [],
     };
-    if (urlParty || urlHasCandidate || urlContested) {
+    if (urlParty || urlHasCandidate || urlContested || urlOpportunity) {
       setFilters(parsedFilters);
     }
   }, []);
@@ -90,6 +92,7 @@ export default function Home() {
     if (filters.party.length > 0) params.set('party', filters.party.join(','));
     if (filters.hasCandidate !== 'all') params.set('hasCandidate', filters.hasCandidate);
     if (filters.contested !== 'all') params.set('contested', filters.contested);
+    if (filters.opportunity.length > 0) params.set('opportunity', filters.opportunity.join(','));
 
     const newUrl = `${window.location.pathname}?${params.toString()}`;
     window.history.replaceState({}, '', newUrl);
@@ -181,6 +184,7 @@ export default function Home() {
     if (!candidatesData) return new Set<number>();
 
     const districts = candidatesData[chamber];
+    const opportunityDistricts = opportunityData?.[chamber] || {};
     const filtered = new Set<number>();
 
     for (const [districtNum, district] of Object.entries(districts)) {
@@ -214,11 +218,27 @@ export default function Home() {
         if (!matchesParty) continue;
       }
 
+      // Check opportunity filter
+      if (filters.opportunity.length > 0) {
+        const opportunityDistrict = opportunityDistricts[districtNum];
+        if (!opportunityDistrict) continue;
+
+        const matchesOpportunity = filters.opportunity.some((filterOpp) => {
+          // needsCandidate is a flag, not a tier
+          if (filterOpp === 'needsCandidate') {
+            return opportunityDistrict.flags.needsCandidate;
+          }
+          // Check tier match (HIGH_OPPORTUNITY, EMERGING, DEFENSIVE)
+          return opportunityDistrict.tier === filterOpp;
+        });
+        if (!matchesOpportunity) continue;
+      }
+
       filtered.add(num);
     }
 
     return filtered;
-  }, [candidatesData, chamber, filters]);
+  }, [candidatesData, opportunityData, chamber, filters]);
 
   const selectedDistrictData = selectedDistrict && candidatesData
     ? candidatesData[chamber][String(selectedDistrict)]
@@ -436,7 +456,7 @@ export default function Home() {
       </header>
 
       {/* Active Filter Pills - Shows when filters are applied */}
-      {(filters.party.length > 0 || filters.hasCandidate !== 'all' || filters.contested !== 'all') && (
+      {(filters.party.length > 0 || filters.hasCandidate !== 'all' || filters.contested !== 'all' || filters.opportunity.length > 0) && (
         <div
           className="px-4 py-2 border-b animate-entrance"
           style={{
@@ -519,6 +539,38 @@ export default function Home() {
                 </svg>
               </button>
             )}
+
+            {/* Opportunity filters */}
+            {filters.opportunity.map((opp) => {
+              const oppColors: Record<string, { bg: string; color: string; border: string; label: string }> = {
+                HIGH_OPPORTUNITY: { bg: '#ECFDF5', color: '#059669', border: 'rgba(5, 150, 105, 0.3)', label: 'High Opportunity' },
+                EMERGING: { bg: '#ECFEFF', color: '#0891B2', border: 'rgba(8, 145, 178, 0.3)', label: 'Emerging' },
+                needsCandidate: { bg: '#FFFBEB', color: '#F59E0B', border: 'rgba(245, 158, 11, 0.3)', label: 'Needs Candidate' },
+                DEFENSIVE: { bg: '#EFF6FF', color: '#3676eb', border: 'rgba(54, 118, 235, 0.3)', label: 'Defensive' },
+              };
+              const style = oppColors[opp] || { bg: '#F9FAFB', color: '#6B7280', border: 'rgba(156, 163, 175, 0.3)', label: opp };
+              return (
+                <button
+                  key={opp}
+                  onClick={() => setFilters((prev) => ({
+                    ...prev,
+                    opportunity: prev.opportunity.filter((o) => o !== opp),
+                  }))}
+                  className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-medium transition-all hover:opacity-80 focus-ring"
+                  style={{
+                    background: style.bg,
+                    color: style.color,
+                    border: `1px solid ${style.border}`,
+                  }}
+                  aria-label={`Remove ${style.label} filter`}
+                >
+                  {style.label}
+                  <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                  </svg>
+                </button>
+              );
+            })}
 
             {/* Clear all filters */}
             <button
