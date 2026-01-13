@@ -26,6 +26,7 @@ const columns: ColumnDef[] = [
   { field: 'tierLabel', label: 'Tier', width: 'w-32', align: 'left' },
   { field: 'opportunityScore', label: 'Score', width: 'w-20', align: 'center' },
   { field: 'marginDisplay', label: '2024 Margin', width: 'w-28', align: 'right' },
+  { field: 'districtId', label: 'Actions', width: 'w-24', align: 'center' }, // Using districtId as dummy field for Actions (non-sortable)
 ];
 
 export default function TableHeader({
@@ -36,8 +37,9 @@ export default function TableHeader({
   return (
     <thead className="strategic-table-header">
       <tr>
-        {columns.map((col) => {
+        {columns.map((col, index) => {
           const isActive = sortField === col.field;
+          const isActionsColumn = col.label === 'Actions';
           const textAlign =
             col.align === 'center'
               ? 'text-center'
@@ -47,26 +49,32 @@ export default function TableHeader({
 
           return (
             <th
-              key={col.field}
+              key={`${col.field}-${index}`}
               className={`strategic-table-th ${col.width} ${textAlign} ${
                 col.hideOnMobile ? 'hidden md:table-cell' : ''
               }`}
               scope="col"
             >
-              <button
-                type="button"
-                onClick={() => onSort(col.field)}
-                className={`strategic-table-sort-btn ${isActive ? 'active' : ''}`}
-                aria-label={`Sort by ${col.label} ${
-                  isActive
-                    ? sortDirection === 'asc'
-                      ? 'descending'
+              {isActionsColumn ? (
+                // Actions column - non-sortable
+                <span className="font-medium text-xs uppercase" style={{ color: 'var(--text-muted)' }}>
+                  {col.label}
+                </span>
+              ) : (
+                <button
+                  type="button"
+                  onClick={() => onSort(col.field)}
+                  className={`strategic-table-sort-btn ${isActive ? 'active' : ''}`}
+                  aria-label={`Sort by ${col.label} ${
+                    isActive
+                      ? sortDirection === 'asc'
+                        ? 'descending'
+                        : 'ascending'
                       : 'ascending'
-                    : 'ascending'
-                }`}
-              >
-                <span>{col.label}</span>
-                <span className="sort-icon" aria-hidden="true">
+                  }`}
+                >
+                  <span>{col.label}</span>
+                  <span className="sort-icon" aria-hidden="true">
                   {isActive ? (
                     sortDirection === 'asc' ? (
                       <svg
@@ -114,6 +122,7 @@ export default function TableHeader({
                   )}
                 </span>
               </button>
+              )}
             </th>
           );
         })}

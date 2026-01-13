@@ -1,8 +1,11 @@
 'use client';
 
+import Link from 'next/link';
 import CandidateCard from './CandidateCard';
 import Sparkline from '@/components/Charts/Sparkline';
 import type { District, DistrictElectionHistory } from '@/types/schema';
+import type { FilterState } from '@/components/Search/FilterPanel';
+import { encodeFilterState } from '@/lib/navigationContext';
 import {
   getFilteredCandidates,
   groupCandidatesByParty,
@@ -17,6 +20,7 @@ interface SidePanelProps {
   onClose: () => void;
   showRepublicanData?: boolean;
   republicanDataMode?: 'none' | 'incumbents' | 'challengers' | 'all';
+  filters?: FilterState;
 }
 
 export default function SidePanel({
@@ -26,12 +30,20 @@ export default function SidePanel({
   onClose,
   showRepublicanData = false,
   republicanDataMode = 'none',
+  filters,
 }: SidePanelProps) {
   // Filter options for candidate display
   const filterOptions: FilterOptions = {
     showRepublicanData,
     republicanDataMode,
   };
+
+  // Build race profile URL with return context for "Back to Map" navigation
+  const raceProfileUrl = district && filters
+    ? `/race/${chamber}/${district.districtNumber}?returnFilters=${encodeFilterState(filters)}`
+    : district
+    ? `/race/${chamber}/${district.districtNumber}`
+    : '#';
 
   if (!district) {
     return (
@@ -152,6 +164,27 @@ export default function SidePanel({
             </span>
           )}
         </div>
+
+        {/* View Full Race Profile Button */}
+        <Link
+          href={raceProfileUrl}
+          className="mt-3 w-full flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg font-medium text-sm transition-all hover:opacity-90 focus-ring"
+          style={{
+            background: 'var(--class-purple)',
+            color: 'white',
+            textDecoration: 'none',
+          }}
+        >
+          <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
+            />
+          </svg>
+          View Full Race Profile
+        </Link>
       </div>
 
       {/* Compact Election History Section */}

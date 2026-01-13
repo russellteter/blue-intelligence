@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect, useRef, useCallback, useMemo } from 'react';
+import Link from 'next/link';
 import DistrictMap from '@/components/Map/DistrictMap';
 import Legend from '@/components/Map/Legend';
 import ChamberToggle from '@/components/Map/ChamberToggle';
@@ -410,19 +411,70 @@ export default function Home() {
       <header className="glass-surface border-b animate-entrance stagger-1 sticky top-0 z-40" style={{ borderColor: 'var(--class-purple-light)' }}>
         <div className="max-w-7xl mx-auto px-4 py-2">
           <div className="flex flex-col gap-2">
-            {/* Row 1: Title + Chamber Toggle + Help */}
+            {/* Row 1: Title + Search + Chamber Toggle + Help */}
             <div className="flex items-center justify-between gap-3">
-              <div className="flex-1">
-                <h1 className="text-xl font-bold font-display" style={{ color: 'var(--text-color)' }}>
-                  SC 2026 Election Map
-                </h1>
-                <p className="text-xs mt-0.5" style={{ color: 'var(--text-muted)' }}>
-                  Tracking {chamber === 'house' ? '124 House' : '46 Senate'} districts
-                  {filteredDistricts.size < districtCount && (
-                    <span> • Showing {filteredDistricts.size} of {districtCount}</span>
-                  )}
-                </p>
+              <div className="flex items-center gap-4">
+                <div>
+                  <h1 className="text-xl font-bold font-display" style={{ color: 'var(--text-color)' }}>
+                    SC 2026 Election Map
+                  </h1>
+                  <p className="text-xs mt-0.5" style={{ color: 'var(--text-muted)' }}>
+                    Tracking {chamber === 'house' ? '124 House' : '46 Senate'} districts
+                    {filteredDistricts.size < districtCount && (
+                      <span> • Showing {filteredDistricts.size} of {districtCount}</span>
+                    )}
+                  </p>
+                </div>
+
+                {/* Search Bar - moved to header row */}
+                <div className="hidden sm:block">
+                  <SearchBar
+                    candidatesData={candidatesData}
+                    onSelectResult={(result) => {
+                      if (result.chamber !== chamber) {
+                        setChamber(result.chamber);
+                      }
+                      setTimeout(() => setSelectedDistrict(result.districtNumber), 0);
+                    }}
+                    className="w-64"
+                  />
+                </div>
               </div>
+
+              {/* Navigation Links */}
+              <div className="hidden md:flex items-center gap-2">
+                <Link
+                  href={`/table?chamber=${chamber}`}
+                  className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-sm font-medium transition-all hover:opacity-70 focus-ring"
+                  style={{
+                    background: 'var(--card-bg, #FFFFFF)',
+                    borderColor: 'var(--class-purple-light, #DAD7FA)',
+                    color: 'var(--text-color, #0A1849)',
+                    border: '1px solid var(--class-purple-light, #DAD7FA)',
+                  }}
+                >
+                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 10h18M3 14h18m-9-4v8m-7 0h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" />
+                  </svg>
+                  <span>Table View</span>
+                </Link>
+                <Link
+                  href="/opportunities"
+                  className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-sm font-medium transition-all hover:opacity-70 focus-ring"
+                  style={{
+                    background: 'var(--card-bg, #FFFFFF)',
+                    borderColor: 'var(--class-purple-light, #DAD7FA)',
+                    color: 'var(--text-color, #0A1849)',
+                    border: '1px solid var(--class-purple-light, #DAD7FA)',
+                  }}
+                >
+                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
+                  </svg>
+                  <span>Opportunities</span>
+                </Link>
+              </div>
+
               <div className="flex items-center gap-2">
                 <ChamberToggle chamber={chamber} onChange={setChamber} />
                 <button
@@ -444,8 +496,8 @@ export default function Home() {
               </div>
             </div>
 
-            {/* Row 2: Search + Filter */}
-            <div className="flex flex-col sm:flex-row gap-2">
+            {/* Mobile Search - shown only on small screens */}
+            <div className="sm:hidden">
               <SearchBar
                 candidatesData={candidatesData}
                 onSelectResult={(result) => {
@@ -454,16 +506,23 @@ export default function Home() {
                   }
                   setTimeout(() => setSelectedDistrict(result.districtNumber), 0);
                 }}
-                className="flex-1 max-w-md"
-              />
-              <FilterPanel
-                filters={filters}
-                onFilterChange={setFilters}
+                className="w-full"
               />
             </div>
           </div>
         </div>
       </header>
+
+      {/* Horizontal Filter Bar - Class Dashboard Style */}
+      <div className="border-b animate-entrance stagger-2" style={{ background: '#FAFAFA', borderColor: '#E2E8F0' }}>
+        <div className="max-w-7xl mx-auto px-4 py-2">
+          <FilterPanel
+            filters={filters}
+            onFilterChange={setFilters}
+            variant="horizontal"
+          />
+        </div>
+      </div>
 
       {/* Active Filter Pills - Shows when filters are applied */}
       {(filters.party.length > 0 || filters.hasCandidate !== 'all' || filters.contested !== 'all' || filters.opportunity.length > 0 || filters.showRepublicanData) && (
@@ -663,28 +722,27 @@ export default function Home() {
             </div>
           )}
 
-          {/* Map container - Glassmorphic */}
+          {/* Map container - Enhanced 3D depth */}
           <div
             id="map-container"
-            className="flex-1 glass-surface rounded-lg p-4 min-h-[400px] animate-entrance stagger-3"
+            className="flex-1 map-container min-h-[400px] animate-entrance stagger-3 relative"
             role="region"
             aria-label="Interactive district map"
           >
-            <DistrictMap
-              chamber={chamber}
-              candidatesData={candidatesData}
-              opportunityData={opportunityData}
-              selectedDistrict={selectedDistrict}
-              onDistrictClick={setSelectedDistrict}
-              onDistrictHover={setHoveredDistrict}
-              filteredDistricts={filteredDistricts}
-              showRepublicanData={filters.showRepublicanData}
-              republicanDataMode={filters.republicanDataMode}
-            />
-          </div>
-
-          {/* Legend - Glassmorphic */}
-          <div className="glass-surface rounded-lg p-4 mt-4 animate-entrance stagger-4">
+            <div className="map-svg-wrapper h-full">
+              <DistrictMap
+                chamber={chamber}
+                candidatesData={candidatesData}
+                opportunityData={opportunityData}
+                selectedDistrict={selectedDistrict}
+                onDistrictClick={setSelectedDistrict}
+                onDistrictHover={setHoveredDistrict}
+                filteredDistricts={filteredDistricts}
+                showRepublicanData={filters.showRepublicanData}
+                republicanDataMode={filters.republicanDataMode}
+              />
+            </div>
+            {/* Legend - Bottom left overlay */}
             <Legend showRepublicanData={filters.showRepublicanData} />
           </div>
 
@@ -713,6 +771,7 @@ export default function Home() {
             onClose={() => setSelectedDistrict(null)}
             showRepublicanData={filters.showRepublicanData}
             republicanDataMode={filters.republicanDataMode}
+            filters={filters}
           />
         </div>
       </div>
