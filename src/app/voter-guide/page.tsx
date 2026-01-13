@@ -3,19 +3,45 @@
 import { useState, useEffect, useCallback, Suspense } from 'react';
 import { useSearchParams, useRouter } from 'next/navigation';
 import Link from 'next/link';
-import { AddressAutocomplete, DistrictResults, StatewideRaces, CongressionalRaces, CountyRaces, VoterResources, VoterGuidePageSkeleton } from '@/components/VoterGuide';
+import {
+  AddressAutocomplete,
+  DistrictResults,
+  StatewideRaces,
+  JudicialRaces,
+  CongressionalRaces,
+  CountyRaces,
+  SchoolBoardRaces,
+  SpecialDistricts,
+  BallotMeasures,
+  VoterResources,
+  VoterGuidePageSkeleton
+} from '@/components/VoterGuide';
 import { geocodeAddress, reverseGeocode, getCurrentLocation, isInSouthCarolina, GeocodeResult } from '@/lib/geocoding';
 import { findDistricts, preloadBoundaries, DistrictResult } from '@/lib/districtLookup';
 import { getCountyFromCoordinates } from '@/lib/congressionalLookup';
-import type { CandidatesData, StatewideRacesData, CongressionalData, ElectionDatesData, CountyRacesData } from '@/types/schema';
+import type {
+  CandidatesData,
+  StatewideRacesData,
+  CongressionalData,
+  ElectionDatesData,
+  CountyRacesData,
+  JudicialRacesData,
+  SchoolBoardData,
+  BallotMeasuresData,
+  SpecialDistrictsData
+} from '@/types/schema';
 
 type LookupStatus = 'idle' | 'geocoding' | 'finding-districts' | 'done' | 'error';
 
 interface AllRacesData {
   candidates: CandidatesData | null;
   statewide: StatewideRacesData | null;
+  judicialRaces: JudicialRacesData | null;
   congressional: CongressionalData | null;
   countyRaces: CountyRacesData | null;
+  schoolBoard: SchoolBoardData | null;
+  specialDistricts: SpecialDistrictsData | null;
+  ballotMeasures: BallotMeasuresData | null;
   electionDates: ElectionDatesData | null;
 }
 
@@ -31,8 +57,12 @@ function VoterGuideContent() {
   const [allData, setAllData] = useState<AllRacesData>({
     candidates: null,
     statewide: null,
+    judicialRaces: null,
     congressional: null,
     countyRaces: null,
+    schoolBoard: null,
+    specialDistricts: null,
+    ballotMeasures: null,
     electionDates: null,
   });
   const [isDataLoading, setIsDataLoading] = useState(true);
@@ -62,11 +92,25 @@ function VoterGuideContent() {
     Promise.all([
       fetch(`${basePath}/data/candidates.json?${cacheBuster}`).then(r => r.json()).catch(() => null),
       fetch(`${basePath}/data/statewide-races.json?${cacheBuster}`).then(r => r.json()).catch(() => null),
+      fetch(`${basePath}/data/judicial-races.json?${cacheBuster}`).then(r => r.json()).catch(() => null),
       fetch(`${basePath}/data/congress-candidates.json?${cacheBuster}`).then(r => r.json()).catch(() => null),
       fetch(`${basePath}/data/county-races.json?${cacheBuster}`).then(r => r.json()).catch(() => null),
+      fetch(`${basePath}/data/school-board.json?${cacheBuster}`).then(r => r.json()).catch(() => null),
+      fetch(`${basePath}/data/special-districts.json?${cacheBuster}`).then(r => r.json()).catch(() => null),
+      fetch(`${basePath}/data/ballot-measures.json?${cacheBuster}`).then(r => r.json()).catch(() => null),
       fetch(`${basePath}/data/election-dates.json?${cacheBuster}`).then(r => r.json()).catch(() => null),
-    ]).then(([candidates, statewide, congressional, countyRaces, electionDates]) => {
-      setAllData({ candidates, statewide, congressional, countyRaces, electionDates });
+    ]).then(([candidates, statewide, judicialRaces, congressional, countyRaces, schoolBoard, specialDistricts, ballotMeasures, electionDates]) => {
+      setAllData({
+        candidates,
+        statewide,
+        judicialRaces,
+        congressional,
+        countyRaces,
+        schoolBoard,
+        specialDistricts,
+        ballotMeasures,
+        electionDates
+      });
       setIsDataLoading(false);
     }).catch(err => {
       console.error('Failed to load data:', err);
@@ -443,6 +487,14 @@ function VoterGuideContent() {
                     <StatewideRaces data={allData.statewide} />
                   )}
 
+                  {/* Judicial Races */}
+                  {allData.judicialRaces && (
+                    <JudicialRaces
+                      data={allData.judicialRaces}
+                      countyName={districtResult.countyName || null}
+                    />
+                  )}
+
                   {/* US Congressional Races */}
                   {allData.congressional && (
                     <CongressionalRaces
@@ -487,6 +539,30 @@ function VoterGuideContent() {
                   {allData.countyRaces && (
                     <CountyRaces
                       data={allData.countyRaces}
+                      countyName={districtResult.countyName || null}
+                    />
+                  )}
+
+                  {/* School Board Races */}
+                  {allData.schoolBoard && (
+                    <SchoolBoardRaces
+                      data={allData.schoolBoard}
+                      countyName={districtResult.countyName || null}
+                    />
+                  )}
+
+                  {/* Special Districts */}
+                  {allData.specialDistricts && (
+                    <SpecialDistricts
+                      data={allData.specialDistricts}
+                      countyName={districtResult.countyName || null}
+                    />
+                  )}
+
+                  {/* Ballot Measures */}
+                  {allData.ballotMeasures && (
+                    <BallotMeasures
+                      data={allData.ballotMeasures}
                       countyName={districtResult.countyName || null}
                     />
                   )}

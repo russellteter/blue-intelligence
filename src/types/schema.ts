@@ -467,3 +467,263 @@ export interface CountyRacesData {
   /** Counties keyed by county name */
   counties: Record<string, CountyData>;
 }
+
+// =============================================================================
+// School Board Races Types
+// =============================================================================
+
+/**
+ * Complete school board data structure
+ */
+export interface SchoolBoardData {
+  /** ISO timestamp of when the data was last updated */
+  lastUpdated: string;
+  /** Array of school districts with their races */
+  districts: SchoolDistrict[];
+}
+
+/**
+ * A school district with board seats
+ */
+export interface SchoolDistrict {
+  /** Full name of the school district */
+  name: string;
+  /** County where the district is located */
+  county: string;
+  /** Array of board seats up for election */
+  seats: SchoolBoardSeat[];
+}
+
+/**
+ * A school board seat with candidates
+ */
+export interface SchoolBoardSeat {
+  /** Seat identifier (e.g., "Seat 1", "District 3") */
+  seat: string;
+  /** List of candidates for this seat */
+  candidates: SchoolBoardCandidate[];
+}
+
+/**
+ * A school board candidate
+ */
+export interface SchoolBoardCandidate {
+  /** Candidate's full name */
+  name: string;
+  /** Party affiliation (N for nonpartisan, D, R) */
+  party: string;
+  /** Whether this candidate is the current incumbent */
+  incumbent: boolean;
+}
+
+// =============================================================================
+// Ballot Measures Types (State and Local)
+// =============================================================================
+
+/**
+ * State ballot measure (constitutional amendment, statutory, or advisory)
+ */
+export interface StateMeasure {
+  /** Measure number (e.g., "1", "2") */
+  number: string;
+  /** Measure title */
+  title: string;
+  /** Description of what the measure does */
+  description: string;
+  /** Type of measure */
+  type: 'constitutional' | 'statutory' | 'advisory';
+  /** URL to full text of the measure */
+  fullText?: string;
+  /** Arguments in favor of the measure */
+  proArguments?: string[];
+  /** Arguments against the measure */
+  conArguments?: string[];
+}
+
+/**
+ * Local ballot measure (bond, tax, zoning, etc.)
+ */
+export interface LocalMeasure {
+  /** Measure number/letter (e.g., "A", "1") */
+  number: string;
+  /** Measure title */
+  title: string;
+  /** Description of what the measure does */
+  description: string;
+  /** Type of local measure */
+  type: 'bond' | 'tax' | 'zoning' | 'other';
+  /** Dollar amount or rate (for bonds/taxes) */
+  amount?: string;
+}
+
+/**
+ * Group of local measures for a specific county
+ */
+export interface LocalMeasureGroup {
+  /** County name */
+  county: string;
+  /** Array of measures for this county */
+  measures: LocalMeasure[];
+}
+
+/**
+ * Complete ballot measures data
+ */
+export interface BallotMeasuresData {
+  /** ISO timestamp of when the data was last updated */
+  lastUpdated: string;
+  /** Statewide ballot measures (all voters see these) */
+  stateMeasures: StateMeasure[];
+  /** Local ballot measures grouped by county */
+  localMeasures: LocalMeasureGroup[];
+}
+
+// =============================================================================
+// Special Districts Types (Soil & Water, Fire, Recreation, etc.)
+// =============================================================================
+
+/**
+ * Type of special district
+ */
+export type SpecialDistrictType =
+  | 'soil_water'
+  | 'fire'
+  | 'water_sewer'
+  | 'recreation'
+  | 'hospital'
+  | 'transit'
+  | 'other';
+
+/**
+ * Candidate for a special district position
+ */
+export interface SpecialDistrictCandidate {
+  /** Candidate's full name */
+  name: string;
+  /** Whether this candidate is the current incumbent */
+  incumbent: boolean;
+}
+
+/**
+ * A seat/position within a special district
+ */
+export interface SpecialDistrictSeat {
+  /** Position title (e.g., "Commissioner", "Board Member") */
+  position: string;
+  /** List of candidates for this position */
+  candidates: SpecialDistrictCandidate[];
+}
+
+/**
+ * A special district (Fire, Water, Recreation, etc.)
+ */
+export interface SpecialDistrict {
+  /** Full name of the district */
+  name: string;
+  /** Type of special district */
+  type: SpecialDistrictType;
+  /** Seats/positions up for election */
+  seats: SpecialDistrictSeat[];
+}
+
+/**
+ * Special districts for a specific county
+ */
+export interface CountySpecialDistricts {
+  /** County name (e.g., "Richland") */
+  county: string;
+  /** Array of special districts in this county */
+  specialDistricts: SpecialDistrict[];
+}
+
+/**
+ * Complete special districts data
+ */
+export interface SpecialDistrictsData {
+  /** ISO timestamp of when the data was last updated */
+  lastUpdated: string;
+  /** Array of county special district data */
+  districts: CountySpecialDistricts[];
+}
+
+// =============================================================================
+// Judicial Races Types (Supreme Court, Court of Appeals, Circuit Courts)
+// =============================================================================
+
+/**
+ * A seat on a statewide judicial court
+ */
+export interface JudicialSeat {
+  /** Seat name (e.g., "Chief Justice", "Justice, Seat 2") */
+  seat: string;
+  /** Current incumbent's name */
+  incumbent: string;
+  /** Year the current term ends */
+  termEnd: string;
+  /** Date the incumbent assumed office (ISO format) */
+  assumedOffice?: string;
+}
+
+/**
+ * A statewide judicial court (Supreme Court or Court of Appeals)
+ */
+export interface StatewideJudicialCourt {
+  /** Court name (e.g., "SC Supreme Court") */
+  court: string;
+  /** Description of the court's role */
+  description?: string;
+  /** Term length in years */
+  termYears: number;
+  /** Seats on the court */
+  seats: JudicialSeat[];
+}
+
+/**
+ * A judge position on a circuit court
+ */
+export interface CircuitJudge {
+  /** Position title (e.g., "Circuit Court Judge") */
+  position: string;
+  /** Description of the position */
+  description?: string;
+}
+
+/**
+ * A judicial circuit covering multiple counties
+ */
+export interface CircuitCourt {
+  /** Circuit number (e.g., "5th") */
+  circuit: string;
+  /** Counties in this circuit */
+  counties: string[];
+  /** Judge positions in this circuit */
+  judges: CircuitJudge[];
+}
+
+/**
+ * Information about SC's judicial selection process
+ */
+export interface JudicialSelectionInfo {
+  /** Selection method (e.g., "Legislative Election") */
+  method: string;
+  /** Description of the selection process */
+  description: string;
+  /** Description of voters' role in the process */
+  voterRole: string;
+  /** Whether SC uses retention votes (false - SC does not) */
+  retentionVotes: boolean;
+}
+
+/**
+ * Complete judicial races data
+ */
+export interface JudicialRacesData {
+  /** ISO timestamp of when the data was last updated */
+  lastUpdated: string;
+  /** Statewide judicial courts (Supreme Court, Court of Appeals) */
+  statewideJudicial: StatewideJudicialCourt[];
+  /** Circuit courts by circuit number */
+  circuitCourts: CircuitCourt[];
+  /** Information about SC's judicial selection process */
+  selectionInfo: JudicialSelectionInfo;
+}
