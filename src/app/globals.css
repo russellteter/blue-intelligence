@@ -1876,3 +1876,564 @@ svg path[id^="senate-"]:hover,
     transition: none;
   }
 }
+
+/* ==========================================================================
+   VOTER GUIDE PRINT STYLES
+   ========================================================================== */
+
+@media print {
+  /* Reset page settings */
+  @page {
+    size: letter;
+    margin: 0.75in;
+  }
+
+  /* Hide non-essential elements */
+  .no-print,
+  header,
+  footer,
+  nav,
+  button:not(.print-show),
+  .glass-surface::before,
+  .atmospheric-bg::before {
+    display: none !important;
+  }
+
+  /* Reset backgrounds for printing */
+  body,
+  .atmospheric-bg {
+    background: white !important;
+    color: black !important;
+  }
+
+  /* Glass surfaces become plain white */
+  .glass-surface {
+    background: white !important;
+    border: 1px solid #ccc !important;
+    box-shadow: none !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+  }
+
+  /* Ensure text is black */
+  h1, h2, h3, h4, h5, h6, p, span, div, a {
+    color: black !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  /* Badge colors for print */
+  .badge {
+    border: 1px solid currentColor !important;
+    background: transparent !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  .badge-democrat {
+    color: #1D4ED8 !important;
+    border-color: #1D4ED8 !important;
+  }
+
+  .badge-republican {
+    color: #DC2626 !important;
+    border-color: #DC2626 !important;
+  }
+
+  /* Page breaks */
+  .page-break-before {
+    page-break-before: always;
+  }
+
+  .page-break-after {
+    page-break-after: always;
+  }
+
+  .avoid-break {
+    page-break-inside: avoid;
+  }
+
+  /* Voter guide specific */
+  .voter-guide-section {
+    page-break-inside: avoid;
+    margin-bottom: 1.5rem;
+  }
+
+  /* District cards */
+  .district-card,
+  .glass-surface {
+    page-break-inside: avoid;
+    margin-bottom: 0.5rem;
+  }
+
+  /* Grid becomes single column on print */
+  .grid {
+    display: block !important;
+  }
+
+  .grid > * {
+    margin-bottom: 1rem;
+  }
+
+  /* Links show URL */
+  a[href^="http"]:not(.no-url)::after {
+    content: " (" attr(href) ")";
+    font-size: 0.75rem;
+    color: #666;
+    word-break: break-all;
+  }
+
+  /* Hide external link indicators */
+  a[href^="http"] svg {
+    display: none;
+  }
+
+  /* Print header */
+  .print-header {
+    display: block !important;
+    text-align: center;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 2px solid black;
+  }
+
+  .print-header h1 {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 0.25rem;
+  }
+
+  .print-header p {
+    font-size: 0.875rem;
+    color: #666 !important;
+  }
+
+  /* Timeline for print */
+  .timeline-line {
+    background: #ccc !important;
+  }
+
+  /* Ensure SVG icons print */
+  svg {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+}
+
+/* Print button styling (visible only on screen) */
+@media screen {
+  .print-header {
+    display: none;
+  }
+}
+
+/* Voter Guide Print Button */
+.btn-print {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  transition: all 0.15s ease;
+  cursor: pointer;
+}
+
+/* ================================================
+   VOTER GUIDE GLASSMORPHIC ENHANCEMENTS
+   Premium visual polish for 2026 Voter Guide
+   ================================================ */
+
+/* Fade In Up Animation */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Staggered fade in animation */
+.animate-in {
+  animation: fadeInUp 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  opacity: 0;
+}
+
+.animate-in-delay-1 { animation-delay: 0.1s; }
+.animate-in-delay-2 { animation-delay: 0.2s; }
+.animate-in-delay-3 { animation-delay: 0.3s; }
+.animate-in-delay-4 { animation-delay: 0.4s; }
+
+/* Badge Pulse Animation for Party Indicators */
+@keyframes badge-pulse {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.6;
+    transform: scale(0.85);
+  }
+}
+
+/* Pulsing dot for badges */
+.badge-with-pulse {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.badge-with-pulse::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: currentColor;
+  animation: badge-pulse 2s ease-in-out infinite;
+  flex-shrink: 0;
+}
+
+/* Voter Guide Card Enhancements */
+.voter-card {
+  position: relative;
+  background: var(--card-bg);
+  border: 1px solid var(--class-purple-light);
+  border-radius: var(--radius-md);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  overflow: hidden;
+}
+
+.voter-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--class-purple, #4739E7) 0%, rgba(71, 57, 231, 0.3) 100%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.voter-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--class-purple, #4739E7);
+  box-shadow: 0 20px 40px -12px rgba(71, 57, 231, 0.15);
+}
+
+.voter-card:hover::before {
+  opacity: 1;
+}
+
+/* Section Header with Left Accent */
+.section-header-accent {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding-left: 12px;
+  border-left: 3px solid var(--class-purple, #4739E7);
+}
+
+.section-header-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+/* KPI Summary Card - Glassmorphic Style */
+.kpi-summary-card {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(246, 246, 254, 0.9) 100%);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(71, 57, 231, 0.08);
+  border-radius: var(--radius-lg);
+  padding: var(--space-6);
+  position: relative;
+  overflow: hidden;
+}
+
+.kpi-summary-card::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--class-purple, #4739E7) 0%, #7C3AED 50%, var(--class-purple, #4739E7) 100%);
+}
+
+/* Animated Counter Effect */
+@keyframes countUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px) scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.animate-count-up {
+  animation: countUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* County Badge */
+.county-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 12px;
+  background: linear-gradient(135deg, var(--class-purple-bg) 0%, var(--class-purple-light) 100%);
+  border: 1px solid var(--class-purple-light);
+  border-radius: 9999px;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--class-purple, #4739E7);
+}
+
+.county-badge::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  background: var(--class-purple, #4739E7);
+  border-radius: 50%;
+}
+
+/* Gradient Text for Titles */
+.gradient-text {
+  background: linear-gradient(135deg, var(--class-purple, #4739E7) 0%, #7C3AED 50%, var(--class-purple, #4739E7) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Skeleton Loading States */
+.skeleton-card {
+  background: linear-gradient(135deg, #F8FAFC 0%, #F1F5F9 100%);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  position: relative;
+}
+
+.skeleton-card::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.6) 50%,
+    transparent 100%
+  );
+  animation: skeleton-shimmer 1.5s infinite;
+}
+
+.skeleton-text {
+  height: 14px;
+  background: #E2E8F0;
+  border-radius: 4px;
+}
+
+.skeleton-text.sm { height: 12px; }
+.skeleton-text.lg { height: 18px; }
+.skeleton-text.xl { height: 24px; }
+
+.skeleton-avatar {
+  width: 40px;
+  height: 40px;
+  background: #E2E8F0;
+  border-radius: 8px;
+}
+
+.skeleton-badge {
+  width: 60px;
+  height: 22px;
+  background: #E2E8F0;
+  border-radius: 9999px;
+}
+
+/* Timeline Skeleton */
+.skeleton-timeline-dot {
+  width: 32px;
+  height: 32px;
+  background: #E2E8F0;
+  border-radius: 50%;
+}
+
+.skeleton-timeline-line {
+  width: 2px;
+  height: 40px;
+  background: #E2E8F0;
+}
+
+/* Party Badge Enhancements with Pulse */
+.party-badge-dem {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--party-dem-bg, #DBEAFE);
+  color: var(--party-dem, #1D4ED8);
+  padding: 4px 10px;
+  border-radius: 9999px;
+  font-size: 12px;
+  font-weight: 600;
+  border: 1px solid rgba(29, 78, 216, 0.2);
+}
+
+.party-badge-dem::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--party-dem, #1D4ED8);
+  animation: badge-pulse 2s ease-in-out infinite;
+}
+
+.party-badge-rep {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--party-rep-bg, #FEE2E2);
+  color: var(--party-rep, #DC2626);
+  padding: 4px 10px;
+  border-radius: 9999px;
+  font-size: 12px;
+  font-weight: 600;
+  border: 1px solid rgba(220, 38, 38, 0.2);
+}
+
+.party-badge-rep::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--party-rep, #DC2626);
+  animation: badge-pulse 2s ease-in-out infinite;
+  animation-delay: 0.5s;
+}
+
+/* Enhanced Glass Surface for Voter Guide */
+.voter-glass-surface {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(246, 246, 254, 0.9) 100%);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(71, 57, 231, 0.08);
+  border-radius: var(--radius-md);
+  box-shadow: 0 4px 16px -4px rgba(71, 57, 231, 0.08);
+  transition: all 0.25s ease;
+}
+
+.voter-glass-surface:hover {
+  border-color: rgba(71, 57, 231, 0.15);
+  box-shadow: 0 8px 24px -8px rgba(71, 57, 231, 0.12);
+}
+
+/* Race card hover lift effect */
+.race-card-lift {
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.25s ease;
+}
+
+.race-card-lift:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 24px -8px rgba(71, 57, 231, 0.12);
+}
+
+/* At-risk pulse animation for urgent items */
+@keyframes at-risk-pulse {
+  0%, 100% {
+    box-shadow: 0 2px 8px -2px rgba(220, 38, 38, 0.25);
+  }
+  50% {
+    box-shadow: 0 4px 16px -2px rgba(220, 38, 38, 0.4);
+  }
+}
+
+.badge-at-risk-animated {
+  background: linear-gradient(135deg, #FEF2F2 0%, #FEE2E2 100%);
+  color: #DC2626;
+  border: 1px solid rgba(220, 38, 38, 0.3);
+  animation: at-risk-pulse 1.5s ease-in-out infinite;
+}
+
+/* Reduced Motion Preferences - Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .animate-in,
+  .animate-count-up {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  .badge-with-pulse::before,
+  .party-badge-dem::before,
+  .party-badge-rep::before {
+    animation: none !important;
+  }
+
+  .voter-card,
+  .race-card-lift,
+  .voter-glass-surface {
+    transition-duration: 0.01ms !important;
+  }
+
+  .badge-at-risk-animated {
+    animation: none !important;
+  }
+
+  .skeleton-card::after {
+    animation: none !important;
+  }
+}
+
+/* Voter Guide Print Enhancements */
+@media print {
+  .voter-card,
+  .voter-glass-surface,
+  .kpi-summary-card {
+    background: white !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    box-shadow: none !important;
+    border: 1px solid #ccc !important;
+  }
+
+  .voter-card::before,
+  .kpi-summary-card::after {
+    display: none !important;
+  }
+
+  .animate-in,
+  .animate-count-up {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  .badge-with-pulse::before,
+  .party-badge-dem::before,
+  .party-badge-rep::before {
+    animation: none !important;
+  }
+
+  .gradient-text {
+    -webkit-text-fill-color: var(--class-purple, #4739E7) !important;
+    background: none !important;
+  }
+}

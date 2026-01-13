@@ -280,3 +280,190 @@ export interface OpportunityStats {
   /** Districts with Democratic candidates filed */
   demFiled: number;
 }
+
+// =============================================================================
+// Statewide Races Types (Governor, AG, etc.)
+// =============================================================================
+
+/**
+ * A statewide constitutional office race
+ */
+export interface StatewideRace {
+  /** Office name (e.g., "Governor", "Attorney General") */
+  office: string;
+  /** Short description of the office */
+  description?: string;
+  /** Current incumbent information */
+  incumbent?: {
+    name: string;
+    party: 'Democratic' | 'Republican';
+    canRunAgain?: boolean;
+  } | null;
+  /** List of candidates who have filed */
+  candidates: Candidate[];
+  /** Term length in years */
+  termYears: number;
+}
+
+/**
+ * Complete statewide races data
+ */
+export interface StatewideRacesData {
+  /** ISO timestamp of when the data was last updated */
+  lastUpdated: string;
+  /** Array of statewide constitutional office races */
+  races: StatewideRace[];
+}
+
+// =============================================================================
+// Congressional Races Types (US House, US Senate)
+// =============================================================================
+
+/**
+ * US Congressional district race
+ */
+export interface CongressionalDistrict {
+  /** District number (1-7 for SC House) */
+  districtNumber: number;
+  /** Current incumbent information */
+  incumbent?: {
+    name: string;
+    party: 'Democratic' | 'Republican';
+    since?: number;
+  } | null;
+  /** List of candidates who have filed */
+  candidates: Candidate[];
+}
+
+/**
+ * US Senate race (statewide)
+ */
+export interface USSenateRace {
+  /** Seat class (1, 2, or 3) */
+  seatClass: number;
+  /** Whether this seat is up for election in 2026 */
+  upForElection: boolean;
+  /** Current incumbent information */
+  incumbent?: {
+    name: string;
+    party: 'Democratic' | 'Republican';
+    since?: number;
+    termEnds?: number;
+  } | null;
+  /** List of candidates who have filed (empty if not up for election) */
+  candidates: Candidate[];
+}
+
+/**
+ * Complete congressional races data
+ */
+export interface CongressionalData {
+  /** ISO timestamp of when the data was last updated */
+  lastUpdated: string;
+  /** US House districts (7 total for SC) */
+  house: Record<string, CongressionalDistrict>;
+  /** US Senate races (2 seats) */
+  senate: {
+    /** Senior senator (Class 2 - Tim Scott) */
+    class2: USSenateRace;
+    /** Junior senator (Class 3 - Lindsey Graham) */
+    class3: USSenateRace;
+  };
+}
+
+// =============================================================================
+// Election Dates & Voter Resources Types
+// =============================================================================
+
+/**
+ * Election date/deadline type
+ */
+export type ElectionDateType = 'deadline' | 'period-start' | 'election';
+export type ElectionDateCategory = 'registration' | 'filing' | 'voting' | 'election';
+
+/**
+ * Single election date entry
+ */
+export interface ElectionDate {
+  id: string;
+  date: string; // ISO date format YYYY-MM-DD
+  title: string;
+  description: string;
+  type: ElectionDateType;
+  category: ElectionDateCategory;
+  important: boolean;
+}
+
+/**
+ * Voter resources links
+ */
+export interface VoterResources {
+  voterRegistration: {
+    checkStatus: string;
+    register: string;
+    requirements: string;
+  };
+  pollingPlace: {
+    lookup: string;
+    sampleBallot: string;
+  };
+  absenteeVoting: {
+    info: string;
+    requestForm: string;
+  };
+  countyOffices: string;
+}
+
+/**
+ * Complete election dates data
+ */
+export interface ElectionDatesData {
+  lastUpdated: string;
+  year: number;
+  state: string;
+  dates: ElectionDate[];
+  resources: VoterResources;
+}
+
+// =============================================================================
+// County Races Types (Sheriff, Auditor, Treasurer, etc.)
+// =============================================================================
+
+/**
+ * A county constitutional office race
+ */
+export interface CountyRace {
+  /** Office name (e.g., "Sheriff", "Auditor", "Treasurer") */
+  office: string;
+  /** Current incumbent information */
+  incumbent?: {
+    name: string;
+    party: 'Democratic' | 'Republican';
+  } | null;
+  /** List of candidates who have filed */
+  candidates: Candidate[];
+  /** Term length in years */
+  termYears: number;
+}
+
+/**
+ * County-level election data
+ */
+export interface CountyData {
+  /** County name (e.g., "Greenville") */
+  countyName: string;
+  /** County FIPS code (e.g., "045") */
+  fipsCode: string;
+  /** Array of county races */
+  races: CountyRace[];
+}
+
+/**
+ * Complete county races data
+ */
+export interface CountyRacesData {
+  /** ISO timestamp of when the data was last updated */
+  lastUpdated: string;
+  /** Counties keyed by county name */
+  counties: Record<string, CountyData>;
+}

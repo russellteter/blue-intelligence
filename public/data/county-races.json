@@ -1,0 +1,695 @@
+{
+  "lastUpdated": "2026-01-13T00:00:00Z",
+  "counties": {
+    "Greenville": {
+      "countyName": "Greenville",
+      "fipsCode": "045",
+      "races": [
+        {
+          "office": "Sheriff",
+          "incumbent": {
+            "name": "Hobart Lewis",
+            "party": "Republican"
+          },
+          "candidates": [],
+          "termYears": 4
+        },
+        {
+          "office": "Auditor",
+          "incumbent": {
+            "name": "Scott Case",
+            "party": "Republican"
+          },
+          "candidates": [],
+          "termYears": 4
+        },
+        {
+          "office": "Treasurer",
+          "incumbent": {
+            "name": "Jay Smith",
+            "party": "Republican"
+          },
+          "candidates": [],
+          "termYears": 4
+        },
+        {
+          "office": "Coroner",
+          "incumbent": {
+            "name": "Parks Evans",
+            "party": "Republican"
+          },
+          "candidates": [],
+          "termYears": 4
+        },
+        {
+          "office": "Clerk of Court",
+          "incumbent": {
+            "name": "Kate Durrell",
+            "party": "Republican"
+          },
+          "candidates": [],
+          "termYears": 4
+        },
+        {
+          "office": "Register of Deeds",
+          "incumbent": {
+            "name": "Theresa Kiser",
+            "party": "Republican"
+          },
+          "candidates": [],
+          "termYears": 4
+        },
+        {
+          "office": "Probate Judge",
+          "incumbent": {
+            "name": "Debora Faulkner",
+            "party": "Republican"
+          },
+          "candidates": [],
+          "termYears": 4
+        }
+      ]
+    },
+    "Richland": {
+      "countyName": "Richland",
+      "fipsCode": "079",
+      "races": [
+        {
+          "office": "Sheriff",
+          "incumbent": {
+            "name": "Leon Lott",
+            "party": "Democratic"
+          },
+          "candidates": [],
+          "termYears": 4
+        },
+        {
+          "office": "Auditor",
+          "incumbent": {
+            "name": "J. Thompson Salley IV",
+            "party": "Democratic"
+          },
+          "candidates": [],
+          "termYears": 4
+        },
+        {
+          "office": "Treasurer",
+          "incumbent": {
+            "name": "David A. Adams",
+            "party": "Democratic"
+          },
+          "candidates": [],
+          "termYears": 4
+        },
+        {
+          "office": "Coroner",
+          "incumbent": {
+            "name": "Naida Rutherford",
+            "party": "Democratic"
+          },
+          "candidates": [],
+          "termYears": 4
+        },
+        {
+          "office": "Clerk of Court",
+          "incumbent": {
+            "name": "Jeanette McBride",
+            "party": "Democratic"
+          },
+          "candidates": [],
+          "termYears": 4
+        },
+        {
+          "office": "Register of Deeds",
+          "incumbent": {
+            "name": "Tiffany Moore",
+            "party": "Democratic"
+          },
+          "candidates": [],
+          "termYears": 4
+        },
+        {
+          "office": "Probate Judge",
+          "incumbent": {
+            "name": "Maite Murphy",
+            "party": "Democratic"
+          },
+          "candidates": [],
+          "termYears": 4
+        }
+      ]
+    },
+    "Charleston": {
+      "countyName": "Charleston",
+      "fipsCode": "019",
+      "races": [
+        {
+          "office": "Sheriff",
+          "incumbent": {
+            "name": "Kristin Graziano",
+            "party": "Democratic"
+          },
+          "candidates": [],
+          "termYears": 4
+        },
+        {
+          "office": "Auditor",
+          "incumbent": {
+            "name": "Peter J. Tecklenburg",
+            "party": "Democratic"
+          },
+          "candidates": [],
+          "termYears": 4
+        },
+        {
+          "office": "Treasurer",
+          "incumbent": {
+            "name": "Tiffany Cave",
+            "party": "Democratic"
+          },
+          "candidates": [],
+          "termYears": 4
+        },
+        {
+          "office": "Coroner",
+          "incumbent": {
+            "name": "Bobbi O'Neal",
+            "party": "Democratic"
+          },
+          "candidates": [],
+          "termYears": 4
+        },
+        {
+          "office": "Clerk of Court",
+          "incumbent": {
+            "name": "Julie J. Armstrong",
+            "party": "Democratic"
+          },
+          "candidates": [],
+          "termYears": 4
+        },
+        {
+          "office": "Register of Deeds",
+          "incumbent": {
+            "name": "Charlton deSaussure Jr.",
+            "party": "Democratic"
+          },
+          "candidates": [],
+          "termYears": 4
+        },
+        {
+          "office": "Probate Judge",
+          "incumbent": {
+            "name": "Irvin G. Condon",
+            "party": "Democratic"
+          },
+          "candidates": [],
+          "termYears": 4
+        }
+      ]
+    },
+    "Horry": {
+      "countyName": "Horry",
+      "fipsCode": "051",
+      "races": [
+        {
+          "office": "Sheriff",
+          "incumbent": {
+            "name": "Phillip Thompson",
+            "party": "Republican"
+          },
+          "candidates": [],
+          "termYears": 4
+        },
+        {
+          "office": "Auditor",
+          "incumbent": {
+            "name": "Lois Eargle",
+            "party": "Republican"
+          },
+          "candidates": [],
+          "termYears": 4
+        },
+        {
+          "office": "Treasurer",
+          "incumbent": {
+            "name": "Angie Jones",
+            "party": "Republican"
+          },
+          "candidates": [],
+          "termYears": 4
+        },
+        {
+          "office": "Coroner",
+          "incumbent": {
+            "name": "Robert Edge",
+            "party": "Republican"
+          },
+          "candidates": [],
+          "termYears": 4
+        },
+        {
+          "office": "Clerk of Court",
+          "incumbent": {
+            "name": "Renee Elvis",
+            "party": "Republican"
+          },
+          "candidates": [],
+          "termYears": 4
+        },
+        {
+          "office": "Register of Deeds",
+          "incumbent": {
+            "name": "Jan Hardwick",
+            "party": "Republican"
+          },
+          "candidates": [],
+          "termYears": 4
+        },
+        {
+          "office": "Probate Judge",
+          "incumbent": {
+            "name": "Debra Herrmann",
+            "party": "Republican"
+          },
+          "candidates": [],
+          "termYears": 4
+        }
+      ]
+    },
+    "Spartanburg": {
+      "countyName": "Spartanburg",
+      "fipsCode": "083",
+      "races": [
+        {
+          "office": "Sheriff",
+          "incumbent": {
+            "name": "Chuck Wright",
+            "party": "Republican"
+          },
+          "candidates": [],
+          "termYears": 4
+        },
+        {
+          "office": "Auditor",
+          "incumbent": {
+            "name": "Sandra Blackwell",
+            "party": "Republican"
+          },
+          "candidates": [],
+          "termYears": 4
+        },
+        {
+          "office": "Treasurer",
+          "incumbent": {
+            "name": "Sharon C. West",
+            "party": "Republican"
+          },
+          "candidates": [],
+          "termYears": 4
+        },
+        {
+          "office": "Coroner",
+          "incumbent": {
+            "name": "Rusty Clevenger",
+            "party": "Republican"
+          },
+          "candidates": [],
+          "termYears": 4
+        },
+        {
+          "office": "Clerk of Court",
+          "incumbent": {
+            "name": "Hope Blackley",
+            "party": "Republican"
+          },
+          "candidates": [],
+          "termYears": 4
+        },
+        {
+          "office": "Register of Deeds",
+          "incumbent": {
+            "name": "Deborah Babb",
+            "party": "Republican"
+          },
+          "candidates": [],
+          "termYears": 4
+        },
+        {
+          "office": "Probate Judge",
+          "incumbent": {
+            "name": "Ponda Caldwell",
+            "party": "Republican"
+          },
+          "candidates": [],
+          "termYears": 4
+        }
+      ]
+    },
+    "Lexington": {
+      "countyName": "Lexington",
+      "fipsCode": "063",
+      "races": [
+        {
+          "office": "Sheriff",
+          "incumbent": {
+            "name": "Jay Koon",
+            "party": "Republican"
+          },
+          "candidates": [],
+          "termYears": 4
+        },
+        {
+          "office": "Auditor",
+          "incumbent": {
+            "name": "Tracy Towers",
+            "party": "Republican"
+          },
+          "candidates": [],
+          "termYears": 4
+        },
+        {
+          "office": "Treasurer",
+          "incumbent": {
+            "name": "Jim Eckstrom",
+            "party": "Republican"
+          },
+          "candidates": [],
+          "termYears": 4
+        },
+        {
+          "office": "Coroner",
+          "incumbent": {
+            "name": "Margaret Fisher",
+            "party": "Republican"
+          },
+          "candidates": [],
+          "termYears": 4
+        },
+        {
+          "office": "Clerk of Court",
+          "incumbent": {
+            "name": "Beth Carrigg",
+            "party": "Republican"
+          },
+          "candidates": [],
+          "termYears": 4
+        },
+        {
+          "office": "Register of Deeds",
+          "incumbent": {
+            "name": "Elizabeth Sheorn",
+            "party": "Republican"
+          },
+          "candidates": [],
+          "termYears": 4
+        },
+        {
+          "office": "Probate Judge",
+          "incumbent": {
+            "name": "Murl Caughman",
+            "party": "Republican"
+          },
+          "candidates": [],
+          "termYears": 4
+        }
+      ]
+    },
+    "York": {
+      "countyName": "York",
+      "fipsCode": "091",
+      "races": [
+        {
+          "office": "Sheriff",
+          "incumbent": {
+            "name": "Kevin Tolson",
+            "party": "Republican"
+          },
+          "candidates": [],
+          "termYears": 4
+        },
+        {
+          "office": "Auditor",
+          "incumbent": {
+            "name": "Adam Flake",
+            "party": "Republican"
+          },
+          "candidates": [],
+          "termYears": 4
+        },
+        {
+          "office": "Treasurer",
+          "incumbent": {
+            "name": "Debra Moss",
+            "party": "Republican"
+          },
+          "candidates": [],
+          "termYears": 4
+        },
+        {
+          "office": "Coroner",
+          "incumbent": {
+            "name": "Sabrina Gast",
+            "party": "Republican"
+          },
+          "candidates": [],
+          "termYears": 4
+        },
+        {
+          "office": "Clerk of Court",
+          "incumbent": {
+            "name": "Jennifer Robbins",
+            "party": "Republican"
+          },
+          "candidates": [],
+          "termYears": 4
+        },
+        {
+          "office": "Register of Deeds",
+          "incumbent": {
+            "name": "Kathy Walker",
+            "party": "Republican"
+          },
+          "candidates": [],
+          "termYears": 4
+        },
+        {
+          "office": "Probate Judge",
+          "incumbent": {
+            "name": "Brian K. Hinson",
+            "party": "Republican"
+          },
+          "candidates": [],
+          "termYears": 4
+        }
+      ]
+    },
+    "Berkeley": {
+      "countyName": "Berkeley",
+      "fipsCode": "015",
+      "races": [
+        {
+          "office": "Sheriff",
+          "incumbent": {
+            "name": "Duane Lewis",
+            "party": "Republican"
+          },
+          "candidates": [],
+          "termYears": 4
+        },
+        {
+          "office": "Auditor",
+          "incumbent": {
+            "name": "Janet Dukes",
+            "party": "Republican"
+          },
+          "candidates": [],
+          "termYears": 4
+        },
+        {
+          "office": "Treasurer",
+          "incumbent": {
+            "name": "Carolyn Umphlett",
+            "party": "Republican"
+          },
+          "candidates": [],
+          "termYears": 4
+        },
+        {
+          "office": "Coroner",
+          "incumbent": {
+            "name": "George Oliver",
+            "party": "Republican"
+          },
+          "candidates": [],
+          "termYears": 4
+        },
+        {
+          "office": "Clerk of Court",
+          "incumbent": {
+            "name": "Steven Morrill",
+            "party": "Republican"
+          },
+          "candidates": [],
+          "termYears": 4
+        },
+        {
+          "office": "Register of Deeds",
+          "incumbent": {
+            "name": "Timothy Keenan",
+            "party": "Republican"
+          },
+          "candidates": [],
+          "termYears": 4
+        },
+        {
+          "office": "Probate Judge",
+          "incumbent": {
+            "name": "Keith Kornahrens",
+            "party": "Republican"
+          },
+          "candidates": [],
+          "termYears": 4
+        }
+      ]
+    },
+    "Anderson": {
+      "countyName": "Anderson",
+      "fipsCode": "007",
+      "races": [
+        {
+          "office": "Sheriff",
+          "incumbent": {
+            "name": "Chad McBride",
+            "party": "Republican"
+          },
+          "candidates": [],
+          "termYears": 4
+        },
+        {
+          "office": "Auditor",
+          "incumbent": {
+            "name": "Judy Wright",
+            "party": "Republican"
+          },
+          "candidates": [],
+          "termYears": 4
+        },
+        {
+          "office": "Treasurer",
+          "incumbent": {
+            "name": "Lisa Martin",
+            "party": "Republican"
+          },
+          "candidates": [],
+          "termYears": 4
+        },
+        {
+          "office": "Coroner",
+          "incumbent": {
+            "name": "Greg Shore",
+            "party": "Republican"
+          },
+          "candidates": [],
+          "termYears": 4
+        },
+        {
+          "office": "Clerk of Court",
+          "incumbent": {
+            "name": "Wayne Waldrep",
+            "party": "Republican"
+          },
+          "candidates": [],
+          "termYears": 4
+        },
+        {
+          "office": "Register of Deeds",
+          "incumbent": {
+            "name": "Stuart Franklin",
+            "party": "Republican"
+          },
+          "candidates": [],
+          "termYears": 4
+        },
+        {
+          "office": "Probate Judge",
+          "incumbent": {
+            "name": "Andy Harbin",
+            "party": "Republican"
+          },
+          "candidates": [],
+          "termYears": 4
+        }
+      ]
+    },
+    "Beaufort": {
+      "countyName": "Beaufort",
+      "fipsCode": "013",
+      "races": [
+        {
+          "office": "Sheriff",
+          "incumbent": {
+            "name": "P.J. Tanner",
+            "party": "Republican"
+          },
+          "candidates": [],
+          "termYears": 4
+        },
+        {
+          "office": "Auditor",
+          "incumbent": {
+            "name": "Jim Beckert",
+            "party": "Republican"
+          },
+          "candidates": [],
+          "termYears": 4
+        },
+        {
+          "office": "Treasurer",
+          "incumbent": {
+            "name": "Maria Walls",
+            "party": "Republican"
+          },
+          "candidates": [],
+          "termYears": 4
+        },
+        {
+          "office": "Coroner",
+          "incumbent": {
+            "name": "David Ott",
+            "party": "Republican"
+          },
+          "candidates": [],
+          "termYears": 4
+        },
+        {
+          "office": "Clerk of Court",
+          "incumbent": {
+            "name": "Jackie Kelly",
+            "party": "Republican"
+          },
+          "candidates": [],
+          "termYears": 4
+        },
+        {
+          "office": "Register of Deeds",
+          "incumbent": {
+            "name": "Margie Bright Matthews",
+            "party": "Republican"
+          },
+          "candidates": [],
+          "termYears": 4
+        },
+        {
+          "office": "Probate Judge",
+          "incumbent": {
+            "name": "Nancy Sadler",
+            "party": "Republican"
+          },
+          "candidates": [],
+          "termYears": 4
+        }
+      ]
+    }
+  }
+}
