@@ -2,11 +2,21 @@
 
 import { useEffect, useRef, useState, useMemo, useCallback } from 'react';
 import MapTooltip from './MapTooltip';
-import type { CandidatesData, District } from '@/types/schema';
+import type { CandidatesData, District, OpportunityData, DistrictOpportunity } from '@/types/schema';
+
+// Opportunity tier colors
+const TIER_COLORS = {
+  HIGH_OPPORTUNITY: '#059669',  // Green - emerald-600
+  EMERGING: '#0891B2',          // Teal - cyan-600
+  BUILD: '#D97706',             // Amber - amber-600
+  DEFENSIVE: '#7C3AED',         // Purple - violet-600
+  NON_COMPETITIVE: '#9CA3AF',   // Gray - gray-400
+} as const;
 
 interface DistrictMapProps {
   chamber: 'house' | 'senate';
   candidatesData: CandidatesData;
+  opportunityData?: OpportunityData | null;
   selectedDistrict: number | null;
   onDistrictClick: (districtNumber: number) => void;
   onDistrictHover: (districtNumber: number | null) => void;
@@ -16,6 +26,7 @@ interface DistrictMapProps {
 export default function DistrictMap({
   chamber,
   candidatesData,
+  opportunityData,
   selectedDistrict,
   onDistrictClick,
   onDistrictHover,
@@ -85,8 +96,9 @@ export default function DistrictMap({
 
       const districtNum = parseInt(match[1], 10);
       const districtData = candidatesData[chamber][String(districtNum)];
-      const color = getDistrictColor(districtData);
-      const statusLabel = getDistrictStatusLabel(districtData);
+      const opportunityInfo = opportunityData?.[chamber]?.[String(districtNum)];
+      const color = getOpportunityColor(opportunityInfo, districtData);
+      const statusLabel = getDistrictStatusLabel(districtData, opportunityInfo);
 
       // Apply fill color directly to SVG string
       path.setAttribute('fill', color);
@@ -125,7 +137,7 @@ export default function DistrictMap({
     });
 
     return new XMLSerializer().serializeToString(svg);
-  }, [rawSvgContent, chamber, candidatesData, selectedDistrict, filteredDistricts, justSelected]);
+  }, [rawSvgContent, chamber, candidatesData, opportunityData, selectedDistrict, filteredDistricts, justSelected]);
 
   // Handle click events via event delegation (more efficient than per-path listeners)
   const handleClick = useCallback((e: React.MouseEvent) => {
@@ -221,49 +233,65 @@ export default function DistrictMap({
 }
 
 /**
- * Get the fill color for a district based on candidate data.
- * Uses CSS variable fallbacks for consistency with design system.
+ * Get the fill color for a district based on opportunity score.
+ * Uses tier-based coloring for strategic visualization.
  *
  * Color scheme:
- * - Light gray - No candidates filed (vacant)
- * - Gray - Candidates filed but no Democrat (unknown/other)
- * - Purple/Blue - Democrat(s) running
+ * - Green - High Opportunity (score 70+)
+ * - Teal - Emerging (score 50-69)
+ * - Amber - Build (score 30-49)
+ * - Purple - Defensive (Dem incumbent)
+ * - Gray - Non-competitive (score <30) or no data
+ * - Light gray - No candidates filed
  */
-function getDistrictColor(district: District | undefined): string {
+function getOpportunityColor(
+  opportunity: DistrictOpportunity | undefined,
+  district: District | undefined
+): string {
+  // No candidates = light gray
   if (!district || district.candidates.length === 0) {
-    return '#f3f4f6'; // gray-100 - no candidates
+    return '#f3f4f6'; // gray-100
   }
 
+  // If we have opportunity data, use tier colors
+  if (opportunity) {
+    return TIER_COLORS[opportunity.tier] || TIER_COLORS.NON_COMPETITIVE;
+  }
+
+  // Fallback: use basic Democratic presence coloring
   const hasDemocrat = district.candidates.some(
     (c) => c.party?.toLowerCase() === 'democratic'
   );
 
-  if (hasDemocrat) {
-    return '#4739E7'; // class-purple - Democrat
-  } else {
-    return '#9ca3af'; // gray-400 - unknown (includes Republicans)
-  }
+  return hasDemocrat ? '#4739E7' : '#9ca3af';
 }
 
 /**
  * Get an accessible status label for a district.
- * Used for screen reader announcements.
+ * Includes opportunity tier information.
  */
-function getDistrictStatusLabel(district: District | undefined): string {
+function getDistrictStatusLabel(
+  district: District | undefined,
+  opportunity: DistrictOpportunity | undefined
+): string {
   if (!district || district.candidates.length === 0) {
     return 'No candidates filed';
+  }
+
+  const candidateCount = district.candidates.length;
+  const candidateText = candidateCount === 1 ? '1 candidate' : `${candidateCount} candidates`;
+
+  if (opportunity) {
+    const tierLabel = opportunity.tierLabel;
+    const score = opportunity.opportunityScore;
+    return `${candidateText}, ${tierLabel} (score ${score})`;
   }
 
   const hasDemocrat = district.candidates.some(
     (c) => c.party?.toLowerCase() === 'democratic'
   );
 
-  const candidateCount = district.candidates.length;
-  const candidateText = candidateCount === 1 ? '1 candidate' : `${candidateCount} candidates`;
-
-  if (hasDemocrat) {
-    return `${candidateText}, Democratic`;
-  } else {
-    return `${candidateText} filed, party unknown`;
-  }
+  return hasDemocrat
+    ? `${candidateText}, Democratic`
+    : `${candidateText} filed, party unknown`;
 }

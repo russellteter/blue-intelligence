@@ -168,3 +168,115 @@ export interface ChamberStats {
   /** Number of candidates who are incumbents */
   incumbents?: number;
 }
+
+// =============================================================================
+// Opportunity Scoring Types (from scripts/calculate-opportunity.py)
+// =============================================================================
+
+/**
+ * Opportunity tier classification
+ */
+export type OpportunityTier =
+  | 'HIGH_OPPORTUNITY'
+  | 'EMERGING'
+  | 'BUILD'
+  | 'DEFENSIVE'
+  | 'NON_COMPETITIVE';
+
+/**
+ * Factors contributing to opportunity score
+ */
+export interface OpportunityFactors {
+  /** Historical competitiveness factor (0-1) */
+  competitiveness: number;
+  /** Margin trend factor (0-1, higher = trending toward Dems) */
+  marginTrend: number;
+  /** Incumbency factor (1.0 for open seat, 0.5 for incumbent running) */
+  incumbency: number;
+  /** Candidate presence factor (1.0 if Dem filed, 0 if not) */
+  candidatePresence: number;
+  /** Whether this is an open seat */
+  openSeatBonus: boolean;
+}
+
+/**
+ * Raw metrics used in scoring
+ */
+export interface OpportunityMetrics {
+  /** Average margin over recent elections */
+  avgMargin: number;
+  /** Margin change (positive = shrinking = good for Dems) */
+  trendChange: number;
+  /** Original competitiveness score from elections.json */
+  competitivenessScore: number;
+}
+
+/**
+ * Strategic flags for filtering and display
+ */
+export interface OpportunityFlags {
+  /** Needs a Democratic candidate (score >= 50, no Dem filed) */
+  needsCandidate: boolean;
+  /** This is an open seat */
+  openSeat: boolean;
+  /** Margins are trending toward Democrats */
+  trendingDem: boolean;
+  /** This is a defensive seat (Dem incumbent) */
+  defensive: boolean;
+  /** A Democratic candidate has filed */
+  hasDemocrat: boolean;
+}
+
+/**
+ * Opportunity score for a single district
+ */
+export interface DistrictOpportunity {
+  /** District number */
+  districtNumber: number;
+  /** Computed opportunity score (0-100) */
+  opportunityScore: number;
+  /** Tier classification code */
+  tier: OpportunityTier;
+  /** Human-readable tier label */
+  tierLabel: string;
+  /** Factor breakdown */
+  factors: OpportunityFactors;
+  /** Raw metrics */
+  metrics: OpportunityMetrics;
+  /** Strategic flags */
+  flags: OpportunityFlags;
+  /** Strategic recommendation text */
+  recommendation: string;
+}
+
+/**
+ * Complete opportunity data from opportunity.json
+ */
+export interface OpportunityData {
+  /** ISO timestamp of when scores were calculated */
+  lastUpdated: string;
+  /** House district opportunities keyed by district number string */
+  house: Record<string, DistrictOpportunity>;
+  /** Senate district opportunities keyed by district number string */
+  senate: Record<string, DistrictOpportunity>;
+}
+
+/**
+ * Opportunity statistics for a chamber
+ */
+export interface OpportunityStats {
+  /** High opportunity districts (score 70+) */
+  highOpportunity: number;
+  /** Emerging opportunity districts (score 50-69) */
+  emerging: number;
+  /** Build districts (score 30-49) */
+  build: number;
+  /** Defensive districts (Dem incumbent) */
+  defensive: number;
+  /** Non-competitive districts (score <30) */
+  nonCompetitive: number;
+  /** Districts needing a Democratic candidate */
+  needsCandidate: number;
+  /** Districts with Democratic candidates filed */
+  demFiled: number;
+}

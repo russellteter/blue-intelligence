@@ -12,7 +12,7 @@ import { KPICard } from '@/components/Dashboard/KPICard';
 import { useKeyboardShortcuts } from '@/hooks/useKeyboardShortcuts';
 import { useToast } from '@/components/Toast';
 import { KPICardSkeleton, MapSkeleton, CandidateCardSkeleton } from '@/components/Skeleton';
-import type { CandidatesData, ChamberStats, ElectionsData } from '@/types/schema';
+import type { CandidatesData, ChamberStats, ElectionsData, OpportunityData } from '@/types/schema';
 
 export default function Home() {
   const [chamber, setChamber] = useState<'house' | 'senate'>('house');
@@ -20,6 +20,7 @@ export default function Home() {
   const [hoveredDistrict, setHoveredDistrict] = useState<number | null>(null);
   const [candidatesData, setCandidatesData] = useState<CandidatesData | null>(null);
   const [electionsData, setElectionsData] = useState<ElectionsData | null>(null);
+  const [opportunityData, setOpportunityData] = useState<OpportunityData | null>(null);
   const [isLoading, setIsLoading] = useState(true);
   const [filters, setFilters] = useState<FilterState>(defaultFilters);
   const [showShortcuts, setShowShortcuts] = useState(false);
@@ -36,15 +37,17 @@ export default function Home() {
       ? '/sc-election-map-2026'
       : '';
 
-    // Load both data files in parallel with cache-busting
+    // Load all data files in parallel with cache-busting
     const cacheBuster = `v=${Date.now()}`;
     Promise.all([
       fetch(`${basePath}/data/candidates.json?${cacheBuster}`).then((res) => res.json()),
       fetch(`${basePath}/data/elections.json?${cacheBuster}`).then((res) => res.json()),
+      fetch(`${basePath}/data/opportunity.json?${cacheBuster}`).then((res) => res.json()),
     ])
-      .then(([candidates, elections]) => {
+      .then(([candidates, elections, opportunity]) => {
         setCandidatesData(candidates);
         setElectionsData(elections);
+        setOpportunityData(opportunity);
         setIsLoading(false);
       })
       .catch((err) => {
@@ -227,6 +230,27 @@ export default function Home() {
 
   // Calculate statistics
   const stats = candidatesData ? calculateStats(candidatesData, chamber) : null;
+
+  // Calculate opportunity statistics
+  const opportunityStats = useMemo(() => {
+    if (!opportunityData) return null;
+    const districts = opportunityData[chamber];
+    let highOpportunity = 0;
+    let emerging = 0;
+    let needsCandidate = 0;
+    let defensive = 0;
+    let demFiled = 0;
+
+    for (const district of Object.values(districts)) {
+      if (district.tier === 'HIGH_OPPORTUNITY') highOpportunity++;
+      if (district.tier === 'EMERGING') emerging++;
+      if (district.tier === 'DEFENSIVE') defensive++;
+      if (district.flags.needsCandidate) needsCandidate++;
+      if (district.flags.hasDemocrat) demFiled++;
+    }
+
+    return { highOpportunity, emerging, needsCandidate, defensive, demFiled };
+  }, [opportunityData, chamber]);
 
   if (isLoading) {
     return (
@@ -519,43 +543,36 @@ export default function Home() {
       <div className="flex-1 flex flex-col lg:flex-row">
         {/* Map section */}
         <div className="flex-1 flex flex-col p-4">
-          {/* Stats bar - Glassmorphic KPI Grid with Animated Counters */}
-          {stats && (
+          {/* Stats bar - Strategic Opportunity KPIs */}
+          {opportunityStats && (
             <div className="kpi-grid mb-4 animate-entrance stagger-2">
-              <KPICard
-                label="Democrats"
-                value={stats.democrats}
-                variant="democrat"
-                showPulse
-                animationDelay={0}
-              />
-              <KPICard
-                label="Unknown Party"
-                value={stats.unknown}
-                variant="unknown"
-                animationDelay={50}
-              />
-              <KPICard
-                label="No Candidates"
-                value={stats.empty}
-                variant="empty"
-                animationDelay={100}
-              />
+              {/* High Opportunity */}
+              <div className="kpi-card animate-entrance" style={{ animationDelay: '0ms' }}>
+                <div className="label" style={{ color: '#059669' }}>High Opportunity</div>
+                <div className="value font-display" style={{ color: '#059669' }}>{opportunityStats.highOpportunity}</div>
+                <div className="text-xs mt-1" style={{ color: 'var(--text-muted)' }}>Score 70+</div>
+              </div>
+
+              {/* Needs Candidate */}
+              <div className="kpi-card animate-entrance" style={{ animationDelay: '50ms' }}>
+                <div className="label" style={{ color: '#F59E0B' }}>Needs Candidate</div>
+                <div className="value font-display" style={{ color: '#F59E0B' }}>{opportunityStats.needsCandidate}</div>
+                <div className="text-xs mt-1" style={{ color: 'var(--text-muted)' }}>Recruit now</div>
+              </div>
+
+              {/* Defensive */}
+              <div className="kpi-card animate-entrance" style={{ animationDelay: '100ms' }}>
+                <div className="label" style={{ color: '#7C3AED' }}>Defensive</div>
+                <div className="value font-display" style={{ color: '#7C3AED' }}>{opportunityStats.defensive}</div>
+                <div className="text-xs mt-1" style={{ color: 'var(--text-muted)' }}>Dem incumbent</div>
+              </div>
+
+              {/* Dem Filed */}
               <div className="kpi-card animate-entrance" style={{ animationDelay: '150ms' }}>
-                <div className="label">Party Data</div>
-                <div className="value font-display" style={{ color: 'var(--class-purple)' }}>{stats.enrichmentPercent}%</div>
-                <div className="mt-2 w-full rounded-full h-1.5" style={{ background: 'var(--class-purple-light)' }}>
-                  <div
-                    className="h-1.5 rounded-full transition-all duration-500"
-                    style={{
-                      width: `${stats.enrichmentPercent}%`,
-                      background: stats.enrichmentPercent >= 70
-                        ? 'var(--color-excellent)'
-                        : stats.enrichmentPercent >= 40
-                        ? 'var(--color-attention)'
-                        : 'var(--color-at-risk)'
-                    }}
-                  />
+                <div className="label" style={{ color: 'var(--class-purple)' }}>Dem Filed</div>
+                <div className="value font-display" style={{ color: 'var(--class-purple)' }}>{opportunityStats.demFiled}</div>
+                <div className="text-xs mt-1" style={{ color: 'var(--text-muted)' }}>
+                  of {chamber === 'house' ? '124' : '46'} districts
                 </div>
               </div>
             </div>
@@ -571,6 +588,7 @@ export default function Home() {
             <DistrictMap
               chamber={chamber}
               candidatesData={candidatesData}
+              opportunityData={opportunityData}
               selectedDistrict={selectedDistrict}
               onDistrictClick={setSelectedDistrict}
               onDistrictHover={setHoveredDistrict}
