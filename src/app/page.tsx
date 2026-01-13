@@ -34,9 +34,12 @@ export default function Home() {
   const [candidatesData, setCandidatesData] = useState<CandidatesData | null>(null);
   const [isLoading, setIsLoading] = useState(true);
 
+  // Determine base path for data files
+  const basePath = process.env.NODE_ENV === 'production' ? '/sc-election-map-2026' : '';
+
   // Load candidates data
   useEffect(() => {
-    fetch('/sc-election-map-2026/data/candidates.json')
+    fetch(`${basePath}/data/candidates.json`)
       .then((res) => res.json())
       .then((data) => {
         setCandidatesData(data);
