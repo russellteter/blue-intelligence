@@ -1,19 +1,5 @@
 import CandidateCard from './CandidateCard';
-
-interface Candidate {
-  name: string;
-  party: string | null;
-  status: string;
-  filedDate: string | null;
-  ethicsUrl: string | null;
-  reportId: string;
-  source: string;
-}
-
-interface District {
-  districtNumber: number;
-  candidates: Candidate[];
-}
+import type { District } from '@/types/schema';
 
 interface SidePanelProps {
   chamber: 'house' | 'senate';

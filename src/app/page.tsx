@@ -9,27 +9,7 @@ import SearchBar from '@/components/Search/SearchBar';
 import FilterPanel, { FilterState, defaultFilters } from '@/components/Search/FilterPanel';
 import KeyboardShortcutsHelp from '@/components/Search/KeyboardShortcutsHelp';
 import { useKeyboardShortcuts } from '@/hooks/useKeyboardShortcuts';
-
-interface Candidate {
-  name: string;
-  party: string | null;
-  status: string;
-  filedDate: string | null;
-  ethicsUrl: string | null;
-  reportId: string;
-  source: string;
-}
-
-interface District {
-  districtNumber: number;
-  candidates: Candidate[];
-}
-
-interface CandidatesData {
-  lastUpdated: string;
-  house: Record<string, District>;
-  senate: Record<string, District>;
-}
+import type { CandidatesData, ChamberStats } from '@/types/schema';
 
 export default function Home() {
   const [chamber, setChamber] = useState<'house' | 'senate'>('house');

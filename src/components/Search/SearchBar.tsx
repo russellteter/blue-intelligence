@@ -1,35 +1,7 @@
 'use client';
 
 import { useState, useRef, useEffect, useCallback } from 'react';
-
-interface Candidate {
-  name: string;
-  party: string | null;
-  status: string;
-  filedDate: string | null;
-  ethicsUrl: string | null;
-  reportId: string;
-  source: string;
-}
-
-interface District {
-  districtNumber: number;
-  candidates: Candidate[];
-}
-
-interface CandidatesData {
-  lastUpdated: string;
-  house: Record<string, District>;
-  senate: Record<string, District>;
-}
-
-interface SearchResult {
-  type: 'candidate' | 'district';
-  chamber: 'house' | 'senate';
-  districtNumber: number;
-  label: string;
-  sublabel?: string;
-}
+import type { CandidatesData, SearchResult } from '@/types/schema';
 
 interface SearchBarProps {
   candidatesData: CandidatesData;

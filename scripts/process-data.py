@@ -100,6 +100,50 @@ def find_party(name: str, party_data: dict, chamber: str = None, district_num: i
     return None
 
 
+def is_incumbent(name: str, party_data: dict, chamber: str, district_num: int) -> bool:
+    """Check if a candidate is the incumbent for their district.
+
+    Returns True if the candidate name matches the incumbent name for the district.
+    """
+    if not chamber or not district_num:
+        return False
+
+    incumbents = party_data.get("incumbents", {}).get(chamber, {})
+    district_key = str(district_num)
+
+    if district_key not in incumbents:
+        return False
+
+    incumbent = incumbents[district_key]
+    incumbent_name = incumbent.get("name", "").lower()
+    candidate_name = normalize_name(name).lower()
+    name_parts = candidate_name.split()
+
+    # Exact match
+    if candidate_name == incumbent_name:
+        return True
+
+    # Substring match (handles middle initials, suffixes)
+    if candidate_name in incumbent_name or incumbent_name in candidate_name:
+        return True
+
+    # Last name match with first name/initial match
+    incumbent_parts = incumbent_name.split()
+    if name_parts and incumbent_parts:
+        # Last names must match
+        if name_parts[-1] == incumbent_parts[-1]:
+            # Check if first names match or one is initial of other
+            if len(name_parts) > 1 and len(incumbent_parts) > 1:
+                first1 = name_parts[0]
+                first2 = incumbent_parts[0]
+                if first1 == first2 or first1[0] == first2[0]:
+                    return True
+            # Just last name match is sufficient if unique
+            return True
+
+    return False
+
+
 def process_ethics_data(ethics_file: str) -> dict:
     """Process Ethics monitor state.json and generate candidates.json."""
 
@@ -117,17 +161,24 @@ def process_ethics_data(ethics_file: str) -> dict:
         "senate": {}
     }
 
+    # Get incumbents data for district metadata
+    incumbents_data = party_data.get("incumbents", {})
+
     # Initialize all districts
     for i in range(1, 125):  # House has 124 districts
+        incumbent_info = incumbents_data.get("house", {}).get(str(i), {})
         output["house"][str(i)] = {
             "districtNumber": i,
-            "candidates": []
+            "candidates": [],
+            "incumbent": incumbent_info if incumbent_info else None
         }
 
     for i in range(1, 47):  # Senate has 46 districts
+        incumbent_info = incumbents_data.get("senate", {}).get(str(i), {})
         output["senate"][str(i)] = {
             "districtNumber": i,
-            "candidates": []
+            "candidates": [],
+            "incumbent": incumbent_info if incumbent_info else None
         }
 
     # Process reports_with_metadata (current tracking)
@@ -156,6 +207,9 @@ def process_ethics_data(ethics_file: str) -> dict:
         # Look up party affiliation
         party = find_party(candidate_name, party_data, chamber, district_num)
 
+        # Check if candidate is the incumbent
+        incumbent_status = is_incumbent(candidate_name, party_data, chamber, district_num)
+
         # Create candidate entry
         candidate_entry = {
             "name": candidate_name,
@@ -164,7 +218,8 @@ def process_ethics_data(ethics_file: str) -> dict:
             "filedDate": report.get("filed_date"),
             "ethicsUrl": report.get("url"),
             "reportId": report_id,
-            "source": "ethics"
+            "source": "ethics",
+            "isIncumbent": incumbent_status
         }
 
         # Add to appropriate chamber/district
@@ -199,6 +254,7 @@ def main():
     dem_count = 0
     rep_count = 0
     unknown_count = 0
+    incumbent_count = 0
 
     for chamber in ["house", "senate"]:
         for district_data in output[chamber].values():
@@ -211,11 +267,14 @@ def main():
                     rep_count += 1
                 else:
                     unknown_count += 1
+                if candidate.get("isIncumbent"):
+                    incumbent_count += 1
 
     print(f"Total candidates: {total_candidates}")
     print(f"  Democrats: {dem_count}")
     print(f"  Republicans: {rep_count}")
     print(f"  Unknown: {unknown_count}")
+    print(f"  Incumbents: {incumbent_count}")
 
     # Write output
     OUTPUT_FILE.parent.mkdir(parents=True, exist_ok=True)

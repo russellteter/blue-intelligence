@@ -1,27 +1,7 @@
 'use client';
 
 import { useEffect, useRef, useState, useMemo, useCallback } from 'react';
-
-interface Candidate {
-  name: string;
-  party: string | null;
-  status: string;
-  filedDate: string | null;
-  ethicsUrl: string | null;
-  reportId: string;
-  source: string;
-}
-
-interface District {
-  districtNumber: number;
-  candidates: Candidate[];
-}
-
-interface CandidatesData {
-  lastUpdated: string;
-  house: Record<string, District>;
-  senate: Record<string, District>;
-}
+import type { CandidatesData, District } from '@/types/schema';
 
 interface DistrictMapProps {
   chamber: 'house' | 'senate';
