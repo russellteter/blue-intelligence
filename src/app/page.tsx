@@ -1,5 +1,5 @@
 'use client';
-
+// SC Election Map 2026 - Objective fact-based display
 import { useState, useEffect, useRef, useCallback, useMemo } from 'react';
 import Link from 'next/link';
 import DistrictMap from '@/components/Map/DistrictMap';
