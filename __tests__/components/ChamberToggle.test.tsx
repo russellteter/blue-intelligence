@@ -21,9 +21,9 @@ describe('ChamberToggle Component', () => {
     const houseButton = screen.getByText('House (124)');
     const senateButton = screen.getByText('Senate (46)');
 
-    // House should have active styling (bg-white)
-    expect(houseButton).toHaveClass('bg-white');
-    expect(senateButton).not.toHaveClass('bg-white');
+    // House should have active styling (glassmorphic 'active' class)
+    expect(houseButton).toHaveClass('active');
+    expect(senateButton).not.toHaveClass('active');
   });
 
   it('shows Senate as active when chamber is senate', () => {
@@ -32,8 +32,8 @@ describe('ChamberToggle Component', () => {
     const houseButton = screen.getByText('House (124)');
     const senateButton = screen.getByText('Senate (46)');
 
-    expect(senateButton).toHaveClass('bg-white');
-    expect(houseButton).not.toHaveClass('bg-white');
+    expect(senateButton).toHaveClass('active');
+    expect(houseButton).not.toHaveClass('active');
   });
 
   it('calls onChange with house when House button is clicked', () => {
@@ -60,5 +60,19 @@ describe('ChamberToggle Component', () => {
     fireEvent.click(screen.getByText('House (124)'));
 
     expect(mockOnChange).toHaveBeenCalledWith('house');
+  });
+
+  it('has proper ARIA attributes for tabs', () => {
+    render(<ChamberToggle chamber="house" onChange={mockOnChange} />);
+
+    const tablist = screen.getByRole('tablist', { name: 'Chamber selection' });
+    expect(tablist).toBeInTheDocument();
+
+    const tabs = screen.getAllByRole('tab');
+    expect(tabs).toHaveLength(2);
+
+    // Check aria-selected
+    expect(screen.getByText('House (124)')).toHaveAttribute('aria-selected', 'true');
+    expect(screen.getByText('Senate (46)')).toHaveAttribute('aria-selected', 'false');
   });
 });

@@ -86,11 +86,12 @@ export default function Home() {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50 flex flex-col">
+    <div className="min-h-screen flex flex-col" style={{ background: 'var(--background, #EDECFD)' }}>
       {/* Skip link for keyboard users */}
       <a
         href="#map-container"
-        className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:bg-blue-600 focus:text-white focus:px-4 focus:py-2 focus:rounded-md focus:shadow-lg"
+        className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:rounded-md focus:shadow-lg"
+        style={{ background: 'var(--class-purple, #4739E7)', color: 'white' }}
       >
         Skip to map
       </a>
@@ -109,15 +110,15 @@ export default function Home() {
           : ''}
       </div>
 
-      {/* Header */}
-      <header className="bg-white border-b shadow-sm">
+      {/* Header - Glassmorphic */}
+      <header className="glass-surface border-b" style={{ borderColor: 'var(--class-purple-light, #DAD7FA)' }}>
         <div className="max-w-7xl mx-auto px-4 py-4">
           <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
             <div>
-              <h1 className="text-2xl font-bold text-gray-900">
+              <h1 className="text-2xl font-bold" style={{ color: 'var(--text-color, #0A1849)' }}>
                 SC 2026 Election Map
               </h1>
-              <p className="text-sm text-gray-600 mt-1">
+              <p className="text-sm mt-1" style={{ color: 'var(--color-text-muted, #4A5568)' }}>
                 Tracking {chamber === 'house' ? '124 House' : '46 Senate'} districts
               </p>
             </div>
@@ -130,50 +131,49 @@ export default function Home() {
       <div className="flex-1 flex flex-col lg:flex-row">
         {/* Map section */}
         <div className="flex-1 flex flex-col p-4">
-          {/* Stats bar */}
+          {/* Stats bar - Glassmorphic KPI Grid */}
           {stats && (
-            <div className="bg-white rounded-lg shadow-sm p-4 mb-4">
-              <div className="grid grid-cols-2 sm:grid-cols-5 gap-4 text-center">
-                <div>
-                  <div className="text-2xl font-bold text-blue-600">{stats.democrats}</div>
-                  <div className="text-sm text-gray-600">Democrats</div>
-                </div>
-                <div>
-                  <div className="text-2xl font-bold text-red-600">{stats.republicans}</div>
-                  <div className="text-sm text-gray-600">Republicans</div>
-                </div>
-                <div>
-                  <div className="text-2xl font-bold text-amber-500">{stats.unknown}</div>
-                  <div className="text-sm text-gray-600">Unknown Party</div>
-                </div>
-                <div>
-                  <div className="text-2xl font-bold text-gray-400">{stats.empty}</div>
-                  <div className="text-sm text-gray-600">No Candidates</div>
-                </div>
-                <div>
-                  <div className="text-2xl font-bold text-purple-600">{stats.enrichmentPercent}%</div>
-                  <div className="text-sm text-gray-600">Party Data</div>
-                  <div className="mt-1 w-full bg-gray-200 rounded-full h-1.5">
-                    <div
-                      className={`h-1.5 rounded-full transition-all duration-500 ${
-                        stats.enrichmentPercent >= 70
-                          ? 'bg-green-500'
-                          : stats.enrichmentPercent >= 40
-                          ? 'bg-amber-500'
-                          : 'bg-red-500'
-                      }`}
-                      style={{ width: `${stats.enrichmentPercent}%` }}
-                    />
-                  </div>
+            <div className="kpi-grid mb-4">
+              <div className="kpi-card democrat">
+                <div className="label">Democrats</div>
+                <div className="value">{stats.democrats}</div>
+              </div>
+              <div className="kpi-card republican">
+                <div className="label">Republicans</div>
+                <div className="value">{stats.republicans}</div>
+              </div>
+              <div className="kpi-card unknown">
+                <div className="label">Unknown Party</div>
+                <div className="value">{stats.unknown}</div>
+              </div>
+              <div className="kpi-card empty">
+                <div className="label">No Candidates</div>
+                <div className="value">{stats.empty}</div>
+              </div>
+              <div className="kpi-card">
+                <div className="label">Party Data</div>
+                <div className="value" style={{ color: 'var(--class-purple, #4739E7)' }}>{stats.enrichmentPercent}%</div>
+                <div className="mt-2 w-full rounded-full h-1.5" style={{ background: 'var(--class-purple-light, #DAD7FA)' }}>
+                  <div
+                    className="h-1.5 rounded-full transition-all duration-500"
+                    style={{
+                      width: `${stats.enrichmentPercent}%`,
+                      background: stats.enrichmentPercent >= 70
+                        ? 'var(--color-excellent, #059669)'
+                        : stats.enrichmentPercent >= 40
+                        ? 'var(--color-attention, #FFBA00)'
+                        : 'var(--color-at-risk, #DC2626)'
+                    }}
+                  />
                 </div>
               </div>
             </div>
           )}
 
-          {/* Map container */}
+          {/* Map container - Glassmorphic */}
           <div
             id="map-container"
-            className="flex-1 bg-white rounded-lg shadow-sm p-4 min-h-[400px]"
+            className="flex-1 glass-surface rounded-lg p-4 min-h-[400px]"
             role="region"
             aria-label="Interactive district map"
           >
@@ -186,23 +186,29 @@ export default function Home() {
             />
           </div>
 
-          {/* Legend */}
-          <div className="bg-white rounded-lg shadow-sm p-4 mt-4">
+          {/* Legend - Glassmorphic */}
+          <div className="glass-surface rounded-lg p-4 mt-4">
             <Legend />
           </div>
 
-          {/* Hover info */}
+          {/* Hover info - Glassmorphic */}
           {hoveredDistrict && (
-            <div className="fixed bottom-4 left-4 bg-white rounded-lg shadow-lg p-3 border">
-              <span className="font-medium">
+            <div
+              className="fixed bottom-4 left-4 glass-surface rounded-lg p-3"
+              style={{ borderColor: 'var(--class-purple-light, #DAD7FA)' }}
+            >
+              <span className="font-medium" style={{ color: 'var(--text-color, #0A1849)' }}>
                 {chamber === 'house' ? 'House' : 'Senate'} District {hoveredDistrict}
               </span>
             </div>
           )}
         </div>
 
-        {/* Side panel */}
-        <div className="w-full lg:w-96 bg-white border-l shadow-sm">
+        {/* Side panel - Glassmorphic */}
+        <div
+          className="w-full lg:w-96 glass-surface border-l"
+          style={{ borderColor: 'var(--class-purple-light, #DAD7FA)' }}
+        >
           <SidePanel
             chamber={chamber}
             district={selectedDistrictData}
@@ -211,9 +217,12 @@ export default function Home() {
         </div>
       </div>
 
-      {/* Footer */}
-      <footer className="bg-white border-t py-4 px-4">
-        <div className="max-w-7xl mx-auto text-center text-sm text-gray-600">
+      {/* Footer - Glassmorphic */}
+      <footer
+        className="glass-surface border-t py-4 px-4"
+        style={{ borderColor: 'var(--class-purple-light, #DAD7FA)' }}
+      >
+        <div className="max-w-7xl mx-auto text-center text-sm" style={{ color: 'var(--color-text-muted, #4A5568)' }}>
           <p>
             Data updated: {new Date(candidatesData.lastUpdated).toLocaleDateString('en-US', {
               month: 'long',
@@ -229,7 +238,8 @@ export default function Home() {
               href="https://ethicsfiling.sc.gov/public/campaign-reports/reports"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-blue-600 hover:underline"
+              className="hover:underline"
+              style={{ color: 'var(--class-purple, #4739E7)' }}
             >
               SC Ethics Commission
             </a>

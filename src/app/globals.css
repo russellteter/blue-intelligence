@@ -232,9 +232,15 @@ svg path[id^="senate-"]:hover,
 }
 
 .badge-unknown {
+  background: linear-gradient(135deg, #FFFCF0 0%, #FEF8E0 100%);
+  color: #92400E;
+  border: 1px solid rgba(217, 119, 6, 0.2);
+}
+
+.badge-empty {
   background: linear-gradient(135deg, #F9FAFB 0%, #F3F4F6 100%);
-  color: #6b7280;
-  border: 1px solid rgba(107, 114, 128, 0.3);
+  color: #9ca3af;
+  border: 1px solid rgba(156, 163, 175, 0.3);
 }
 
 /* CHAMBER TOGGLE */

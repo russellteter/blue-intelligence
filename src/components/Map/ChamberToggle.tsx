@@ -5,24 +5,22 @@ interface ChamberToggleProps {
 
 export default function ChamberToggle({ chamber, onChange }: ChamberToggleProps) {
   return (
-    <div className="inline-flex rounded-lg bg-gray-100 p-1">
+    <div className="chamber-toggle" role="tablist" aria-label="Chamber selection">
       <button
         onClick={() => onChange('house')}
-        className={`px-4 py-2 text-sm font-medium rounded-md transition-colors ${
-          chamber === 'house'
-            ? 'bg-white text-gray-900 shadow'
-            : 'text-gray-600 hover:text-gray-900'
-        }`}
+        className={`chamber-toggle-btn ${chamber === 'house' ? 'active' : ''}`}
+        role="tab"
+        aria-selected={chamber === 'house'}
+        aria-controls="map-container"
       >
         House (124)
       </button>
       <button
         onClick={() => onChange('senate')}
-        className={`px-4 py-2 text-sm font-medium rounded-md transition-colors ${
-          chamber === 'senate'
-            ? 'bg-white text-gray-900 shadow'
-            : 'text-gray-600 hover:text-gray-900'
-        }`}
+        className={`chamber-toggle-btn ${chamber === 'senate' ? 'active' : ''}`}
+        role="tab"
+        aria-selected={chamber === 'senate'}
+        aria-controls="map-container"
       >
         Senate (46)
       </button>

@@ -41,11 +41,22 @@ describe('Legend Component', () => {
     expect(legendContainer).toBeInTheDocument();
   });
 
-  it('hides color blocks from screen readers', () => {
+  it('uses glassmorphic badge classes', () => {
     const { container } = render(<Legend />);
 
-    // Color blocks should have aria-hidden
-    const colorBlocks = container.querySelectorAll('[aria-hidden="true"]');
-    expect(colorBlocks.length).toBe(5); // One per legend item
+    // Check for badge classes
+    expect(container.querySelector('.badge-democrat')).toBeInTheDocument();
+    expect(container.querySelector('.badge-republican')).toBeInTheDocument();
+    expect(container.querySelector('.badge-both')).toBeInTheDocument();
+    expect(container.querySelector('.badge-unknown')).toBeInTheDocument();
+    expect(container.querySelector('.badge-empty')).toBeInTheDocument();
+  });
+
+  it('hides symbols from screen readers', () => {
+    const { container } = render(<Legend />);
+
+    // Symbol spans should have aria-hidden
+    const hiddenSymbols = container.querySelectorAll('[aria-hidden="true"]');
+    expect(hiddenSymbols.length).toBe(5); // One per legend item
   });
 });
