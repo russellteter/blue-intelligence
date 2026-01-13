@@ -1,8 +1,8 @@
 @import "tailwindcss";
 
 :root {
-  --background: #EDECFD;
-  --foreground: #0A1849;
+  --background: #F8FAFC;
+  --foreground: #0F172A;
 }
 
 @theme inline {
@@ -86,53 +86,56 @@ svg path[id^="senate-"]:hover,
    ================================================ */
 
 :root {
-  /* PRIMARY COLORS */
-  --class-purple: #4739E7;
-  --class-purple-light: #DAD7FA;
-  --class-purple-bg: #F6F6FE;
-  --glass-background: #EDECFD;
-  --text-color: #0A1849;
-  --text-muted: #4A5568;
-  --yellow-accent: #D97706;       /* WCAG AA compliant amber */
+  /* PRIMARY COLORS - Class Dashboard Style */
+  --class-purple: #1E40AF;         /* Now blue (keeping var name for compatibility) */
+  --class-purple-light: #DBEAFE;   /* Light blue */
+  --class-purple-bg: #F8FAFC;      /* Off-white */
+  --glass-background: #FFFFFF;     /* Pure white */
+  --text-color: #0F172A;
+  --text-muted: #64748B;
+  --yellow-accent: #D97706;
   --card-bg: #FFFFFF;
 
-  /* ACCENT COLORS (SHARP) */
-  --accent-cyan: #06B6D4;
-  --accent-emerald: #10B981;
-  --accent-amber: #F59E0B;
-  --accent-rose: #F43F5E;
+  /* NEW CLASS DASHBOARD TOKENS */
+  --class-blue: #1E40AF;
+  --class-blue-hover: #1D4ED8;
+  --class-blue-dark: #1E3A8A;
+  --border-subtle: #E2E8F0;
+  --border-default: #CBD5E1;
+  --link-blue: #2563EB;
+
+  /* ACCENT COLORS */
+  --accent-cyan: #0891B2;
+  --accent-emerald: #059669;
+  --accent-amber: #D97706;
+  --accent-rose: #DC2626;
 
   /* STATUS COLORS (SEMANTIC) */
-  --color-excellent: #059669;      /* Green - both parties running */
-  --color-healthy: #4739E7;        /* Purple - democrat running */
-  --color-attention: #D97706;      /* Amber - party unknown (WCAG AA: 4.6:1 contrast) */
-  --color-at-risk: #DC2626;        /* Red - republican running */
-  --color-empty: #DAD7FA;          /* Light purple - no candidates */
+  --color-excellent: #059669;
+  --color-healthy: #1E40AF;        /* Blue */
+  --color-attention: #D97706;
+  --color-at-risk: #DC2626;
+  --color-empty: #E2E8F0;
 
-  /* STATUS BACKGROUNDS */
+  /* STATUS BACKGROUNDS - Solid, no gradients */
   --color-excellent-bg: #ECFDF5;
-  --color-healthy-bg: #F6F6FE;
+  --color-healthy-bg: #DBEAFE;
   --color-attention-bg: #FEF3C7;
-  --color-at-risk-bg: #FEF2F2;
+  --color-at-risk-bg: #FEE2E2;
 
   /* ELECTION MAP COLORS */
-  --map-democrat: #4739E7;
+  --map-democrat: #1E40AF;
   --map-republican: #DC2626;
-  --map-both-parties: #a855f7;
-  --map-unknown: #9ca3af;
-  --map-empty: #f3f4f6;
-  --map-stroke: #374151;
+  --map-both-parties: #059669;
+  --map-unknown: #94A3B8;
+  --map-empty: #F1F5F9;
+  --map-stroke: #CBD5E1;
 
-  /* GRADIENTS */
-  --gradient-primary: linear-gradient(135deg, #4739E7 0%, #7C3AED 100%);
-  --gradient-bg: linear-gradient(180deg, #F6F6FE 0%, #EDECFD 50%, #E0E7FF 100%);
-  --gradient-glass: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(246, 246, 254, 0.9) 100%);
-  --gradient-card-hover: linear-gradient(135deg, rgba(71, 57, 231, 0.02) 0%, rgba(71, 57, 231, 0.06) 100%);
-
-  /* GLOW & HIGHLIGHT */
-  --glow-purple: 0 0 20px rgba(71, 57, 231, 0.3);
-  --glow-purple-lg: 0 0 40px rgba(71, 57, 231, 0.2);
-  --highlight-purple: rgba(71, 57, 231, 0.08);
+  /* SIMPLIFIED - No gradients */
+  --gradient-primary: #1E40AF;
+  --gradient-bg: #F8FAFC;
+  --gradient-glass: #FFFFFF;
+  --gradient-card-hover: rgba(30, 64, 175, 0.02);
 
   /* TYPOGRAPHY */
   --font-display: var(--font-display), 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
@@ -174,13 +177,12 @@ svg path[id^="senate-"]:hover,
   --radius-xl: 12px;
   --radius-pill: 9999px;
 
-  /* SHADOWS (5-LEVEL HIERARCHY) */
-  --shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.04);
-  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.06), 0 1px 2px rgba(0, 0, 0, 0.04);
-  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.05), 0 2px 4px rgba(0, 0, 0, 0.03);
-  --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.08), 0 4px 6px rgba(0, 0, 0, 0.04);
-  --shadow-xl: 0 20px 25px rgba(0, 0, 0, 0.10), 0 10px 10px rgba(0, 0, 0, 0.04);
-  --shadow-purple: 0 4px 14px rgba(71, 57, 231, 0.15);
+  /* SHADOWS - Simplified for clean look */
+  --shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.03);
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.05);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.05);
 
   /* TRANSITIONS */
   --transition-fast: 0.15s ease;
@@ -189,52 +191,23 @@ svg path[id^="senate-"]:hover,
   --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-/* GLASSMORPHIC SURFACES */
+/* CLEAN SURFACES - Class Dashboard Style */
 .glass-surface {
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(246, 246, 254, 0.9) 100%);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(71, 57, 231, 0.08);
-  box-shadow:
-    var(--shadow-md),
-    inset 0 1px 0 rgba(255, 255, 255, 0.8),
-    inset 0 -1px 0 rgba(71, 57, 231, 0.03);
-  position: relative; /* Required for ::after pseudo-element */
-  transition: box-shadow var(--transition-normal), border-color var(--transition-fast);
+  background: #FFFFFF;
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  transition: border-color var(--transition-fast);
 }
 
-/* Enhanced glass surface hover state */
 .glass-surface:hover {
-  border-color: rgba(71, 57, 231, 0.12);
-  box-shadow:
-    var(--shadow-lg),
-    inset 0 1px 0 rgba(255, 255, 255, 0.9),
-    inset 0 -1px 0 rgba(71, 57, 231, 0.05),
-    0 0 30px rgba(71, 57, 231, 0.05);
+  border-color: var(--border-default);
 }
 
-/* Noise texture overlay for premium depth */
-.glass-surface::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
-  opacity: 0.03;
-  mix-blend-mode: overlay;
-  pointer-events: none;
-  border-radius: inherit;
-}
-
-/* Glass surface elevated variant */
+/* Elevated variant */
 .glass-surface-elevated {
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.98) 0%, rgba(246, 246, 254, 0.95) 100%);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(71, 57, 231, 0.1);
-  box-shadow:
-    var(--shadow-lg),
-    inset 0 1px 0 rgba(255, 255, 255, 0.9),
-    0 0 40px rgba(71, 57, 231, 0.06);
+  background: #FFFFFF;
+  border: 1px solid var(--border-default);
+  box-shadow: var(--shadow-sm);
 }
 
 /* KPI CARD STYLES */
@@ -252,35 +225,16 @@ svg path[id^="senate-"]:hover,
 
 .kpi-card {
   background: var(--card-bg);
-  border: 1px solid var(--class-purple-light);
+  border: 1px solid var(--border-subtle);
   border-radius: var(--radius-md);
-  padding: var(--space-4); /* Compact: 12px (was 16px) */
+  padding: var(--space-4);
   text-align: center;
-  position: relative;
-  overflow: hidden;
-  transition: all var(--transition-fast);
-}
-
-.kpi-card::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 3px;
-  background: var(--class-purple);
-  transform: scaleX(0);
-  transform-origin: left;
-  transition: transform var(--transition-normal);
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
 }
 
 .kpi-card:hover {
-  border-color: var(--class-purple);
-  box-shadow: var(--shadow-md);
-}
-
-.kpi-card:hover::before {
-  transform: scaleX(1);
+  border-color: var(--class-blue);
+  box-shadow: var(--shadow-sm);
 }
 
 .kpi-card .label {
@@ -314,30 +268,48 @@ svg path[id^="senate-"]:hover,
 }
 
 .badge-democrat {
-  background: linear-gradient(135deg, #EEF2FF 0%, #E0E7FF 100%);
-  color: var(--class-purple);
-  border: 1px solid rgba(71, 57, 231, 0.3);
+  background: #DBEAFE;
+  color: var(--class-blue);
+  border: 1px solid #BFDBFE;
+}
+
+.badge-republican {
+  background: #FEE2E2;
+  color: #DC2626;
+  border: 1px solid #FECACA;
 }
 
 .badge-unknown {
-  background: linear-gradient(135deg, #FFFCF0 0%, #FEF8E0 100%);
-  color: #92400E;
-  border: 1px solid rgba(217, 119, 6, 0.2);
+  background: #FEF3C7;
+  color: #B45309;
+  border: 1px solid #FDE68A;
 }
 
 .badge-empty {
-  background: linear-gradient(135deg, #F9FAFB 0%, #F3F4F6 100%);
-  color: #9ca3af;
-  border: 1px solid rgba(156, 163, 175, 0.3);
+  background: #F1F5F9;
+  color: #64748B;
+  border: 1px solid #E2E8F0;
+}
+
+.badge-both {
+  background: #ECFDF5;
+  color: #059669;
+  border: 1px solid #D1FAE5;
+}
+
+.badge-excellent {
+  background: #ECFDF5;
+  color: #059669;
+  border: 1px solid #D1FAE5;
 }
 
 /* CHAMBER TOGGLE */
 .chamber-toggle {
   display: inline-flex;
-  background: var(--class-purple-bg);
+  background: #F1F5F9;
   border-radius: var(--radius-lg);
   padding: var(--space-2);
-  border: 1px solid var(--class-purple-light);
+  border: 1px solid var(--border-subtle);
 }
 
 .chamber-toggle-btn {
@@ -349,12 +321,12 @@ svg path[id^="senate-"]:hover,
   cursor: pointer;
   transition: all var(--transition-fast);
   background: transparent;
-  color: #6b7280;
+  color: #64748B;
 }
 
 .chamber-toggle-btn.active {
   background: var(--card-bg);
-  color: var(--class-purple);
+  color: var(--class-blue);
   box-shadow: var(--shadow-sm);
   font-weight: 600;
 }
@@ -379,34 +351,12 @@ svg path[id^="senate-"]:hover,
 }
 
 /* ================================================
-   ATMOSPHERIC BACKGROUND SYSTEM
-   Creates depth and visual interest
+   BACKGROUND SYSTEM - Clean Class Dashboard Style
    ================================================ */
 
 .atmospheric-bg {
-  background: var(--gradient-bg);
-  position: relative;
+  background: var(--background);
   min-height: 100vh;
-}
-
-.atmospheric-bg::before {
-  content: '';
-  position: fixed;
-  top: -50%;
-  left: -50%;
-  width: 200%;
-  height: 200%;
-  background:
-    radial-gradient(circle at 20% 20%, rgba(71, 57, 231, 0.06) 0%, transparent 50%),
-    radial-gradient(circle at 80% 60%, rgba(168, 85, 247, 0.05) 0%, transparent 40%),
-    radial-gradient(circle at 40% 80%, rgba(6, 182, 212, 0.04) 0%, transparent 35%);
-  pointer-events: none;
-  z-index: 0;
-}
-
-.atmospheric-bg > * {
-  position: relative;
-  z-index: 1;
 }
 
 /* ================================================
@@ -487,69 +437,25 @@ svg path[id^="senate-"]:hover,
 
 /* Enhanced KPI card hover */
 .kpi-card:hover {
-  border-color: var(--class-purple);
-  box-shadow:
-    var(--shadow-lg),
-    0 0 20px rgba(71, 57, 231, 0.12),
-    0 0 40px rgba(71, 57, 231, 0.06);
-  transform: translateY(-3px);
+  border-color: var(--class-blue);
+  box-shadow: var(--shadow-md);
 }
 
-/* KPI card value gradient text */
-.kpi-value-gradient {
-  background: linear-gradient(
-    135deg,
-    var(--text-color) 0%,
-    var(--class-purple) 50%,
-    var(--text-color) 100%
-  );
-  background-size: 200% auto;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  animation: gradient-shift 3s ease-in-out infinite;
-}
-
-@keyframes gradient-shift {
-  0%, 100% { background-position: 0% center; }
-  50% { background-position: 100% center; }
-}
-
-/* Variant-specific value colors with gradients */
+/* KPI card value colors - solid, no gradients */
 .kpi-card.democrat .kpi-value {
-  background: linear-gradient(135deg, #4739E7 0%, #7C3AED 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  color: var(--class-blue);
 }
 
 .kpi-card.contested .kpi-value {
-  background: linear-gradient(135deg, #059669 0%, #10B981 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  color: #059669;
 }
 
 .kpi-card.unknown .kpi-value {
-  background: linear-gradient(135deg, #6B7280 0%, #9CA3AF 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  color: #64748B;
 }
 
 .kpi-card.empty .kpi-value {
-  background: linear-gradient(135deg, #9CA3AF 0%, #D1D5DB 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
-/* Reduced motion: disable gradient animation */
-@media (prefers-reduced-motion: reduce) {
-  .kpi-value-gradient {
-    animation: none;
-    background-position: 0% center;
-  }
+  color: #94A3B8;
 }
 
 /* ================================================
@@ -600,51 +506,25 @@ svg path[id^="senate-"]:hover,
   will-change: transform, filter;
 }
 
-/* Enhanced hover state with layered glow */
+/* Enhanced hover state - clean blue */
 .district-path:hover {
-  transform: scale(1.025);
-  filter:
-    drop-shadow(0 0 4px rgba(71, 57, 231, 0.3))
-    drop-shadow(0 0 8px rgba(71, 57, 231, 0.2))
-    drop-shadow(0 0 16px rgba(71, 57, 231, 0.1));
+  transform: scale(1.02);
+  filter: drop-shadow(0 0 4px rgba(30, 64, 175, 0.3));
   stroke-width: 1.2;
-  stroke: rgba(71, 57, 231, 0.6);
+  stroke: rgba(30, 64, 175, 0.6);
   z-index: 10;
 }
 
-/* Selected state with stronger emphasis */
+/* Selected state */
 .district-path.selected {
-  filter:
-    drop-shadow(0 0 6px rgba(71, 57, 231, 0.5))
-    drop-shadow(0 0 12px rgba(71, 57, 231, 0.3))
-    drop-shadow(0 0 24px rgba(71, 57, 231, 0.15));
-  stroke: var(--class-purple);
-  stroke-width: 2.5;
+  filter: drop-shadow(0 0 6px rgba(30, 64, 175, 0.4));
+  stroke: var(--class-blue);
+  stroke-width: 2;
   z-index: 20;
 }
 
-/* Selection burst animation - celebratory effect */
-@keyframes district-select-pulse {
-  0% {
-    transform: scale(1);
-    filter: drop-shadow(0 0 0 transparent);
-  }
-  30% {
-    transform: scale(1.06);
-    filter:
-      drop-shadow(0 0 12px rgba(71, 57, 231, 0.6))
-      drop-shadow(0 0 24px rgba(71, 57, 231, 0.4));
-  }
-  100% {
-    transform: scale(1.02);
-    filter:
-      drop-shadow(0 0 6px rgba(71, 57, 231, 0.5))
-      drop-shadow(0 0 12px rgba(71, 57, 231, 0.3));
-  }
-}
-
 .district-path.just-selected {
-  animation: district-select-pulse 0.5s var(--ease-out-expo);
+  animation: none;
 }
 
 /* Opportunity tier hover colors - match district fill */
@@ -698,10 +578,8 @@ svg path[id^="senate-"]:hover,
 }
 
 .toast {
-  background: var(--gradient-glass);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid var(--class-purple-light);
+  background: #FFFFFF;
+  border: 1px solid var(--border-subtle);
   border-radius: var(--radius-lg);
   padding: var(--space-4) var(--space-5);
   box-shadow: var(--shadow-lg);
@@ -1267,5 +1145,264 @@ svg path[id^="senate-"]:hover,
 
   .toast-container {
     bottom: max(1rem, env(safe-area-inset-bottom));
+  }
+}
+
+/* ================================================
+   STRATEGIC TABLE STYLES
+   Full-width sortable data table with glassmorphic design
+   ================================================ */
+
+.strategic-table-container {
+  width: 100%;
+}
+
+.strategic-table-wrapper {
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--class-purple-light);
+}
+
+.strategic-table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: auto;
+  min-width: 700px; /* Ensure horizontal scroll on mobile */
+}
+
+/* Table Header */
+.strategic-table-header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: #FAFAFA;
+}
+
+.strategic-table-th {
+  padding: var(--space-4) var(--space-5);
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #64748B;
+  border-bottom: 1px solid var(--border-subtle);
+  white-space: nowrap;
+}
+
+.strategic-table-sort-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: var(--space-2);
+  margin: calc(-1 * var(--space-2));
+  border-radius: var(--radius-sm);
+  transition: all var(--transition-fast);
+  color: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+  text-transform: inherit;
+  letter-spacing: inherit;
+}
+
+.strategic-table-sort-btn:hover {
+  background: rgba(30, 64, 175, 0.06);
+  color: var(--class-blue);
+}
+
+.strategic-table-sort-btn:focus-visible {
+  outline: 2px solid var(--class-blue);
+  outline-offset: 2px;
+}
+
+.strategic-table-sort-btn.active {
+  color: var(--class-blue);
+}
+
+.strategic-table-sort-btn .sort-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform var(--transition-fast);
+}
+
+/* Table Rows */
+.strategic-table-row {
+  cursor: pointer;
+  transition: background var(--transition-fast);
+  border-bottom: 1px solid #F1F5F9;
+}
+
+.strategic-table-row.odd {
+  background: #FFFFFF;
+}
+
+.strategic-table-row.even {
+  background: #FAFAFA;
+}
+
+.strategic-table-row:hover {
+  background: #F8FAFC;
+}
+
+.strategic-table-row:focus-visible {
+  outline: 2px solid var(--class-blue);
+  outline-offset: -2px;
+  z-index: 5;
+  position: relative;
+}
+
+/* High opportunity row highlight */
+.strategic-table-row.tier-highlight {
+  background: #FFFFFF;
+  border-left: 3px solid #059669;
+}
+
+.strategic-table-row.tier-highlight:hover {
+  background: #F8FAFC;
+}
+
+/* Defensive row highlight */
+.strategic-table-row.tier-defensive {
+  background: #FFFFFF;
+  border-left: 3px solid #1E40AF;
+}
+
+.strategic-table-row.tier-defensive:hover {
+  background: #F8FAFC;
+}
+
+/* Table Cells */
+.strategic-table-td {
+  padding: var(--space-4) var(--space-5);
+  font-size: var(--font-size-sm);
+  color: var(--text-color);
+  vertical-align: middle;
+}
+
+/* Quick Filter Chips */
+.quick-filter-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-2) var(--space-4);
+  font-size: var(--font-size-xs);
+  font-weight: 500;
+  border-radius: var(--radius-pill);
+  border: 1px solid var(--chip-color, var(--class-purple-light));
+  background: transparent;
+  color: var(--chip-color, var(--text-muted));
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  white-space: nowrap;
+}
+
+.quick-filter-chip .dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--chip-color, var(--text-muted));
+  flex-shrink: 0;
+}
+
+.quick-filter-chip:hover {
+  background: color-mix(in srgb, var(--chip-color, var(--class-purple)) 10%, transparent);
+}
+
+.quick-filter-chip.active {
+  background: var(--chip-color, var(--class-purple));
+  color: white;
+  border-color: var(--chip-color, var(--class-purple));
+}
+
+.quick-filter-chip.active .dot {
+  background: white;
+}
+
+.quick-filter-chip:focus-visible {
+  outline: 2px solid var(--chip-color, var(--class-purple));
+  outline-offset: 2px;
+}
+
+/* Mobile Table Adjustments */
+@media (max-width: 768px) {
+  .strategic-table-th,
+  .strategic-table-td {
+    padding: var(--space-3) var(--space-4);
+  }
+
+  .strategic-table-th:first-child,
+  .strategic-table-td:first-child {
+    position: sticky;
+    left: 0;
+    z-index: 5;
+    background: inherit;
+    box-shadow: 2px 0 8px rgba(0, 0, 0, 0.05);
+  }
+
+  .strategic-table-row.odd .strategic-table-td:first-child {
+    background: rgba(255, 255, 255, 0.95);
+  }
+
+  .strategic-table-row.even .strategic-table-td:first-child {
+    background: rgba(246, 246, 254, 0.95);
+  }
+
+  .strategic-table-header .strategic-table-th:first-child {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.98) 0%, var(--class-purple-bg) 100%);
+  }
+
+  .quick-filter-chip {
+    padding: var(--space-2) var(--space-3);
+    font-size: 0.625rem;
+  }
+}
+
+/* Print styles for table */
+@media print {
+  .strategic-table-container {
+    overflow: visible;
+  }
+
+  .strategic-table-wrapper {
+    border: none;
+    overflow: visible;
+  }
+
+  .strategic-table {
+    min-width: auto;
+  }
+
+  .strategic-table-header {
+    position: static;
+    background: #f5f5f5 !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  .strategic-table-row {
+    page-break-inside: avoid;
+  }
+
+  .strategic-table-row:hover {
+    background: inherit !important;
+    box-shadow: none !important;
+  }
+
+  .quick-filter-chip {
+    display: none;
+  }
+}
+
+/* Reduced motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  .strategic-table-row,
+  .strategic-table-sort-btn,
+  .quick-filter-chip {
+    transition: none;
   }
 }

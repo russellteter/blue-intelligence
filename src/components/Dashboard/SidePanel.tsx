@@ -3,15 +3,36 @@
 import CandidateCard from './CandidateCard';
 import Sparkline from '@/components/Charts/Sparkline';
 import type { District, DistrictElectionHistory } from '@/types/schema';
+import {
+  getFilteredCandidates,
+  groupCandidatesByParty,
+  shouldShowHeadToHead,
+  type FilterOptions,
+} from '@/lib/dataFilter';
 
 interface SidePanelProps {
   chamber: 'house' | 'senate';
   district: District | null;
   electionHistory?: DistrictElectionHistory | null;
   onClose: () => void;
+  showRepublicanData?: boolean;
+  republicanDataMode?: 'none' | 'incumbents' | 'challengers' | 'all';
 }
 
-export default function SidePanel({ chamber, district, electionHistory, onClose }: SidePanelProps) {
+export default function SidePanel({
+  chamber,
+  district,
+  electionHistory,
+  onClose,
+  showRepublicanData = false,
+  republicanDataMode = 'none',
+}: SidePanelProps) {
+  // Filter options for candidate display
+  const filterOptions: FilterOptions = {
+    showRepublicanData,
+    republicanDataMode,
+  };
+
   if (!district) {
     return (
       <div
@@ -53,6 +74,11 @@ export default function SidePanel({ chamber, district, electionHistory, onClose 
   const hasDem = district.candidates.some((c) => c.party?.toLowerCase() === 'democratic');
   const hasRep = district.candidates.some((c) => c.party?.toLowerCase() === 'republican');
   const isContested = hasDem && hasRep;
+
+  // Get filtered candidates based on Republican toggle
+  const filteredCandidates = getFilteredCandidates(district, filterOptions);
+  const showHeadToHead = shouldShowHeadToHead(district, filterOptions);
+  const candidateGroups = showHeadToHead ? groupCandidatesByParty(filteredCandidates) : null;
 
   return (
     <div className="h-full flex flex-col side-panel">
@@ -272,7 +298,7 @@ export default function SidePanel({ chamber, district, electionHistory, onClose 
           background: 'var(--glass-background)'
         }}
       >
-        {district.candidates.length === 0 ? (
+        {filteredCandidates.length === 0 ? (
           <div className="text-center py-8 animate-entrance" style={{ color: 'var(--text-muted)' }}>
             <div
               className="w-12 h-12 mx-auto mb-3 rounded-full flex items-center justify-center"
@@ -295,9 +321,103 @@ export default function SidePanel({ chamber, district, electionHistory, onClose 
               Check back later for updates
             </p>
           </div>
+        ) : showHeadToHead && candidateGroups ? (
+          /* Head-to-head view when both parties visible */
+          <div className="space-y-4">
+            {/* Democrats section */}
+            {candidateGroups.democrats.length > 0 && (
+              <div>
+                <div
+                  className="flex items-center gap-2 mb-2 pb-2 border-b"
+                  style={{ borderColor: 'var(--class-purple-light)' }}
+                >
+                  <span
+                    className="w-3 h-3 rounded-full"
+                    style={{ background: 'var(--class-purple)' }}
+                  />
+                  <span
+                    className="text-xs font-semibold uppercase tracking-wider"
+                    style={{ color: 'var(--class-purple)' }}
+                  >
+                    Democrats ({candidateGroups.democrats.length})
+                  </span>
+                </div>
+                <div className="space-y-3">
+                  {candidateGroups.democrats.map((candidate, index) => (
+                    <CandidateCard
+                      key={candidate.reportId}
+                      candidate={candidate}
+                      index={index}
+                    />
+                  ))}
+                </div>
+              </div>
+            )}
+
+            {/* Republicans section */}
+            {candidateGroups.republicans.length > 0 && (
+              <div>
+                <div
+                  className="flex items-center gap-2 mb-2 pb-2 border-b"
+                  style={{ borderColor: 'rgba(220, 38, 38, 0.3)' }}
+                >
+                  <span
+                    className="w-3 h-3 rounded-full"
+                    style={{ background: '#DC2626' }}
+                  />
+                  <span
+                    className="text-xs font-semibold uppercase tracking-wider"
+                    style={{ color: '#DC2626' }}
+                  >
+                    Republicans ({candidateGroups.republicans.length})
+                  </span>
+                </div>
+                <div className="space-y-3">
+                  {candidateGroups.republicans.map((candidate, index) => (
+                    <CandidateCard
+                      key={candidate.reportId}
+                      candidate={candidate}
+                      index={index}
+                    />
+                  ))}
+                </div>
+              </div>
+            )}
+
+            {/* Others section */}
+            {candidateGroups.others.length > 0 && (
+              <div>
+                <div
+                  className="flex items-center gap-2 mb-2 pb-2 border-b"
+                  style={{ borderColor: 'var(--class-purple-light)' }}
+                >
+                  <span
+                    className="w-3 h-3 rounded-full"
+                    style={{ background: 'var(--color-attention)' }}
+                  />
+                  <span
+                    className="text-xs font-semibold uppercase tracking-wider"
+                    style={{ color: 'var(--color-attention)' }}
+                  >
+                    Other ({candidateGroups.others.length})
+                  </span>
+                </div>
+                <div className="space-y-3">
+                  {candidateGroups.others.map((candidate, index) => (
+                    <CandidateCard
+                      key={candidate.reportId}
+                      candidate={candidate}
+                      index={index}
+                    />
+                  ))}
+                </div>
+              </div>
+            )}
+          </div>
         ) : (
+          /* Standard list view */
           <div className="space-y-3">
-            {district.candidates.map((candidate, index) => (
+            {filteredCandidates.map((candidate, index) => (
               <CandidateCard
                 key={candidate.reportId}
                 candidate={candidate}

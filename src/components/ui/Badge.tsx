@@ -30,40 +30,39 @@ const variantStyles: Record<BadgeVariant, {
   dot: string;
 }> = {
   excellent: {
-    bg: 'linear-gradient(135deg, #ECFDF5 0%, #D1FAE5 100%)',
+    bg: '#ECFDF5',
     text: '#059669',
-    border: 'rgba(5, 150, 105, 0.3)',
+    border: '#D1FAE5',
     dot: '#059669',
   },
   healthy: {
-    bg: 'linear-gradient(135deg, #F6F6FE 0%, #EDE9FE 100%)',
-    text: 'var(--class-purple)',
-    border: 'rgba(71, 57, 231, 0.3)',
-    dot: 'var(--class-purple)',
+    bg: '#DBEAFE',
+    text: '#1E40AF',
+    border: '#BFDBFE',
+    dot: '#1E40AF',
   },
   attention: {
-    // Using #D97706 instead of #FFBA00 for WCAG AA compliance (4.6:1 contrast)
-    bg: 'linear-gradient(135deg, #FFFBEB 0%, #FEF3C7 100%)',
+    bg: '#FEF3C7',
     text: '#B45309',
-    border: 'rgba(217, 119, 6, 0.3)',
+    border: '#FDE68A',
     dot: '#D97706',
   },
   'at-risk': {
-    bg: 'linear-gradient(135deg, #FEF2F2 0%, #FECACA 100%)',
+    bg: '#FEE2E2',
     text: '#DC2626',
-    border: 'rgba(220, 38, 38, 0.3)',
+    border: '#FECACA',
     dot: '#DC2626',
   },
   neutral: {
-    bg: 'linear-gradient(135deg, #F9FAFB 0%, #F3F4F6 100%)',
-    text: '#6B7280',
-    border: 'rgba(107, 114, 128, 0.3)',
-    dot: '#9CA3AF',
+    bg: '#F1F5F9',
+    text: '#64748B',
+    border: '#E2E8F0',
+    dot: '#94A3B8',
   },
   info: {
-    bg: 'linear-gradient(135deg, #EFF6FF 0%, #DBEAFE 100%)',
-    text: '#2563EB',
-    border: 'rgba(37, 99, 235, 0.3)',
+    bg: '#DBEAFE',
+    text: '#1E40AF',
+    border: '#BFDBFE',
     dot: '#3B82F6',
   },
 };
@@ -148,7 +147,6 @@ export function Badge({
         background: styles.bg,
         color: styles.text,
         border: `1px solid ${styles.border}`,
-        boxShadow: `0 2px 8px -2px ${styles.border}`,
       }}
       {...props}
     >

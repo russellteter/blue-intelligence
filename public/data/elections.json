@@ -1,5 +1,11 @@
 {
-  "lastUpdated": "2026-01-13T07:06:00.492040Z",
+  "lastUpdated": "2026-01-13T12:45:57.026971Z",
+  "source": "SC Election Commission - electionhistory.scvotes.gov",
+  "years": [
+    2020,
+    2022,
+    2024
+  ],
   "house": {
     "1": {
       "districtNumber": 1,
@@ -15,7 +21,9 @@
           },
           "margin": 100.0,
           "marginVotes": 20495,
-          "uncontested": true
+          "uncontested": true,
+          "dem_pct": 0.0,
+          "rep_pct": 1.0
         },
         "2022": {
           "year": 2022,
@@ -28,7 +36,9 @@
           },
           "margin": 100.0,
           "marginVotes": 14049,
-          "uncontested": true
+          "uncontested": true,
+          "dem_pct": 0.0,
+          "rep_pct": 1.0
         },
         "2020": {
           "year": 2020,
@@ -41,7 +51,9 @@
           },
           "margin": 100.0,
           "marginVotes": 17308,
-          "uncontested": true
+          "uncontested": true,
+          "dem_pct": 0.0,
+          "rep_pct": 1.0
         }
       },
       "competitiveness": {
@@ -66,7 +78,9 @@
           },
           "margin": 100.0,
           "marginVotes": 16639,
-          "uncontested": true
+          "uncontested": true,
+          "dem_pct": 0.0,
+          "rep_pct": 1.0
         },
         "2022": {
           "year": 2022,
@@ -79,7 +93,9 @@
           },
           "margin": 100.0,
           "marginVotes": 10840,
-          "uncontested": true
+          "uncontested": true,
+          "dem_pct": 0.0,
+          "rep_pct": 1.0
         },
         "2020": {
           "year": 2020,
@@ -92,7 +108,9 @@
           },
           "margin": 100.0,
           "marginVotes": 17061,
-          "uncontested": true
+          "uncontested": true,
+          "dem_pct": 0.0,
+          "rep_pct": 1.0
         }
       },
       "competitiveness": {
@@ -122,7 +140,9 @@
             "percentage": 35.6
           },
           "margin": 28.8,
-          "marginVotes": 3694
+          "marginVotes": 3694,
+          "dem_pct": 0.3565,
+          "rep_pct": 0.6435
         },
         "2022": {
           "year": 2022,
@@ -135,7 +155,9 @@
           },
           "margin": 100.0,
           "marginVotes": 7031,
-          "uncontested": true
+          "uncontested": true,
+          "dem_pct": 0.0,
+          "rep_pct": 1.0
         },
         "2020": {
           "year": 2020,
@@ -153,7 +175,9 @@
             "percentage": 34.3
           },
           "margin": 31.4,
-          "marginVotes": 4395
+          "marginVotes": 4395,
+          "dem_pct": 0.3434,
+          "rep_pct": 0.6566
         }
       },
       "competitiveness": {
@@ -178,7 +202,9 @@
           },
           "margin": 100.0,
           "marginVotes": 19241,
-          "uncontested": true
+          "uncontested": true,
+          "dem_pct": 0.0,
+          "rep_pct": 1.0
         },
         "2022": {
           "year": 2022,
@@ -191,7 +217,9 @@
           },
           "margin": 100.0,
           "marginVotes": 13295,
-          "uncontested": true
+          "uncontested": true,
+          "dem_pct": 0.0,
+          "rep_pct": 1.0
         },
         "2020": {
           "year": 2020,
@@ -204,7 +232,9 @@
           },
           "margin": 100.0,
           "marginVotes": 18479,
-          "uncontested": true
+          "uncontested": true,
+          "dem_pct": 0.0,
+          "rep_pct": 1.0
         }
       },
       "competitiveness": {
@@ -229,7 +259,9 @@
           },
           "margin": 100.0,
           "marginVotes": 17029,
-          "uncontested": true
+          "uncontested": true,
+          "dem_pct": 0.0,
+          "rep_pct": 1.0
         },
         "2022": {
           "year": 2022,
@@ -242,7 +274,9 @@
           },
           "margin": 100.0,
           "marginVotes": 10854,
-          "uncontested": true
+          "uncontested": true,
+          "dem_pct": 0.0,
+          "rep_pct": 1.0
         },
         "2020": {
           "year": 2020,
@@ -255,7 +289,9 @@
           },
           "margin": 100.0,
           "marginVotes": 17845,
-          "uncontested": true
+          "uncontested": true,
+          "dem_pct": 0.0,
+          "rep_pct": 1.0
         }
       },
       "competitiveness": {
@@ -285,7 +321,9 @@
             "percentage": 25.5
           },
           "margin": 49.0,
-          "marginVotes": 10744
+          "marginVotes": 10744,
+          "dem_pct": 0.2547,
+          "rep_pct": 0.7453
         },
         "2022": {
           "year": 2022,
@@ -298,7 +336,9 @@
           },
           "margin": 100.0,
           "marginVotes": 12137,
-          "uncontested": true
+          "uncontested": true,
+          "dem_pct": 0.0,
+          "rep_pct": 1.0
         },
         "2020": {
           "year": 2020,
@@ -311,7 +351,9 @@
           },
           "margin": 100.0,
           "marginVotes": 16926,
-          "uncontested": true
+          "uncontested": true,
+          "dem_pct": 0.0,
+          "rep_pct": 1.0
         }
       },
       "competitiveness": {
@@ -341,7 +383,9 @@
             "percentage": 9.1
           },
           "margin": 81.8,
-          "marginVotes": 12331
+          "marginVotes": 12331,
+          "dem_pct": null,
+          "rep_pct": 0.9092
         },
         "2022": {
           "year": 2022,
@@ -359,7 +403,9 @@
             "percentage": 22.5
           },
           "margin": 55.0,
-          "marginVotes": 6076
+          "marginVotes": 6076,
+          "dem_pct": 0.2252,
+          "rep_pct": 0.7748
         },
         "2020": {
           "year": 2020,
@@ -377,7 +423,9 @@
             "percentage": 23.8
           },
           "margin": 52.4,
-          "marginVotes": 8447
+          "marginVotes": 8447,
+          "dem_pct": 0.2379,
+          "rep_pct": 0.7621
         }
       },
       "competitiveness": {
@@ -407,7 +455,9 @@
             "percentage": 12.7
           },
           "margin": 74.6,
-          "marginVotes": 12224
+          "marginVotes": 12224,
+          "dem_pct": null,
+          "rep_pct": 0.8726
         },
         "2022": {
           "year": 2022,
@@ -425,7 +475,9 @@
             "percentage": 24.6
           },
           "margin": 48.7,
-          "marginVotes": 6152
+          "marginVotes": 6152,
+          "dem_pct": 0.2464,
+          "rep_pct": 0.733
         },
         "2020": {
           "year": 2020,
@@ -443,7 +495,9 @@
             "percentage": 18.8
           },
           "margin": 62.4,
-          "marginVotes": 10825
+          "marginVotes": 10825,
+          "dem_pct": null,
+          "rep_pct": 0.8115
         }
       },
       "competitiveness": {
@@ -468,7 +522,9 @@
           },
           "margin": 100.0,
           "marginVotes": 14840,
-          "uncontested": true
+          "uncontested": true,
+          "dem_pct": 0.0,
+          "rep_pct": 1.0
         },
         "2022": {
           "year": 2022,
@@ -486,7 +542,9 @@
             "percentage": 25.9
           },
           "margin": 48.2,
-          "marginVotes": 5723
+          "marginVotes": 5723,
+          "dem_pct": 0.2588,
+          "rep_pct": 0.7412
         },
         "2020": {
           "year": 2020,
@@ -499,7 +557,9 @@
           },
           "margin": 100.0,
           "marginVotes": 14222,
-          "uncontested": true
+          "uncontested": true,
+          "dem_pct": 0.0,
+          "rep_pct": 1.0
         }
       },
       "competitiveness": {
@@ -524,7 +584,9 @@
           },
           "margin": 100.0,
           "marginVotes": 16218,
-          "uncontested": true
+          "uncontested": true,
+          "dem_pct": 0.0,
+          "rep_pct": 1.0
         },
         "2022": {
           "year": 2022,
@@ -537,7 +599,9 @@
           },
           "margin": 100.0,
           "marginVotes": 10852,
-          "uncontested": true
+          "uncontested": true,
+          "dem_pct": 0.0,
+          "rep_pct": 1.0
         },
         "2020": {
           "year": 2020,
@@ -550,7 +614,9 @@
           },
           "margin": 100.0,
           "marginVotes": 18952,
-          "uncontested": true
+          "uncontested": true,
+          "dem_pct": 0.0,
+          "rep_pct": 1.0
         }
       },
       "competitiveness": {
@@ -575,7 +641,9 @@
           },
           "margin": 100.0,
           "marginVotes": 14815,
-          "uncontested": true
+          "uncontested": true,
+          "dem_pct": 0.0,
+          "rep_pct": 1.0
         },
         "2022": {
           "year": 2022,
@@ -588,7 +656,9 @@
           },
           "margin": 100.0,
           "marginVotes": 10545,
-          "uncontested": true
+          "uncontested": true,
+          "dem_pct": 0.0,
+          "rep_pct": 1.0
         },
         "2020": {
           "year": 2020,
@@ -601,7 +671,9 @@
           },
           "margin": 100.0,
           "marginVotes": 13024,
-          "uncontested": true
+          "uncontested": true,
+          "dem_pct": 0.0,
+          "rep_pct": 1.0
         }
       },
       "competitiveness": {
@@ -631,7 +703,9 @@
             "percentage": 47.7
           },
           "margin": 4.6,
-          "marginVotes": 724
+          "marginVotes": 724,
+          "dem_pct": 0.4771,
+          "rep_pct": 0.5229
         },
         "2022": {
           "year": 2022,
@@ -649,7 +723,9 @@
             "percentage": 47.1
           },
           "margin": 5.8,
-          "marginVotes": 663
+          "marginVotes": 663,
+          "dem_pct": 0.4708,
+          "rep_pct": 0.5292
         },
         "2020": {
           "year": 2020,
@@ -667,7 +743,9 @@
             "percentage": 40.0
           },
           "margin": 18.2,
-          "marginVotes": 2642
+          "marginVotes": 2642,
+          "dem_pct": 0.5822,
+          "rep_pct": 0.4001
         }
       },
       "competitiveness": {
@@ -697,7 +775,9 @@
             "percentage": 25.2
           },
           "margin": 49.6,
-          "marginVotes": 10534
+          "marginVotes": 10534,
+          "dem_pct": 0.2519,
+          "rep_pct": 0.7481
         },
         "2022": {
           "year": 2022,
@@ -715,7 +795,9 @@
             "percentage": 25.4
           },
           "margin": 49.2,
-          "marginVotes": 7584
+          "marginVotes": 7584,
+          "dem_pct": 0.2537,
+          "rep_pct": 0.7463
         },
         "2020": {
           "year": 2020,
@@ -733,7 +815,9 @@
             "percentage": 28.3
           },
           "margin": 43.4,
-          "marginVotes": 8541
+          "marginVotes": 8541,
+          "dem_pct": 0.2831,
+          "rep_pct": 0.7169
         }
       },
       "competitiveness": {
@@ -758,7 +842,9 @@
           },
           "margin": 100.0,
           "marginVotes": 13875,
-          "uncontested": true
+          "uncontested": true,
+          "dem_pct": 0.0,
+          "rep_pct": 1.0
         },
         "2022": {
           "year": 2022,
@@ -776,7 +862,9 @@
             "percentage": 29.4
           },
           "margin": 41.2,
-          "marginVotes": 5232
+          "marginVotes": 5232,
+          "dem_pct": 0.2938,
+          "rep_pct": 0.7062
         },
         "2020": {
           "year": 2020,
@@ -789,7 +877,9 @@
           },
           "margin": 100.0,
           "marginVotes": 15679,
-          "uncontested": true
+          "uncontested": true,
+          "dem_pct": 0.0,
+          "rep_pct": 1.0
         }
       },
       "competitiveness": {
@@ -819,7 +909,9 @@
             "percentage": 44.2
           },
           "margin": 11.6,
-          "marginVotes": 1383
+          "marginVotes": 1383,
+          "dem_pct": 0.5579,
+          "rep_pct": 0.4421
         },
         "2022": {
           "year": 2022,
@@ -837,7 +929,9 @@
             "percentage": 43.1
           },
           "margin": 13.8,
-          "marginVotes": 1050
+          "marginVotes": 1050,
+          "dem_pct": 0.5691,
+          "rep_pct": 0.4309
         },
         "2020": {
           "year": 2020,
@@ -855,7 +949,9 @@
             "percentage": 48.1
           },
           "margin": 3.8,
-          "marginVotes": 546
+          "marginVotes": 546,
+          "dem_pct": 0.5187,
+          "rep_pct": 0.4813
         }
       },
       "competitiveness": {
@@ -880,7 +976,9 @@
           },
           "margin": 100.0,
           "marginVotes": 17423,
-          "uncontested": true
+          "uncontested": true,
+          "dem_pct": 0.0,
+          "rep_pct": 1.0
         },
         "2022": {
           "year": 2022,
@@ -893,7 +991,9 @@
           },
           "margin": 100.0,
           "marginVotes": 11081,
-          "uncontested": true
+          "uncontested": true,
+          "dem_pct": 0.0,
+          "rep_pct": 1.0
         },
         "2020": {
           "year": 2020,
@@ -906,7 +1006,9 @@
           },
           "margin": 100.0,
           "marginVotes": 15368,
-          "uncontested": true
+          "uncontested": true,
+          "dem_pct": 0.0,
+          "rep_pct": 1.0
         }
       },
       "competitiveness": {
@@ -931,7 +1033,9 @@
           },
           "margin": 100.0,
           "marginVotes": 20070,
-          "uncontested": true
+          "uncontested": true,
+          "dem_pct": 0.0,
+          "rep_pct": 1.0
         },
         "2022": {
           "year": 2022,
@@ -944,7 +1048,9 @@
           },
           "margin": 100.0,
           "marginVotes": 14127,
-          "uncontested": true
+          "uncontested": true,
+          "dem_pct": 0.0,
+          "rep_pct": 1.0
         },
         "2020": {
           "year": 2020,
@@ -957,7 +1063,9 @@
           },
           "margin": 100.0,
           "marginVotes": 19269,
-          "uncontested": true
+          "uncontested": true,
+          "dem_pct": 0.0,
+          "rep_pct": 1.0
         }
       },
       "competitiveness": {
@@ -982,7 +1090,9 @@
           },
           "margin": 100.0,
           "marginVotes": 18376,
-          "uncontested": true
+          "uncontested": true,
+          "dem_pct": 0.0,
+          "rep_pct": 1.0
         },
         "2022": {
           "year": 2022,
@@ -1000,7 +1110,9 @@
             "percentage": 23.2
           },
           "margin": 53.6,
-          "marginVotes": 7969
+          "marginVotes": 7969,
+          "dem_pct": 0.2325,
+          "rep_pct": 0.7675
         },
         "2020": {
           "year": 2020,
@@ -1018,7 +1130,9 @@
             "percentage": 26.1
           },
           "margin": 47.8,
-          "marginVotes": 11102
+          "marginVotes": 11102,
+          "dem_pct": 0.2612,
+          "rep_pct": 0.7388
         }
       },
       "competitiveness": {
@@ -1043,7 +1157,9 @@
           },
           "margin": 100.0,
           "marginVotes": 11663,
-          "uncontested": true
+          "uncontested": true,
+          "dem_pct": 0.0,
+          "rep_pct": 1.0
         },
         "2022": {
           "year": 2022,
@@ -1056,7 +1172,9 @@
           },
           "margin": 100.0,
           "marginVotes": 7851,
-          "uncontested": true
+          "uncontested": true,
+          "dem_pct": 0.0,
+          "rep_pct": 1.0
         },
         "2020": {
           "year": 2020,
@@ -1074,7 +1192,9 @@
             "percentage": 38.9
           },
           "margin": 22.2,
-          "marginVotes": 3549
+          "marginVotes": 3549,
+          "dem_pct": 0.389,
+          "rep_pct": 0.611
         }
       },
       "competitiveness": {
@@ -1104,7 +1224,9 @@
             "percentage": 31.7
           },
           "margin": 36.6,
-          "marginVotes": 7196
+          "marginVotes": 7196,
+          "dem_pct": 0.3173,
+          "rep_pct": 0.6827
         },
         "2022": {
           "year": 2022,
@@ -1117,7 +1239,9 @@
           },
           "margin": 100.0,
           "marginVotes": 11358,
-          "uncontested": true
+          "uncontested": true,
+          "dem_pct": 0.0,
+          "rep_pct": 1.0
         },
         "2020": {
           "year": 2020,
@@ -1135,7 +1259,9 @@
             "percentage": 32.4
           },
           "margin": 35.2,
-          "marginVotes": 7616
+          "marginVotes": 7616,
+          "dem_pct": 0.3241,
+          "rep_pct": 0.6759
         }
       },
       "competitiveness": {
@@ -1160,7 +1286,9 @@
           },
           "margin": 100.0,
           "marginVotes": 18184,
-          "uncontested": true
+          "uncontested": true,
+          "dem_pct": 0.0,
+          "rep_pct": 1.0
         },
         "2022": {
           "year": 2022,
@@ -1173,7 +1301,9 @@
           },
           "margin": 100.0,
           "marginVotes": 13109,
-          "uncontested": true
+          "uncontested": true,
+          "dem_pct": 0.0,
+          "rep_pct": 1.0
         },
         "2020": {
           "year": 2020,
@@ -1186,7 +1316,9 @@
           },
           "margin": 100.0,
           "marginVotes": 19851,
-          "uncontested": true
+          "uncontested": true,
+          "dem_pct": 0.0,
+          "rep_pct": 1.0
         }
       },
       "competitiveness": {
@@ -1216,7 +1348,9 @@
             "percentage": 39.9
           },
           "margin": 20.2,
-          "marginVotes": 4449
+          "marginVotes": 4449,
+          "dem_pct": 0.3991,
+          "rep_pct": 0.6009
         },
         "2022": {
           "year": 2022,
@@ -1229,7 +1363,9 @@
           },
           "margin": 100.0,
           "marginVotes": 12006,
-          "uncontested": true
+          "uncontested": true,
+          "dem_pct": 0.0,
+          "rep_pct": 1.0
         },
         "2020": {
           "year": 2020,
@@ -1247,7 +1383,9 @@
             "percentage": 36.4
           },
           "margin": 27.2,
-          "marginVotes": 5792
+          "marginVotes": 5792,
+          "dem_pct": 0.364,
+          "rep_pct": 0.636
         }
       },
       "competitiveness": {
@@ -1277,7 +1415,9 @@
             "percentage": 19.6
           },
           "margin": 60.8,
-          "marginVotes": 6700
+          "marginVotes": 6700,
+          "dem_pct": 0.8036,
+          "rep_pct": null
         },
         "2022": {
           "year": 2022,
@@ -1290,7 +1430,9 @@
           },
           "margin": 100.0,
           "marginVotes": 6054,
-          "uncontested": true
+          "uncontested": true,
+          "dem_pct": 1.0,
+          "rep_pct": 0.0
         },
         "2020": {
           "year": 2020,
@@ -1303,7 +1445,9 @@
           },
           "margin": 100.0,
           "marginVotes": 11530,
-          "uncontested": true
+          "uncontested": true,
+          "dem_pct": 1.0,
+          "rep_pct": 0.0
         }
       },
       "competitiveness": {
@@ -1333,7 +1477,9 @@
             "percentage": 39.5
           },
           "margin": 21.0,
-          "marginVotes": 4850
+          "marginVotes": 4850,
+          "dem_pct": 0.3954,
+          "rep_pct": 0.6046
         },
         "2022": {
           "year": 2022,
@@ -1346,7 +1492,9 @@
           },
           "margin": 100.0,
           "marginVotes": 12049,
-          "uncontested": true
+          "uncontested": true,
+          "dem_pct": 0.0,
+          "rep_pct": 1.0
         },
         "2020": {
           "year": 2020,
@@ -1359,7 +1507,9 @@
           },
           "margin": 100.0,
           "marginVotes": 18515,
-          "uncontested": true
+          "uncontested": true,
+          "dem_pct": 0.0,
+          "rep_pct": 1.0
         }
       },
       "competitiveness": {
@@ -1389,7 +1539,9 @@
             "percentage": 37.2
           },
           "margin": 25.6,
-          "marginVotes": 3914
+          "marginVotes": 3914,
+          "dem_pct": 0.6279,
+          "rep_pct": 0.3721
         },
         "2022": {
           "year": 2022,
@@ -1407,7 +1559,9 @@
             "percentage": 33.8
           },
           "margin": 28.0,
-          "marginVotes": 2518
+          "marginVotes": 2518,
+          "dem_pct": 0.6183,
+          "rep_pct": 0.3382
         },
         "2020": {
           "year": 2020,
@@ -1425,7 +1579,9 @@
             "percentage": 28.5
           },
           "margin": 39.1,
-          "marginVotes": 6092
+          "marginVotes": 6092,
+          "dem_pct": 0.6762,
+          "rep_pct": 0.2854
         }
       },
       "competitiveness": {
@@ -1455,7 +1611,9 @@
             "percentage": 37.3
           },
           "margin": 25.4,
-          "marginVotes": 5830
+          "marginVotes": 5830,
+          "dem_pct": 0.3726,
+          "rep_pct": 0.6274
         },
         "2022": {
           "year": 2022,
@@ -1473,7 +1631,9 @@
             "percentage": 36.6
           },
           "margin": 26.8,
-          "marginVotes": 3947
+          "marginVotes": 3947,
+          "dem_pct": 0.3663,
+          "rep_pct": 0.6337
         },
         "2020": {
           "year": 2020,
@@ -1491,7 +1651,9 @@
             "percentage": 40.0
           },
           "margin": 20.0,
-          "marginVotes": 5841
+          "marginVotes": 5841,
+          "dem_pct": 0.4004,
+          "rep_pct": 0.5996
         }
       },
       "competitiveness": {
@@ -1521,7 +1683,9 @@
             "percentage": 40.0
           },
           "margin": 20.0,
-          "marginVotes": 4461
+          "marginVotes": 4461,
+          "dem_pct": 0.3995,
+          "rep_pct": 0.6005
         },
         "2022": {
           "year": 2022,
@@ -1534,7 +1698,9 @@
           },
           "margin": 100.0,
           "marginVotes": 10890,
-          "uncontested": true
+          "uncontested": true,
+          "dem_pct": 0.0,
+          "rep_pct": 1.0
         },
         "2020": {
           "year": 2020,
@@ -1547,7 +1713,9 @@
           },
           "margin": 100.0,
           "marginVotes": 16482,
-          "uncontested": true
+          "uncontested": true,
+          "dem_pct": 0.0,
+          "rep_pct": 1.0
         }
       },
       "competitiveness": {
@@ -1577,7 +1745,9 @@
             "percentage": 35.0
           },
           "margin": 30.0,
-          "marginVotes": 6950
+          "marginVotes": 6950,
+          "dem_pct": 0.3505,
+          "rep_pct": 0.6495
         },
         "2022": {
           "year": 2022,
@@ -1595,7 +1765,9 @@
             "percentage": 32.1
           },
           "margin": 35.8,
-          "marginVotes": 5358
+          "marginVotes": 5358,
+          "dem_pct": 0.321,
+          "rep_pct": 0.679
         },
         "2020": {
           "year": 2020,
@@ -1613,7 +1785,9 @@
             "percentage": 34.8
           },
           "margin": 30.4,
-          "marginVotes": 7453
+          "marginVotes": 7453,
+          "dem_pct": 0.3481,
+          "rep_pct": 0.6519
         }
       },
       "competitiveness": {
@@ -1638,7 +1812,9 @@
           },
           "margin": 100.0,
           "marginVotes": 16294,
-          "uncontested": true
+          "uncontested": true,
+          "dem_pct": 0.0,
+          "rep_pct": 1.0
         },
         "2022": {
           "year": 2022,
@@ -1651,7 +1827,9 @@
           },
           "margin": 100.0,
           "marginVotes": 10668,
-          "uncontested": true
+          "uncontested": true,
+          "dem_pct": 0.0,
+          "rep_pct": 1.0
         },
         "2020": {
           "year": 2020,
@@ -1664,7 +1842,9 @@
           },
           "margin": 100.0,
           "marginVotes": 15542,
-          "uncontested": true
+          "uncontested": true,
+          "dem_pct": 0.0,
+          "rep_pct": 1.0
         }
       },
       "competitiveness": {
@@ -1694,7 +1874,9 @@
             "percentage": 20.6
           },
           "margin": 58.8,
-          "marginVotes": 10512
+          "marginVotes": 10512,
+          "dem_pct": 0.206,
+          "rep_pct": 0.794
         },
         "2022": {
           "year": 2022,
@@ -1707,7 +1889,9 @@
           },
           "margin": 100.0,
           "marginVotes": 9971,
-          "uncontested": true
+          "uncontested": true,
+          "dem_pct": 0.0,
+          "rep_pct": 1.0
         },
         "2020": {
           "year": 2020,
@@ -1720,7 +1904,9 @@
           },
           "margin": 100.0,
           "marginVotes": 14085,
-          "uncontested": true
+          "uncontested": true,
+          "dem_pct": 0.0,
+          "rep_pct": 1.0
         }
       },
       "competitiveness": {
@@ -1745,7 +1931,9 @@
           },
           "margin": 100.0,
           "marginVotes": 8730,
-          "uncontested": true
+          "uncontested": true,
+          "dem_pct": 1.0,
+          "rep_pct": 0.0
         },
         "2022": {
           "year": 2022,
@@ -1758,7 +1946,9 @@
           },
           "margin": 100.0,
           "marginVotes": 5536,
-          "uncontested": true
+          "uncontested": true,
+          "dem_pct": 1.0,
+          "rep_pct": 0.0
         },
         "2020": {
           "year": 2020,
@@ -1771,7 +1961,9 @@
           },
           "margin": 100.0,
           "marginVotes": 10133,
-          "uncontested": true
+          "uncontested": true,
+          "dem_pct": 1.0,
+          "rep_pct": 0.0
         }
       },
       "competitiveness": {
@@ -1796,7 +1988,9 @@
           },
           "margin": 100.0,
           "marginVotes": 12786,
-          "uncontested": true
+          "uncontested": true,
+          "dem_pct": 0.0,
+          "rep_pct": 1.0
         },
         "2022": {
           "year": 2022,
@@ -1809,7 +2003,9 @@
           },
           "margin": 100.0,
           "marginVotes": 8682,
-          "uncontested": true
+          "uncontested": true,
+          "dem_pct": 0.0,
+          "rep_pct": 1.0
         },
         "2020": {
           "year": 2020,
@@ -1822,7 +2018,9 @@
           },
           "margin": 100.0,
           "marginVotes": 15330,
-          "uncontested": true
+          "uncontested": true,
+          "dem_pct": 0.0,
+          "rep_pct": 1.0
         }
       },
       "competitiveness": {
@@ -1852,7 +2050,9 @@
             "percentage": 28.0
           },
           "margin": 44.0,
-          "marginVotes": 9078
+          "marginVotes": 9078,
+          "dem_pct": 0.2799,
+          "rep_pct": 0.7201
         },
         "2022": {
           "year": 2022,
@@ -1865,7 +2065,9 @@
           },
           "margin": 100.0,
           "marginVotes": 11203,
-          "uncontested": true
+          "uncontested": true,
+          "dem_pct": 0.0,
+          "rep_pct": 1.0
         },
         "2020": {
           "year": 2020,
@@ -1883,7 +2085,9 @@
             "percentage": 10.8
           },
           "margin": 78.4,
-          "marginVotes": 13091
+          "marginVotes": 13091,
+          "dem_pct": null,
+          "rep_pct": 0.8919
         }
       },
       "competitiveness": {
@@ -1908,7 +2112,9 @@
           },
           "margin": 100.0,
           "marginVotes": 16061,
-          "uncontested": true
+          "uncontested": true,
+          "dem_pct": 0.0,
+          "rep_pct": 1.0
         },
         "2022": {
           "year": 2022,
@@ -1921,7 +2127,9 @@
           },
           "margin": 100.0,
           "marginVotes": 10732,
-          "uncontested": true
+          "uncontested": true,
+          "dem_pct": 0.0,
+          "rep_pct": 1.0
         },
         "2020": {
           "year": 2020,
@@ -1934,7 +2142,9 @@
           },
           "margin": 100.0,
           "marginVotes": 15017,
-          "uncontested": true
+          "uncontested": true,
+          "dem_pct": 0.0,
+          "rep_pct": 1.0
         }
       },
       "competitiveness": {
@@ -1959,7 +2169,9 @@
           },
           "margin": 100.0,
           "marginVotes": 19136,
-          "uncontested": true
+          "uncontested": true,
+          "dem_pct": 0.0,
+          "rep_pct": 1.0
         },
         "2022": {
           "year": 2022,
@@ -1972,7 +2184,9 @@
           },
           "margin": 100.0,
           "marginVotes": 12269,
-          "uncontested": true
+          "uncontested": true,
+          "dem_pct": 0.0,
+          "rep_pct": 1.0
         },
         "2020": {
           "year": 2020,
@@ -1990,7 +2204,9 @@
             "percentage": 31.9
           },
           "margin": 36.2,
-          "marginVotes": 10243
+          "marginVotes": 10243,
+          "dem_pct": 0.3193,
+          "rep_pct": 0.6807
         }
       },
       "competitiveness": {
@@ -2015,7 +2231,9 @@
           },
           "margin": 100.0,
           "marginVotes": 14083,
-          "uncontested": true
+          "uncontested": true,
+          "dem_pct": 0.0,
+          "rep_pct": 1.0
         },
         "2022": {
           "year": 2022,
@@ -2028,7 +2246,9 @@
           },
           "margin": 100.0,
           "marginVotes": 8607,
-          "uncontested": true
+          "uncontested": true,
+          "dem_pct": 0.0,
+          "rep_pct": 1.0
         },
         "2020": {
           "year": 2020,
@@ -2041,7 +2261,9 @@
           },
           "margin": 100.0,
           "marginVotes": 14923,
-          "uncontested": true
+          "uncontested": true,
+          "dem_pct": 0.0,
+          "rep_pct": 1.0
         }
       },
       "competitiveness": {
@@ -2066,7 +2288,9 @@
           },
           "margin": 100.0,
           "marginVotes": 15207,
-          "uncontested": true
+          "uncontested": true,
+          "dem_pct": 0.0,
+          "rep_pct": 1.0
         },
         "2022": {
           "year": 2022,
@@ -2079,7 +2303,9 @@
           },
           "margin": 100.0,
           "marginVotes": 9379,
-          "uncontested": true
+          "uncontested": true,
+          "dem_pct": 0.0,
+          "rep_pct": 1.0
         },
         "2020": {
           "year": 2020,
@@ -2092,7 +2318,9 @@
           },
           "margin": 100.0,
           "marginVotes": 15690,
-          "uncontested": true
+          "uncontested": true,
+          "dem_pct": 0.0,
+          "rep_pct": 1.0
         }
       },
       "competitiveness": {
@@ -2122,7 +2350,9 @@
             "percentage": 18.2
           },
           "margin": 63.6,
-          "marginVotes": 14111
+          "marginVotes": 14111,
+          "dem_pct": 0.1824,
+          "rep_pct": 0.8176
         },
         "2022": {
           "year": 2022,
@@ -2135,7 +2365,9 @@
           },
           "margin": 100.0,
           "marginVotes": 12875,
-          "uncontested": true
+          "uncontested": true,
+          "dem_pct": 0.0,
+          "rep_pct": 1.0
         },
         "2020": {
           "year": 2020,
@@ -2148,7 +2380,9 @@
           },
           "margin": 100.0,
           "marginVotes": 18526,
-          "uncontested": true
+          "uncontested": true,
+          "dem_pct": 0.0,
+          "rep_pct": 1.0
         }
       },
       "competitiveness": {
@@ -2173,7 +2407,9 @@
           },
           "margin": 100.0,
           "marginVotes": 17575,
-          "uncontested": true
+          "uncontested": true,
+          "dem_pct": 0.0,
+          "rep_pct": 1.0
         },
         "2022": {
           "year": 2022,
@@ -2186,7 +2422,9 @@
           },
           "margin": 100.0,
           "marginVotes": 12385,
-          "uncontested": true
+          "uncontested": true,
+          "dem_pct": 0.0,
+          "rep_pct": 1.0
         },
         "2020": {
           "year": 2020,
@@ -2199,7 +2437,9 @@
           },
           "margin": 100.0,
           "marginVotes": 14992,
-          "uncontested": true
+          "uncontested": true,
+          "dem_pct": 0.0,
+          "rep_pct": 1.0
         }
       },
       "competitiveness": {
@@ -2224,7 +2464,9 @@
           },
           "margin": 100.0,
           "marginVotes": 15082,
-          "uncontested": true
+          "uncontested": true,
+          "dem_pct": 0.0,
+          "rep_pct": 1.0
         },
         "2022": {
           "year": 2022,
@@ -2237,7 +2479,9 @@
           },
           "margin": 100.0,
           "marginVotes": 10821,
-          "uncontested": true
+          "uncontested": true,
+          "dem_pct": 0.0,
+          "rep_pct": 1.0
         },
         "2020": {
           "year": 2020,
@@ -2250,7 +2494,9 @@
           },
           "margin": 100.0,
           "marginVotes": 14024,
-          "uncontested": true
+          "uncontested": true,
+          "dem_pct": 0.0,
+          "rep_pct": 1.0
         }
       },
       "competitiveness": {
@@ -2275,7 +2521,9 @@
           },
           "margin": 100.0,
           "marginVotes": 15172,
-          "uncontested": true
+          "uncontested": true,
+          "dem_pct": 1.0,
+          "rep_pct": 0.0
         },
         "2022": {
           "year": 2022,
@@ -2293,7 +2541,9 @@
             "percentage": 42.6
           },
           "margin": 14.8,
-          "marginVotes": 2070
+          "marginVotes": 2070,
+          "dem_pct": 0.5735,
+          "rep_pct": 0.4265
         },
         "2020": {
           "year": 2020,
@@ -2311,7 +2561,9 @@
             "percentage": 35.1
           },
           "margin": 29.8,
-          "marginVotes": 5765
+          "marginVotes": 5765,
+          "dem_pct": 0.6487,
+          "rep_pct": 0.3513
         }
       },
       "competitiveness": {
@@ -2341,7 +2593,9 @@
             "percentage": 31.9
           },
           "margin": 36.2,
-          "marginVotes": 5990
+          "marginVotes": 5990,
+          "dem_pct": 0.3192,
+          "rep_pct": 0.6808
         },
         "2022": {
           "year": 2022,
@@ -2354,7 +2608,9 @@
           },
           "margin": 100.0,
           "marginVotes": 8905,
-          "uncontested": true
+          "uncontested": true,
+          "dem_pct": 0.0,
+          "rep_pct": 1.0
         },
         "2020": {
           "year": 2020,
@@ -2367,7 +2623,9 @@
           },
           "margin": 100.0,
           "marginVotes": 13087,
-          "uncontested": true
+          "uncontested": true,
+          "dem_pct": 0.0,
+          "rep_pct": 1.0
         }
       },
       "competitiveness": {
@@ -2392,7 +2650,9 @@
           },
           "margin": 100.0,
           "marginVotes": 15937,
-          "uncontested": true
+          "uncontested": true,
+          "dem_pct": 0.0,
+          "rep_pct": 1.0
         },
         "2022": {
           "year": 2022,
@@ -2405,7 +2665,9 @@
           },
           "margin": 100.0,
           "marginVotes": 10334,
-          "uncontested": true
+          "uncontested": true,
+          "dem_pct": 0.0,
+          "rep_pct": 1.0
         },
         "2020": {
           "year": 2020,
@@ -2423,7 +2685,9 @@
             "percentage": 31.7
           },
           "margin": 36.6,
-          "marginVotes": 6658
+          "marginVotes": 6658,
+          "dem_pct": 0.3173,
+          "rep_pct": 0.6827
         }
       },
       "competitiveness": {
@@ -2453,7 +2717,9 @@
             "percentage": 39.0
           },
           "margin": 22.0,
-          "marginVotes": 6123
+          "marginVotes": 6123,
+          "dem_pct": 0.3895,
+          "rep_pct": 0.6105
         },
         "2022": {
           "year": 2022,
@@ -2471,7 +2737,9 @@
             "percentage": 35.6
           },
           "margin": 27.2,
-          "marginVotes": 5078
+          "marginVotes": 5078,
+          "dem_pct": 0.3559,
+          "rep_pct": 0.6277
         },
         "2020": {
           "year": 2020,
@@ -2489,7 +2757,9 @@
             "percentage": 44.7
           },
           "margin": 10.6,
-          "marginVotes": 1754
+          "marginVotes": 1754,
+          "dem_pct": 0.4474,
+          "rep_pct": 0.5526
         }
       },
       "competitiveness": {
@@ -2519,7 +2789,9 @@
             "percentage": 35.6
           },
           "margin": 28.8,
-          "marginVotes": 5499
+          "marginVotes": 5499,
+          "dem_pct": 0.3558,
+          "rep_pct": 0.6442
         },
         "2022": {
           "year": 2022,
@@ -2537,7 +2809,9 @@
             "percentage": 32.7
           },
           "margin": 34.6,
-          "marginVotes": 4185
+          "marginVotes": 4185,
+          "dem_pct": 0.3265,
+          "rep_pct": 0.6735
         },
         "2020": {
           "year": 2020,
@@ -2555,7 +2829,9 @@
             "percentage": 36.1
           },
           "margin": 27.8,
-          "marginVotes": 10420
+          "marginVotes": 10420,
+          "dem_pct": 0.3612,
+          "rep_pct": 0.6388
         }
       },
       "competitiveness": {
@@ -2585,7 +2861,9 @@
             "percentage": 40.1
           },
           "margin": 19.8,
-          "marginVotes": 4079
+          "marginVotes": 4079,
+          "dem_pct": 0.4005,
+          "rep_pct": 0.5995
         },
         "2022": {
           "year": 2022,
@@ -2598,7 +2876,9 @@
           },
           "margin": 100.0,
           "marginVotes": 10373,
-          "uncontested": true
+          "uncontested": true,
+          "dem_pct": 0.0,
+          "rep_pct": 1.0
         },
         "2020": {
           "year": 2020,
@@ -2611,7 +2891,9 @@
           },
           "margin": 100.0,
           "marginVotes": 15773,
-          "uncontested": true
+          "uncontested": true,
+          "dem_pct": 0.0,
+          "rep_pct": 1.0
         }
       },
       "competitiveness": {
@@ -2636,7 +2918,9 @@
           },
           "margin": 100.0,
           "marginVotes": 19625,
-          "uncontested": true
+          "uncontested": true,
+          "dem_pct": 0.0,
+          "rep_pct": 1.0
         },
         "2022": {
           "year": 2022,
@@ -2649,7 +2933,9 @@
           },
           "margin": 100.0,
           "marginVotes": 12501,
-          "uncontested": true
+          "uncontested": true,
+          "dem_pct": 0.0,
+          "rep_pct": 1.0
         },
         "2020": {
           "year": 2020,
@@ -2667,7 +2953,9 @@
             "percentage": 26.6
           },
           "margin": 46.8,
-          "marginVotes": 11214
+          "marginVotes": 11214,
+          "dem_pct": 0.2656,
+          "rep_pct": 0.7344
         }
       },
       "competitiveness": {
@@ -2692,7 +2980,9 @@
           },
           "margin": 100.0,
           "marginVotes": 18609,
-          "uncontested": true
+          "uncontested": true,
+          "dem_pct": 0.0,
+          "rep_pct": 1.0
         },
         "2022": {
           "year": 2022,
@@ -2710,7 +3000,9 @@
             "percentage": 32.6
           },
           "margin": 34.8,
-          "marginVotes": 5659
+          "marginVotes": 5659,
+          "dem_pct": 0.3255,
+          "rep_pct": 0.6745
         },
         "2020": {
           "year": 2020,
@@ -2728,7 +3020,9 @@
             "percentage": 39.1
           },
           "margin": 21.8,
-          "marginVotes": 5570
+          "marginVotes": 5570,
+          "dem_pct": 0.3907,
+          "rep_pct": 0.6093
         }
       },
       "competitiveness": {
@@ -2753,7 +3047,9 @@
           },
           "margin": 100.0,
           "marginVotes": 12546,
-          "uncontested": true
+          "uncontested": true,
+          "dem_pct": 1.0,
+          "rep_pct": 0.0
         },
         "2022": {
           "year": 2022,
@@ -2771,7 +3067,9 @@
             "percentage": 35.1
           },
           "margin": 29.8,
-          "marginVotes": 2910
+          "marginVotes": 2910,
+          "dem_pct": 0.6487,
+          "rep_pct": 0.3513
         },
         "2020": {
           "year": 2020,
@@ -2789,7 +3087,9 @@
             "percentage": 35.6
           },
           "margin": 27.9,
-          "marginVotes": 4922
+          "marginVotes": 4922,
+          "dem_pct": 0.6352,
+          "rep_pct": 0.3555
         }
       },
       "competitiveness": {
@@ -2814,7 +3114,9 @@
           },
           "margin": 100.0,
           "marginVotes": 13512,
-          "uncontested": true
+          "uncontested": true,
+          "dem_pct": 1.0,
+          "rep_pct": 0.0
         },
         "2022": {
           "year": 2022,
@@ -2832,7 +3134,9 @@
             "percentage": 40.0
           },
           "margin": 20.0,
-          "marginVotes": 2614
+          "marginVotes": 2614,
+          "dem_pct": 0.6004,
+          "rep_pct": 0.3996
         },
         "2020": {
           "year": 2020,
@@ -2845,7 +3149,9 @@
           },
           "margin": 100.0,
           "marginVotes": 12628,
-          "uncontested": true
+          "uncontested": true,
+          "dem_pct": 1.0,
+          "rep_pct": 0.0
         }
       },
       "competitiveness": {
@@ -2870,7 +3176,9 @@
           },
           "margin": 100.0,
           "marginVotes": 11824,
-          "uncontested": true
+          "uncontested": true,
+          "dem_pct": 1.0,
+          "rep_pct": 0.0
         },
         "2022": {
           "year": 2022,
@@ -2883,7 +3191,9 @@
           },
           "margin": 100.0,
           "marginVotes": 7895,
-          "uncontested": true
+          "uncontested": true,
+          "dem_pct": 1.0,
+          "rep_pct": 0.0
         },
         "2020": {
           "year": 2020,
@@ -2896,7 +3206,9 @@
           },
           "margin": 100.0,
           "marginVotes": 12708,
-          "uncontested": true
+          "uncontested": true,
+          "dem_pct": 1.0,
+          "rep_pct": 0.0
         }
       },
       "competitiveness": {
@@ -2921,7 +3233,9 @@
           },
           "margin": 100.0,
           "marginVotes": 14205,
-          "uncontested": true
+          "uncontested": true,
+          "dem_pct": 1.0,
+          "rep_pct": 0.0
         },
         "2022": {
           "year": 2022,
@@ -2939,7 +3253,9 @@
             "percentage": 35.0
           },
           "margin": 30.0,
-          "marginVotes": 4320
+          "marginVotes": 4320,
+          "dem_pct": 0.3499,
+          "rep_pct": 0.6501
         },
         "2020": {
           "year": 2020,
@@ -2957,7 +3273,9 @@
             "percentage": 48.4
           },
           "margin": 3.2,
-          "marginVotes": 710
+          "marginVotes": 710,
+          "dem_pct": 0.4837,
+          "rep_pct": 0.5163
         }
       },
       "competitiveness": {
@@ -2987,7 +3305,9 @@
             "percentage": 26.2
           },
           "margin": 47.6,
-          "marginVotes": 8627
+          "marginVotes": 8627,
+          "dem_pct": 0.2617,
+          "rep_pct": 0.7383
         },
         "2022": {
           "year": 2022,
@@ -3000,7 +3320,9 @@
           },
           "margin": 100.0,
           "marginVotes": 9777,
-          "uncontested": true
+          "uncontested": true,
+          "dem_pct": 0.0,
+          "rep_pct": 1.0
         },
         "2020": {
           "year": 2020,
@@ -3013,7 +3335,9 @@
           },
           "margin": 100.0,
           "marginVotes": 11007,
-          "uncontested": true
+          "uncontested": true,
+          "dem_pct": 0.0,
+          "rep_pct": 1.0
         }
       },
       "competitiveness": {
@@ -3043,7 +3367,9 @@
             "percentage": 47.9
           },
           "margin": 4.2,
-          "marginVotes": 671
+          "marginVotes": 671,
+          "dem_pct": 0.5209,
+          "rep_pct": 0.4791
         },
         "2022": {
           "year": 2022,
@@ -3061,7 +3387,9 @@
             "percentage": 47.7
           },
           "margin": 4.6,
-          "marginVotes": 517
+          "marginVotes": 517,
+          "dem_pct": 0.5233,
+          "rep_pct": 0.4767
         },
         "2020": {
           "year": 2020,
@@ -3079,7 +3407,9 @@
             "percentage": 44.6
           },
           "margin": 10.8,
-          "marginVotes": 1618
+          "marginVotes": 1618,
+          "dem_pct": 0.554,
+          "rep_pct": 0.446
         }
       },
       "competitiveness": {
@@ -3104,7 +3434,9 @@
           },
           "margin": 100.0,
           "marginVotes": 12488,
-          "uncontested": true
+          "uncontested": true,
+          "dem_pct": 1.0,
+          "rep_pct": 0.0
         },
         "2022": {
           "year": 2022,
@@ -3122,7 +3454,9 @@
             "percentage": 46.6
           },
           "margin": 3.3,
-          "marginVotes": 369
+          "marginVotes": 369,
+          "dem_pct": 0.4994,
+          "rep_pct": 0.4663
         },
         "2020": {
           "year": 2020,
@@ -3135,7 +3469,9 @@
           },
           "margin": 100.0,
           "marginVotes": 11168,
-          "uncontested": true
+          "uncontested": true,
+          "dem_pct": 1.0,
+          "rep_pct": 0.0
         }
       },
       "competitiveness": {
@@ -3160,7 +3496,9 @@
           },
           "margin": 100.0,
           "marginVotes": 21060,
-          "uncontested": true
+          "uncontested": true,
+          "dem_pct": 0.0,
+          "rep_pct": 1.0
         },
         "2022": {
           "year": 2022,
@@ -3173,7 +3511,9 @@
           },
           "margin": 100.0,
           "marginVotes": 13242,
-          "uncontested": true
+          "uncontested": true,
+          "dem_pct": 0.0,
+          "rep_pct": 1.0
         },
         "2020": {
           "year": 2020,
@@ -3191,7 +3531,9 @@
             "percentage": 34.5
           },
           "margin": 31.0,
-          "marginVotes": 8151
+          "marginVotes": 8151,
+          "dem_pct": 0.345,
+          "rep_pct": 0.655
         }
       },
       "competitiveness": {
@@ -3221,7 +3563,9 @@
             "percentage": 41.2
           },
           "margin": 17.6,
-          "marginVotes": 3252
+          "marginVotes": 3252,
+          "dem_pct": 0.5877,
+          "rep_pct": 0.4123
         },
         "2022": {
           "year": 2022,
@@ -3234,7 +3578,9 @@
           },
           "margin": 100.0,
           "marginVotes": 8500,
-          "uncontested": true
+          "uncontested": true,
+          "dem_pct": 1.0,
+          "rep_pct": 0.0
         },
         "2020": {
           "year": 2020,
@@ -3247,7 +3593,9 @@
           },
           "margin": 100.0,
           "marginVotes": 13391,
-          "uncontested": true
+          "uncontested": true,
+          "dem_pct": 1.0,
+          "rep_pct": 0.0
         }
       },
       "competitiveness": {
@@ -3272,7 +3620,9 @@
           },
           "margin": 100.0,
           "marginVotes": 16286,
-          "uncontested": true
+          "uncontested": true,
+          "dem_pct": 0.0,
+          "rep_pct": 1.0
         },
         "2022": {
           "year": 2022,
@@ -3285,7 +3635,9 @@
           },
           "margin": 100.0,
           "marginVotes": 10115,
-          "uncontested": true
+          "uncontested": true,
+          "dem_pct": 0.0,
+          "rep_pct": 1.0
         },
         "2020": {
           "year": 2020,
@@ -3298,7 +3650,9 @@
           },
           "margin": 100.0,
           "marginVotes": 16358,
-          "uncontested": true
+          "uncontested": true,
+          "dem_pct": 0.0,
+          "rep_pct": 1.0
         }
       },
       "competitiveness": {
@@ -3323,7 +3677,9 @@
           },
           "margin": 100.0,
           "marginVotes": 11049,
-          "uncontested": true
+          "uncontested": true,
+          "dem_pct": 1.0,
+          "rep_pct": 0.0
         },
         "2022": {
           "year": 2022,
@@ -3336,7 +3692,9 @@
           },
           "margin": 100.0,
           "marginVotes": 7483,
-          "uncontested": true
+          "uncontested": true,
+          "dem_pct": 1.0,
+          "rep_pct": 0.0
         },
         "2020": {
           "year": 2020,
@@ -3349,7 +3707,9 @@
           },
           "margin": 100.0,
           "marginVotes": 12857,
-          "uncontested": true
+          "uncontested": true,
+          "dem_pct": 1.0,
+          "rep_pct": 0.0
         }
       },
       "competitiveness": {
@@ -3374,7 +3734,9 @@
           },
           "margin": 100.0,
           "marginVotes": 14413,
-          "uncontested": true
+          "uncontested": true,
+          "dem_pct": 0.0,
+          "rep_pct": 1.0
         },
         "2022": {
           "year": 2022,
@@ -3387,7 +3749,9 @@
           },
           "margin": 100.0,
           "marginVotes": 9550,
-          "uncontested": true
+          "uncontested": true,
+          "dem_pct": 0.0,
+          "rep_pct": 1.0
         },
         "2020": {
           "year": 2020,
@@ -3405,7 +3769,9 @@
             "percentage": 38.6
           },
           "margin": 22.8,
-          "marginVotes": 4022
+          "marginVotes": 4022,
+          "dem_pct": 0.386,
+          "rep_pct": 0.614
         }
       },
       "competitiveness": {
@@ -3430,7 +3796,9 @@
           },
           "margin": 100.0,
           "marginVotes": 13645,
-          "uncontested": true
+          "uncontested": true,
+          "dem_pct": 0.0,
+          "rep_pct": 1.0
         },
         "2022": {
           "year": 2022,
@@ -3448,7 +3816,9 @@
             "percentage": 30.7
           },
           "margin": 38.6,
-          "marginVotes": 4662
+          "marginVotes": 4662,
+          "dem_pct": 0.3068,
+          "rep_pct": 0.6932
         },
         "2020": {
           "year": 2020,
@@ -3461,7 +3831,9 @@
           },
           "margin": 100.0,
           "marginVotes": 10624,
-          "uncontested": true
+          "uncontested": true,
+          "dem_pct": 1.0,
+          "rep_pct": 0.0
         }
       },
       "competitiveness": {
@@ -3486,7 +3858,9 @@
           },
           "margin": 100.0,
           "marginVotes": 11534,
-          "uncontested": true
+          "uncontested": true,
+          "dem_pct": 1.0,
+          "rep_pct": 0.0
         },
         "2022": {
           "year": 2022,
@@ -3499,7 +3873,9 @@
           },
           "margin": 100.0,
           "marginVotes": 6974,
-          "uncontested": true
+          "uncontested": true,
+          "dem_pct": 1.0,
+          "rep_pct": 0.0
         },
         "2020": {
           "year": 2020,
@@ -3512,7 +3888,9 @@
           },
           "margin": 100.0,
           "marginVotes": 13063,
-          "uncontested": true
+          "uncontested": true,
+          "dem_pct": 1.0,
+          "rep_pct": 0.0
         }
       },
       "competitiveness": {
@@ -3542,7 +3920,9 @@
             "percentage": 33.6
           },
           "margin": 32.8,
-          "marginVotes": 6247
+          "marginVotes": 6247,
+          "dem_pct": 0.3358,
+          "rep_pct": 0.6642
         },
         "2022": {
           "year": 2022,
@@ -3560,7 +3940,9 @@
             "percentage": 31.2
           },
           "margin": 37.6,
-          "marginVotes": 5156
+          "marginVotes": 5156,
+          "dem_pct": 0.3119,
+          "rep_pct": 0.6881
         },
         "2020": {
           "year": 2020,
@@ -3578,7 +3960,9 @@
             "percentage": 35.3
           },
           "margin": 29.4,
-          "marginVotes": 5921
+          "marginVotes": 5921,
+          "dem_pct": 0.3525,
+          "rep_pct": 0.6475
         }
       },
       "competitiveness": {
@@ -3608,7 +3992,9 @@
             "percentage": 44.2
           },
           "margin": 11.6,
-          "marginVotes": 2297
+          "marginVotes": 2297,
+          "dem_pct": 0.442,
+          "rep_pct": 0.558
         },
         "2022": {
           "year": 2022,
@@ -3626,7 +4012,9 @@
             "percentage": 44.8
           },
           "margin": 10.4,
-          "marginVotes": 1481
+          "marginVotes": 1481,
+          "dem_pct": 0.4475,
+          "rep_pct": 0.5525
         },
         "2020": {
           "year": 2020,
@@ -3644,7 +4032,9 @@
             "percentage": 45.6
           },
           "margin": 8.8,
-          "marginVotes": 1513
+          "marginVotes": 1513,
+          "dem_pct": 0.5435,
+          "rep_pct": 0.4565
         }
       },
       "competitiveness": {
@@ -3669,7 +4059,9 @@
           },
           "margin": 100.0,
           "marginVotes": 15665,
-          "uncontested": true
+          "uncontested": true,
+          "dem_pct": 0.0,
+          "rep_pct": 1.0
         },
         "2022": {
           "year": 2022,
@@ -3682,7 +4074,9 @@
           },
           "margin": 100.0,
           "marginVotes": 10760,
-          "uncontested": true
+          "uncontested": true,
+          "dem_pct": 0.0,
+          "rep_pct": 1.0
         },
         "2020": {
           "year": 2020,
@@ -3695,7 +4089,9 @@
           },
           "margin": 100.0,
           "marginVotes": 13942,
-          "uncontested": true
+          "uncontested": true,
+          "dem_pct": 0.0,
+          "rep_pct": 1.0
         }
       },
       "competitiveness": {
@@ -3720,7 +4116,9 @@
           },
           "margin": 100.0,
           "marginVotes": 15552,
-          "uncontested": true
+          "uncontested": true,
+          "dem_pct": 0.0,
+          "rep_pct": 1.0
         },
         "2022": {
           "year": 2022,
@@ -3738,7 +4136,9 @@
             "percentage": 42.2
           },
           "margin": 15.6,
-          "marginVotes": 2318
+          "marginVotes": 2318,
+          "dem_pct": 0.4223,
+          "rep_pct": 0.5777
         },
         "2020": {
           "year": 2020,
@@ -3756,7 +4156,9 @@
             "percentage": 30.0
           },
           "margin": 40.0,
-          "marginVotes": 6738
+          "marginVotes": 6738,
+          "dem_pct": 0.6999,
+          "rep_pct": 0.3001
         }
       },
       "competitiveness": {
@@ -3781,7 +4183,9 @@
           },
           "margin": 100.0,
           "marginVotes": 13683,
-          "uncontested": true
+          "uncontested": true,
+          "dem_pct": 0.0,
+          "rep_pct": 1.0
         },
         "2022": {
           "year": 2022,
@@ -3794,7 +4198,9 @@
           },
           "margin": 100.0,
           "marginVotes": 9705,
-          "uncontested": true
+          "uncontested": true,
+          "dem_pct": 0.0,
+          "rep_pct": 1.0
         },
         "2020": {
           "year": 2020,
@@ -3807,7 +4213,9 @@
           },
           "margin": 100.0,
           "marginVotes": 13834,
-          "uncontested": true
+          "uncontested": true,
+          "dem_pct": 0.0,
+          "rep_pct": 1.0
         }
       },
       "competitiveness": {
@@ -3832,7 +4240,9 @@
           },
           "margin": 100.0,
           "marginVotes": 18119,
-          "uncontested": true
+          "uncontested": true,
+          "dem_pct": 0.0,
+          "rep_pct": 1.0
         },
         "2022": {
           "year": 2022,
@@ -3850,7 +4260,9 @@
             "percentage": 28.0
           },
           "margin": 44.0,
-          "marginVotes": 6667
+          "marginVotes": 6667,
+          "dem_pct": 0.28,
+          "rep_pct": 0.72
         },
         "2020": {
           "year": 2020,
@@ -3868,7 +4280,9 @@
             "percentage": 15.0
           },
           "margin": 70.0,
-          "marginVotes": 14007
+          "marginVotes": 14007,
+          "dem_pct": null,
+          "rep_pct": 0.8498
         }
       },
       "competitiveness": {
@@ -3898,7 +4312,9 @@
             "percentage": 18.1
           },
           "margin": 63.8,
-          "marginVotes": 11429
+          "marginVotes": 11429,
+          "dem_pct": null,
+          "rep_pct": 0.8194
         },
         "2022": {
           "year": 2022,
@@ -3911,7 +4327,9 @@
           },
           "margin": 100.0,
           "marginVotes": 11836,
-          "uncontested": true
+          "uncontested": true,
+          "dem_pct": 0.0,
+          "rep_pct": 1.0
         },
         "2020": {
           "year": 2020,
@@ -3924,7 +4342,9 @@
           },
           "margin": 100.0,
           "marginVotes": 18269,
-          "uncontested": true
+          "uncontested": true,
+          "dem_pct": 0.0,
+          "rep_pct": 1.0
         }
       },
       "competitiveness": {
@@ -3949,7 +4369,9 @@
           },
           "margin": 100.0,
           "marginVotes": 13752,
-          "uncontested": true
+          "uncontested": true,
+          "dem_pct": 1.0,
+          "rep_pct": 0.0
         },
         "2022": {
           "year": 2022,
@@ -3967,7 +4389,9 @@
             "percentage": 20.0
           },
           "margin": 56.6,
-          "marginVotes": 7429
+          "marginVotes": 7429,
+          "dem_pct": 0.7655,
+          "rep_pct": 0.1998
         },
         "2020": {
           "year": 2020,
@@ -3980,7 +4404,9 @@
           },
           "margin": 100.0,
           "marginVotes": 14028,
-          "uncontested": true
+          "uncontested": true,
+          "dem_pct": 1.0,
+          "rep_pct": 0.0
         }
       },
       "competitiveness": {
@@ -4005,7 +4431,9 @@
           },
           "margin": 100.0,
           "marginVotes": 18992,
-          "uncontested": true
+          "uncontested": true,
+          "dem_pct": 0.0,
+          "rep_pct": 1.0
         },
         "2022": {
           "year": 2022,
@@ -4018,7 +4446,9 @@
           },
           "margin": 100.0,
           "marginVotes": 13712,
-          "uncontested": true
+          "uncontested": true,
+          "dem_pct": 0.0,
+          "rep_pct": 1.0
         },
         "2020": {
           "year": 2020,
@@ -4036,7 +4466,9 @@
             "percentage": 32.4
           },
           "margin": 32.3,
-          "marginVotes": 8469
+          "marginVotes": 8469,
+          "dem_pct": 0.3244,
+          "rep_pct": 0.6466
         }
       },
       "competitiveness": {
@@ -4061,7 +4493,9 @@
           },
           "margin": 100.0,
           "marginVotes": 8282,
-          "uncontested": true
+          "uncontested": true,
+          "dem_pct": 1.0,
+          "rep_pct": 0.0
         },
         "2022": {
           "year": 2022,
@@ -4074,7 +4508,9 @@
           },
           "margin": 100.0,
           "marginVotes": 5730,
-          "uncontested": true
+          "uncontested": true,
+          "dem_pct": 1.0,
+          "rep_pct": 0.0
         },
         "2020": {
           "year": 2020,
@@ -4087,7 +4523,9 @@
           },
           "margin": 100.0,
           "marginVotes": 9930,
-          "uncontested": true
+          "uncontested": true,
+          "dem_pct": 1.0,
+          "rep_pct": 0.0
         }
       },
       "competitiveness": {
@@ -4112,7 +4550,9 @@
           },
           "margin": 100.0,
           "marginVotes": 11952,
-          "uncontested": true
+          "uncontested": true,
+          "dem_pct": 1.0,
+          "rep_pct": 0.0
         },
         "2022": {
           "year": 2022,
@@ -4125,7 +4565,9 @@
           },
           "margin": 100.0,
           "marginVotes": 8305,
-          "uncontested": true
+          "uncontested": true,
+          "dem_pct": 1.0,
+          "rep_pct": 0.0
         },
         "2020": {
           "year": 2020,
@@ -4143,7 +4585,9 @@
             "percentage": 21.8
           },
           "margin": 56.4,
-          "marginVotes": 8243
+          "marginVotes": 8243,
+          "dem_pct": 0.7823,
+          "rep_pct": 0.2177
         }
       },
       "competitiveness": {
@@ -4168,7 +4612,9 @@
           },
           "margin": 100.0,
           "marginVotes": 12303,
-          "uncontested": true
+          "uncontested": true,
+          "dem_pct": 1.0,
+          "rep_pct": 0.0
         },
         "2022": {
           "year": 2022,
@@ -4181,7 +4627,9 @@
           },
           "margin": 100.0,
           "marginVotes": 9089,
-          "uncontested": true
+          "uncontested": true,
+          "dem_pct": 1.0,
+          "rep_pct": 0.0
         },
         "2020": {
           "year": 2020,
@@ -4199,7 +4647,9 @@
             "percentage": 17.0
           },
           "margin": 66.0,
-          "marginVotes": 9802
+          "marginVotes": 9802,
+          "dem_pct": 0.8299,
+          "rep_pct": 0.1701
         }
       },
       "competitiveness": {
@@ -4229,7 +4679,9 @@
             "percentage": 46.7
           },
           "margin": 6.6,
-          "marginVotes": 1236
+          "marginVotes": 1236,
+          "dem_pct": 0.5335,
+          "rep_pct": 0.4665
         },
         "2022": {
           "year": 2022,
@@ -4247,7 +4699,9 @@
             "percentage": 49.2
           },
           "margin": 1.6,
-          "marginVotes": 235
+          "marginVotes": 235,
+          "dem_pct": 0.508,
+          "rep_pct": 0.492
         },
         "2020": {
           "year": 2020,
@@ -4265,7 +4719,9 @@
             "percentage": 49.3
           },
           "margin": 1.4,
-          "marginVotes": 257
+          "marginVotes": 257,
+          "dem_pct": 0.4926,
+          "rep_pct": 0.5074
         }
       },
       "competitiveness": {
@@ -4295,7 +4751,9 @@
             "percentage": 7.7
           },
           "margin": 84.6,
-          "marginVotes": 11599
+          "marginVotes": 11599,
+          "dem_pct": 0.9232,
+          "rep_pct": null
         },
         "2022": {
           "year": 2022,
@@ -4308,7 +4766,9 @@
           },
           "margin": 100.0,
           "marginVotes": 9186,
-          "uncontested": true
+          "uncontested": true,
+          "dem_pct": 1.0,
+          "rep_pct": 0.0
         },
         "2020": {
           "year": 2020,
@@ -4321,7 +4781,9 @@
           },
           "margin": 100.0,
           "marginVotes": 14746,
-          "uncontested": true
+          "uncontested": true,
+          "dem_pct": 1.0,
+          "rep_pct": 0.0
         }
       },
       "competitiveness": {
@@ -4346,7 +4808,9 @@
           },
           "margin": 100.0,
           "marginVotes": 17863,
-          "uncontested": true
+          "uncontested": true,
+          "dem_pct": 1.0,
+          "rep_pct": 0.0
         },
         "2022": {
           "year": 2022,
@@ -4364,7 +4828,9 @@
             "percentage": 29.1
           },
           "margin": 41.8,
-          "marginVotes": 6004
+          "marginVotes": 6004,
+          "dem_pct": 0.709,
+          "rep_pct": 0.291
         },
         "2020": {
           "year": 2020,
@@ -4382,7 +4848,9 @@
             "percentage": 16.0
           },
           "margin": 68.0,
-          "marginVotes": 16154
+          "marginVotes": 16154,
+          "dem_pct": 0.8402,
+          "rep_pct": null
         }
       },
       "competitiveness": {
@@ -4407,7 +4875,9 @@
           },
           "margin": 100.0,
           "marginVotes": 14847,
-          "uncontested": true
+          "uncontested": true,
+          "dem_pct": 1.0,
+          "rep_pct": 0.0
         },
         "2022": {
           "year": 2022,
@@ -4420,7 +4890,9 @@
           },
           "margin": 100.0,
           "marginVotes": 9770,
-          "uncontested": true
+          "uncontested": true,
+          "dem_pct": 1.0,
+          "rep_pct": 0.0
         },
         "2020": {
           "year": 2020,
@@ -4438,7 +4910,9 @@
             "percentage": 34.0
           },
           "margin": 32.0,
-          "marginVotes": 6027
+          "marginVotes": 6027,
+          "dem_pct": 0.6597,
+          "rep_pct": 0.3403
         }
       },
       "competitiveness": {
@@ -4468,7 +4942,9 @@
             "percentage": 24.6
           },
           "margin": 50.8,
-          "marginVotes": 9980
+          "marginVotes": 9980,
+          "dem_pct": 0.7535,
+          "rep_pct": 0.2465
         },
         "2022": {
           "year": 2022,
@@ -4486,7 +4962,9 @@
             "percentage": 25.4
           },
           "margin": 49.2,
-          "marginVotes": 6665
+          "marginVotes": 6665,
+          "dem_pct": 0.746,
+          "rep_pct": 0.254
         },
         "2020": {
           "year": 2020,
@@ -4504,7 +4982,9 @@
             "percentage": 12.7
           },
           "margin": 74.6,
-          "marginVotes": 15417
+          "marginVotes": 15417,
+          "dem_pct": 0.8733,
+          "rep_pct": null
         }
       },
       "competitiveness": {
@@ -4534,7 +5014,9 @@
             "percentage": 34.8
           },
           "margin": 30.4,
-          "marginVotes": 7455
+          "marginVotes": 7455,
+          "dem_pct": 0.3485,
+          "rep_pct": 0.6515
         },
         "2022": {
           "year": 2022,
@@ -4552,7 +5034,9 @@
             "percentage": 37.1
           },
           "margin": 25.8,
-          "marginVotes": 4840
+          "marginVotes": 4840,
+          "dem_pct": 0.3705,
+          "rep_pct": 0.6295
         },
         "2020": {
           "year": 2020,
@@ -4570,7 +5054,9 @@
             "percentage": 39.5
           },
           "margin": 21.0,
-          "marginVotes": 4009
+          "marginVotes": 4009,
+          "dem_pct": 0.6051,
+          "rep_pct": 0.3949
         }
       },
       "competitiveness": {
@@ -4600,7 +5086,9 @@
             "percentage": 31.9
           },
           "margin": 36.2,
-          "marginVotes": 8660
+          "marginVotes": 8660,
+          "dem_pct": 0.319,
+          "rep_pct": 0.681
         },
         "2022": {
           "year": 2022,
@@ -4613,7 +5101,9 @@
           },
           "margin": 100.0,
           "marginVotes": 13180,
-          "uncontested": true
+          "uncontested": true,
+          "dem_pct": 0.0,
+          "rep_pct": 1.0
         },
         "2020": {
           "year": 2020,
@@ -4626,7 +5116,9 @@
           },
           "margin": 100.0,
           "marginVotes": 19182,
-          "uncontested": true
+          "uncontested": true,
+          "dem_pct": 0.0,
+          "rep_pct": 1.0
         }
       },
       "competitiveness": {
@@ -4656,7 +5148,9 @@
             "percentage": 46.1
           },
           "margin": 7.8,
-          "marginVotes": 1306
+          "marginVotes": 1306,
+          "dem_pct": 0.5392,
+          "rep_pct": 0.4608
         },
         "2022": {
           "year": 2022,
@@ -4669,7 +5163,9 @@
           },
           "margin": 100.0,
           "marginVotes": 6510,
-          "uncontested": true
+          "uncontested": true,
+          "dem_pct": 1.0,
+          "rep_pct": 0.0
         },
         "2020": {
           "year": 2020,
@@ -4682,7 +5178,9 @@
           },
           "margin": 100.0,
           "marginVotes": 11210,
-          "uncontested": true
+          "uncontested": true,
+          "dem_pct": 1.0,
+          "rep_pct": 0.0
         }
       },
       "competitiveness": {
@@ -4707,7 +5205,9 @@
           },
           "margin": 100.0,
           "marginVotes": 17038,
-          "uncontested": true
+          "uncontested": true,
+          "dem_pct": 0.0,
+          "rep_pct": 1.0
         },
         "2022": {
           "year": 2022,
@@ -4725,7 +5225,9 @@
             "percentage": 24.0
           },
           "margin": 52.0,
-          "marginVotes": 7143
+          "marginVotes": 7143,
+          "dem_pct": 0.2396,
+          "rep_pct": 0.7604
         },
         "2020": {
           "year": 2020,
@@ -4743,7 +5245,9 @@
             "percentage": 29.8
           },
           "margin": 40.4,
-          "marginVotes": 8472
+          "marginVotes": 8472,
+          "dem_pct": 0.2982,
+          "rep_pct": 0.7018
         }
       },
       "competitiveness": {
@@ -4768,7 +5272,9 @@
           },
           "margin": 100.0,
           "marginVotes": 15098,
-          "uncontested": true
+          "uncontested": true,
+          "dem_pct": 0.0,
+          "rep_pct": 1.0
         },
         "2022": {
           "year": 2022,
@@ -4781,7 +5287,9 @@
           },
           "margin": 100.0,
           "marginVotes": 8934,
-          "uncontested": true
+          "uncontested": true,
+          "dem_pct": 0.0,
+          "rep_pct": 1.0
         },
         "2020": {
           "year": 2020,
@@ -4794,7 +5302,9 @@
           },
           "margin": 100.0,
           "marginVotes": 14056,
-          "uncontested": true
+          "uncontested": true,
+          "dem_pct": 0.0,
+          "rep_pct": 1.0
         }
       },
       "competitiveness": {
@@ -4819,7 +5329,9 @@
           },
           "margin": 100.0,
           "marginVotes": 17933,
-          "uncontested": true
+          "uncontested": true,
+          "dem_pct": 0.0,
+          "rep_pct": 1.0
         },
         "2022": {
           "year": 2022,
@@ -4837,7 +5349,9 @@
             "percentage": 24.0
           },
           "margin": 52.0,
-          "marginVotes": 7839
+          "marginVotes": 7839,
+          "dem_pct": null,
+          "rep_pct": 0.7602
         },
         "2020": {
           "year": 2020,
@@ -4850,7 +5364,9 @@
           },
           "margin": 100.0,
           "marginVotes": 20169,
-          "uncontested": true
+          "uncontested": true,
+          "dem_pct": 0.0,
+          "rep_pct": 1.0
         }
       },
       "competitiveness": {
@@ -4875,7 +5391,9 @@
           },
           "margin": 100.0,
           "marginVotes": 14950,
-          "uncontested": true
+          "uncontested": true,
+          "dem_pct": 0.0,
+          "rep_pct": 1.0
         },
         "2022": {
           "year": 2022,
@@ -4888,7 +5406,9 @@
           },
           "margin": 100.0,
           "marginVotes": 9727,
-          "uncontested": true
+          "uncontested": true,
+          "dem_pct": 0.0,
+          "rep_pct": 1.0
         },
         "2020": {
           "year": 2020,
@@ -4901,7 +5421,9 @@
           },
           "margin": 100.0,
           "marginVotes": 14898,
-          "uncontested": true
+          "uncontested": true,
+          "dem_pct": 0.0,
+          "rep_pct": 1.0
         }
       },
       "competitiveness": {
@@ -4931,7 +5453,9 @@
             "percentage": 14.1
           },
           "margin": 71.8,
-          "marginVotes": 15528
+          "marginVotes": 15528,
+          "dem_pct": null,
+          "rep_pct": 0.8591
         },
         "2022": {
           "year": 2022,
@@ -4944,7 +5468,9 @@
           },
           "margin": 100.0,
           "marginVotes": 14153,
-          "uncontested": true
+          "uncontested": true,
+          "dem_pct": 0.0,
+          "rep_pct": 1.0
         },
         "2020": {
           "year": 2020,
@@ -4957,7 +5483,9 @@
           },
           "margin": 100.0,
           "marginVotes": 23721,
-          "uncontested": true
+          "uncontested": true,
+          "dem_pct": 0.0,
+          "rep_pct": 1.0
         }
       },
       "competitiveness": {
@@ -4982,7 +5510,9 @@
           },
           "margin": 100.0,
           "marginVotes": 13020,
-          "uncontested": true
+          "uncontested": true,
+          "dem_pct": 0.0,
+          "rep_pct": 1.0
         },
         "2022": {
           "year": 2022,
@@ -5000,7 +5530,9 @@
             "percentage": 29.8
           },
           "margin": 40.4,
-          "marginVotes": 4773
+          "marginVotes": 4773,
+          "dem_pct": 0.2984,
+          "rep_pct": 0.7016
         },
         "2020": {
           "year": 2020,
@@ -5013,7 +5545,9 @@
           },
           "margin": 100.0,
           "marginVotes": 14962,
-          "uncontested": true
+          "uncontested": true,
+          "dem_pct": 0.0,
+          "rep_pct": 1.0
         }
       },
       "competitiveness": {
@@ -5043,7 +5577,9 @@
             "percentage": 39.7
           },
           "margin": 20.6,
-          "marginVotes": 3477
+          "marginVotes": 3477,
+          "dem_pct": 0.3968,
+          "rep_pct": 0.6032
         },
         "2022": {
           "year": 2022,
@@ -5056,7 +5592,9 @@
           },
           "margin": 100.0,
           "marginVotes": 8760,
-          "uncontested": true
+          "uncontested": true,
+          "dem_pct": 0.0,
+          "rep_pct": 1.0
         },
         "2020": {
           "year": 2020,
@@ -5069,7 +5607,9 @@
           },
           "margin": 100.0,
           "marginVotes": 12661,
-          "uncontested": true
+          "uncontested": true,
+          "dem_pct": 0.0,
+          "rep_pct": 1.0
         }
       },
       "competitiveness": {
@@ -5099,7 +5639,9 @@
             "percentage": 40.0
           },
           "margin": 20.0,
-          "marginVotes": 3540
+          "marginVotes": 3540,
+          "dem_pct": 0.5999,
+          "rep_pct": 0.4001
         },
         "2022": {
           "year": 2022,
@@ -5117,7 +5659,9 @@
             "percentage": 41.2
           },
           "margin": 17.6,
-          "marginVotes": 2040
+          "marginVotes": 2040,
+          "dem_pct": 0.5876,
+          "rep_pct": 0.4124
         },
         "2020": {
           "year": 2020,
@@ -5135,7 +5679,9 @@
             "percentage": 49.8
           },
           "margin": 0.4,
-          "marginVotes": 59
+          "marginVotes": 59,
+          "dem_pct": 0.5018,
+          "rep_pct": 0.4982
         }
       },
       "competitiveness": {
@@ -5165,7 +5711,9 @@
             "percentage": 48.4
           },
           "margin": 3.2,
-          "marginVotes": 584
+          "marginVotes": 584,
+          "dem_pct": 0.5163,
+          "rep_pct": 0.4837
         },
         "2022": {
           "year": 2022,
@@ -5178,7 +5726,9 @@
           },
           "margin": 100.0,
           "marginVotes": 7560,
-          "uncontested": true
+          "uncontested": true,
+          "dem_pct": 1.0,
+          "rep_pct": 0.0
         },
         "2020": {
           "year": 2020,
@@ -5191,7 +5741,9 @@
           },
           "margin": 100.0,
           "marginVotes": 12025,
-          "uncontested": true
+          "uncontested": true,
+          "dem_pct": 1.0,
+          "rep_pct": 0.0
         }
       },
       "competitiveness": {
@@ -5216,7 +5768,9 @@
           },
           "margin": 100.0,
           "marginVotes": 12632,
-          "uncontested": true
+          "uncontested": true,
+          "dem_pct": 0.0,
+          "rep_pct": 1.0
         },
         "2022": {
           "year": 2022,
@@ -5229,7 +5783,9 @@
           },
           "margin": 100.0,
           "marginVotes": 9283,
-          "uncontested": true
+          "uncontested": true,
+          "dem_pct": 0.0,
+          "rep_pct": 1.0
         },
         "2020": {
           "year": 2020,
@@ -5242,7 +5798,9 @@
           },
           "margin": 100.0,
           "marginVotes": 13816,
-          "uncontested": true
+          "uncontested": true,
+          "dem_pct": 0.0,
+          "rep_pct": 1.0
         }
       },
       "competitiveness": {
@@ -5272,7 +5830,9 @@
             "percentage": 46.5
           },
           "margin": 5.2,
-          "marginVotes": 1018
+          "marginVotes": 1018,
+          "dem_pct": 0.5168,
+          "rep_pct": 0.4649
         },
         "2022": {
           "year": 2022,
@@ -5290,7 +5850,9 @@
             "percentage": 39.2
           },
           "margin": 21.6,
-          "marginVotes": 2901
+          "marginVotes": 2901,
+          "dem_pct": 0.6084,
+          "rep_pct": 0.3916
         },
         "2020": {
           "year": 2020,
@@ -5303,7 +5865,9 @@
           },
           "margin": 100.0,
           "marginVotes": 13820,
-          "uncontested": true
+          "uncontested": true,
+          "dem_pct": 1.0,
+          "rep_pct": 0.0
         }
       },
       "competitiveness": {
@@ -5328,7 +5892,9 @@
           },
           "margin": 100.0,
           "marginVotes": 13649,
-          "uncontested": true
+          "uncontested": true,
+          "dem_pct": 0.0,
+          "rep_pct": 1.0
         },
         "2022": {
           "year": 2022,
@@ -5346,7 +5912,9 @@
             "percentage": 36.6
           },
           "margin": 26.8,
-          "marginVotes": 3526
+          "marginVotes": 3526,
+          "dem_pct": 0.3664,
+          "rep_pct": 0.6336
         },
         "2020": {
           "year": 2020,
@@ -5364,7 +5932,9 @@
             "percentage": 38.9
           },
           "margin": 22.2,
-          "marginVotes": 4359
+          "marginVotes": 4359,
+          "dem_pct": 0.3892,
+          "rep_pct": 0.6108
         }
       },
       "competitiveness": {
@@ -5389,7 +5959,9 @@
           },
           "margin": 100.0,
           "marginVotes": 12568,
-          "uncontested": true
+          "uncontested": true,
+          "dem_pct": 1.0,
+          "rep_pct": 0.0
         },
         "2022": {
           "year": 2022,
@@ -5407,7 +5979,9 @@
             "percentage": 40.8
           },
           "margin": 18.4,
-          "marginVotes": 2488
+          "marginVotes": 2488,
+          "dem_pct": 0.5916,
+          "rep_pct": 0.4084
         },
         "2020": {
           "year": 2020,
@@ -5425,7 +5999,9 @@
             "percentage": 12.2
           },
           "margin": 75.6,
-          "marginVotes": 10197
+          "marginVotes": 10197,
+          "dem_pct": 0.8778,
+          "rep_pct": null
         }
       },
       "competitiveness": {
@@ -5450,7 +6026,9 @@
           },
           "margin": 100.0,
           "marginVotes": 14055,
-          "uncontested": true
+          "uncontested": true,
+          "dem_pct": 0.0,
+          "rep_pct": 1.0
         },
         "2022": {
           "year": 2022,
@@ -5463,7 +6041,9 @@
           },
           "margin": 100.0,
           "marginVotes": 8323,
-          "uncontested": true
+          "uncontested": true,
+          "dem_pct": 0.0,
+          "rep_pct": 1.0
         },
         "2020": {
           "year": 2020,
@@ -5476,7 +6056,9 @@
           },
           "margin": 100.0,
           "marginVotes": 13397,
-          "uncontested": true
+          "uncontested": true,
+          "dem_pct": 0.0,
+          "rep_pct": 1.0
         }
       },
       "competitiveness": {
@@ -5501,7 +6083,9 @@
           },
           "margin": 100.0,
           "marginVotes": 15464,
-          "uncontested": true
+          "uncontested": true,
+          "dem_pct": 0.0,
+          "rep_pct": 1.0
         },
         "2022": {
           "year": 2022,
@@ -5519,7 +6103,9 @@
             "percentage": 31.9
           },
           "margin": 36.2,
-          "marginVotes": 4866
+          "marginVotes": 4866,
+          "dem_pct": 0.3186,
+          "rep_pct": 0.6814
         },
         "2020": {
           "year": 2020,
@@ -5537,7 +6123,9 @@
             "percentage": 37.7
           },
           "margin": 24.6,
-          "marginVotes": 5594
+          "marginVotes": 5594,
+          "dem_pct": 0.3768,
+          "rep_pct": 0.6232
         }
       },
       "competitiveness": {
@@ -5567,7 +6155,9 @@
             "percentage": 43.0
           },
           "margin": 14.0,
-          "marginVotes": 2409
+          "marginVotes": 2409,
+          "dem_pct": 0.4302,
+          "rep_pct": 0.5698
         },
         "2022": {
           "year": 2022,
@@ -5585,7 +6175,9 @@
             "percentage": 42.1
           },
           "margin": 15.8,
-          "marginVotes": 1845
+          "marginVotes": 1845,
+          "dem_pct": 0.4211,
+          "rep_pct": 0.5789
         },
         "2020": {
           "year": 2020,
@@ -5598,7 +6190,9 @@
           },
           "margin": 100.0,
           "marginVotes": 14951,
-          "uncontested": true
+          "uncontested": true,
+          "dem_pct": 0.0,
+          "rep_pct": 1.0
         }
       },
       "competitiveness": {
@@ -5623,7 +6217,9 @@
           },
           "margin": 100.0,
           "marginVotes": 16409,
-          "uncontested": true
+          "uncontested": true,
+          "dem_pct": 0.0,
+          "rep_pct": 1.0
         },
         "2022": {
           "year": 2022,
@@ -5636,7 +6232,9 @@
           },
           "margin": 100.0,
           "marginVotes": 11104,
-          "uncontested": true
+          "uncontested": true,
+          "dem_pct": 0.0,
+          "rep_pct": 1.0
         },
         "2020": {
           "year": 2020,
@@ -5654,7 +6252,9 @@
             "percentage": 35.7
           },
           "margin": 28.6,
-          "marginVotes": 7895
+          "marginVotes": 7895,
+          "dem_pct": 0.3566,
+          "rep_pct": 0.6434
         }
       },
       "competitiveness": {
@@ -5679,7 +6279,9 @@
           },
           "margin": 100.0,
           "marginVotes": 14596,
-          "uncontested": true
+          "uncontested": true,
+          "dem_pct": 0.0,
+          "rep_pct": 1.0
         },
         "2022": {
           "year": 2022,
@@ -5692,7 +6294,9 @@
           },
           "margin": 100.0,
           "marginVotes": 9639,
-          "uncontested": true
+          "uncontested": true,
+          "dem_pct": 0.0,
+          "rep_pct": 1.0
         },
         "2020": {
           "year": 2020,
@@ -5705,7 +6309,9 @@
           },
           "margin": 100.0,
           "marginVotes": 22345,
-          "uncontested": true
+          "uncontested": true,
+          "dem_pct": 0.0,
+          "rep_pct": 1.0
         }
       },
       "competitiveness": {
@@ -5730,7 +6336,9 @@
           },
           "margin": 100.0,
           "marginVotes": 12531,
-          "uncontested": true
+          "uncontested": true,
+          "dem_pct": 1.0,
+          "rep_pct": 0.0
         },
         "2022": {
           "year": 2022,
@@ -5743,7 +6351,9 @@
           },
           "margin": 100.0,
           "marginVotes": 8662,
-          "uncontested": true
+          "uncontested": true,
+          "dem_pct": 1.0,
+          "rep_pct": 0.0
         },
         "2020": {
           "year": 2020,
@@ -5756,7 +6366,9 @@
           },
           "margin": 100.0,
           "marginVotes": 12758,
-          "uncontested": true
+          "uncontested": true,
+          "dem_pct": 1.0,
+          "rep_pct": 0.0
         }
       },
       "competitiveness": {
@@ -5786,7 +6398,9 @@
             "percentage": 48.1
           },
           "margin": 3.8,
-          "marginVotes": 804
+          "marginVotes": 804,
+          "dem_pct": 0.4806,
+          "rep_pct": 0.5194
         },
         "2022": {
           "year": 2022,
@@ -5804,7 +6418,9 @@
             "percentage": 48.9
           },
           "margin": 2.2,
-          "marginVotes": 278
+          "marginVotes": 278,
+          "dem_pct": 0.5112,
+          "rep_pct": 0.4888
         },
         "2020": {
           "year": 2020,
@@ -5817,7 +6433,9 @@
           },
           "margin": 100.0,
           "marginVotes": 12500,
-          "uncontested": true
+          "uncontested": true,
+          "dem_pct": 1.0,
+          "rep_pct": 0.0
         }
       },
       "competitiveness": {
@@ -5842,7 +6460,9 @@
           },
           "margin": 100.0,
           "marginVotes": 11367,
-          "uncontested": true
+          "uncontested": true,
+          "dem_pct": 1.0,
+          "rep_pct": 0.0
         },
         "2022": {
           "year": 2022,
@@ -5855,7 +6475,9 @@
           },
           "margin": 100.0,
           "marginVotes": 7458,
-          "uncontested": true
+          "uncontested": true,
+          "dem_pct": 1.0,
+          "rep_pct": 0.0
         },
         "2020": {
           "year": 2020,
@@ -5868,7 +6490,9 @@
           },
           "margin": 100.0,
           "marginVotes": 12606,
-          "uncontested": true
+          "uncontested": true,
+          "dem_pct": 1.0,
+          "rep_pct": 0.0
         }
       },
       "competitiveness": {
@@ -5893,7 +6517,9 @@
           },
           "margin": 100.0,
           "marginVotes": 24670,
-          "uncontested": true
+          "uncontested": true,
+          "dem_pct": 0.0,
+          "rep_pct": 1.0
         },
         "2022": {
           "year": 2022,
@@ -5906,7 +6532,9 @@
           },
           "margin": 100.0,
           "marginVotes": 16810,
-          "uncontested": true
+          "uncontested": true,
+          "dem_pct": 0.0,
+          "rep_pct": 1.0
         },
         "2020": {
           "year": 2020,
@@ -5919,7 +6547,9 @@
           },
           "margin": 100.0,
           "marginVotes": 24360,
-          "uncontested": true
+          "uncontested": true,
+          "dem_pct": 0.0,
+          "rep_pct": 1.0
         }
       },
       "competitiveness": {
@@ -5944,7 +6574,9 @@
           },
           "margin": 100.0,
           "marginVotes": 19214,
-          "uncontested": true
+          "uncontested": true,
+          "dem_pct": 0.0,
+          "rep_pct": 1.0
         },
         "2022": {
           "year": 2022,
@@ -5957,7 +6589,9 @@
           },
           "margin": 100.0,
           "marginVotes": 12110,
-          "uncontested": true
+          "uncontested": true,
+          "dem_pct": 0.0,
+          "rep_pct": 1.0
         },
         "2020": {
           "year": 2020,
@@ -5970,7 +6604,9 @@
           },
           "margin": 100.0,
           "marginVotes": 14870,
-          "uncontested": true
+          "uncontested": true,
+          "dem_pct": 0.0,
+          "rep_pct": 1.0
         }
       },
       "competitiveness": {
@@ -5995,7 +6631,9 @@
           },
           "margin": 100.0,
           "marginVotes": 21778,
-          "uncontested": true
+          "uncontested": true,
+          "dem_pct": 0.0,
+          "rep_pct": 1.0
         },
         "2022": {
           "year": 2022,
@@ -6013,7 +6651,9 @@
             "percentage": 26.2
           },
           "margin": 47.6,
-          "marginVotes": 9471
+          "marginVotes": 9471,
+          "dem_pct": 0.2618,
+          "rep_pct": 0.7382
         },
         "2020": {
           "year": 2020,
@@ -6026,7 +6666,9 @@
           },
           "margin": 100.0,
           "marginVotes": 24092,
-          "uncontested": true
+          "uncontested": true,
+          "dem_pct": 0.0,
+          "rep_pct": 1.0
         }
       },
       "competitiveness": {
@@ -6051,7 +6693,9 @@
           },
           "margin": 100.0,
           "marginVotes": 16658,
-          "uncontested": true
+          "uncontested": true,
+          "dem_pct": 0.0,
+          "rep_pct": 1.0
         },
         "2022": {
           "year": 2022,
@@ -6064,7 +6708,9 @@
           },
           "margin": 100.0,
           "marginVotes": 11742,
-          "uncontested": true
+          "uncontested": true,
+          "dem_pct": 0.0,
+          "rep_pct": 1.0
         },
         "2020": {
           "year": 2020,
@@ -6082,7 +6728,9 @@
             "percentage": 32.7
           },
           "margin": 32.8,
-          "marginVotes": 7993
+          "marginVotes": 7993,
+          "dem_pct": 0.3271,
+          "rep_pct": 0.6554
         }
       },
       "competitiveness": {
@@ -6107,7 +6755,9 @@
           },
           "margin": 100.0,
           "marginVotes": 20536,
-          "uncontested": true
+          "uncontested": true,
+          "dem_pct": 0.0,
+          "rep_pct": 1.0
         },
         "2022": {
           "year": 2022,
@@ -6120,7 +6770,9 @@
           },
           "margin": 100.0,
           "marginVotes": 15847,
-          "uncontested": true
+          "uncontested": true,
+          "dem_pct": 0.0,
+          "rep_pct": 1.0
         },
         "2020": {
           "year": 2020,
@@ -6133,7 +6785,9 @@
           },
           "margin": 100.0,
           "marginVotes": 21800,
-          "uncontested": true
+          "uncontested": true,
+          "dem_pct": 0.0,
+          "rep_pct": 1.0
         }
       },
       "competitiveness": {
@@ -6158,7 +6812,9 @@
           },
           "margin": 100.0,
           "marginVotes": 10157,
-          "uncontested": true
+          "uncontested": true,
+          "dem_pct": 1.0,
+          "rep_pct": 0.0
         },
         "2022": {
           "year": 2022,
@@ -6176,7 +6832,9 @@
             "percentage": 23.0
           },
           "margin": 54.0,
-          "marginVotes": 4148
+          "marginVotes": 4148,
+          "dem_pct": 0.7702,
+          "rep_pct": null
         },
         "2020": {
           "year": 2020,
@@ -6194,7 +6852,9 @@
             "percentage": 18.9
           },
           "margin": 62.2,
-          "marginVotes": 8659
+          "marginVotes": 8659,
+          "dem_pct": 0.8115,
+          "rep_pct": null
         }
       },
       "competitiveness": {
@@ -6224,7 +6884,9 @@
             "percentage": 44.0
           },
           "margin": 12.0,
-          "marginVotes": 2762
+          "marginVotes": 2762,
+          "dem_pct": 0.4401,
+          "rep_pct": 0.5599
         },
         "2022": {
           "year": 2022,
@@ -6242,7 +6904,9 @@
             "percentage": 45.9
           },
           "margin": 8.2,
-          "marginVotes": 1486
+          "marginVotes": 1486,
+          "dem_pct": 0.4587,
+          "rep_pct": 0.5413
         },
         "2020": {
           "year": 2020,
@@ -6260,7 +6924,9 @@
             "percentage": 39.3
           },
           "margin": 21.4,
-          "marginVotes": 4690
+          "marginVotes": 4690,
+          "dem_pct": 0.3928,
+          "rep_pct": 0.6072
         }
       },
       "competitiveness": {
@@ -6290,7 +6956,9 @@
             "percentage": 16.8
           },
           "margin": 66.4,
-          "marginVotes": 9947
+          "marginVotes": 9947,
+          "dem_pct": 0.8323,
+          "rep_pct": null
         },
         "2022": {
           "year": 2022,
@@ -6303,7 +6971,9 @@
           },
           "margin": 100.0,
           "marginVotes": 9541,
-          "uncontested": true
+          "uncontested": true,
+          "dem_pct": 1.0,
+          "rep_pct": 0.0
         },
         "2020": {
           "year": 2020,
@@ -6321,7 +6991,9 @@
             "percentage": 20.8
           },
           "margin": 58.4,
-          "marginVotes": 9657
+          "marginVotes": 9657,
+          "dem_pct": 0.7923,
+          "rep_pct": 0.2077
         }
       },
       "competitiveness": {
@@ -6351,7 +7023,9 @@
             "percentage": 38.9
           },
           "margin": 22.2,
-          "marginVotes": 6140
+          "marginVotes": 6140,
+          "dem_pct": 0.389,
+          "rep_pct": 0.611
         },
         "2022": {
           "year": 2022,
@@ -6369,7 +7043,9 @@
             "percentage": 40.8
           },
           "margin": 18.4,
-          "marginVotes": 3740
+          "marginVotes": 3740,
+          "dem_pct": 0.4078,
+          "rep_pct": 0.5922
         },
         "2020": {
           "year": 2020,
@@ -6387,7 +7063,9 @@
             "percentage": 42.5
           },
           "margin": 15.0,
-          "marginVotes": 4718
+          "marginVotes": 4718,
+          "dem_pct": 0.4246,
+          "rep_pct": 0.5754
         }
       },
       "competitiveness": {
@@ -6412,7 +7090,9 @@
           },
           "margin": 100.0,
           "marginVotes": 9373,
-          "uncontested": true
+          "uncontested": true,
+          "dem_pct": 1.0,
+          "rep_pct": 0.0
         },
         "2022": {
           "year": 2022,
@@ -6425,7 +7105,9 @@
           },
           "margin": 100.0,
           "marginVotes": 6056,
-          "uncontested": true
+          "uncontested": true,
+          "dem_pct": 1.0,
+          "rep_pct": 0.0
         },
         "2020": {
           "year": 2020,
@@ -6438,7 +7120,9 @@
           },
           "margin": 100.0,
           "marginVotes": 13054,
-          "uncontested": true
+          "uncontested": true,
+          "dem_pct": 1.0,
+          "rep_pct": 0.0
         }
       },
       "competitiveness": {
@@ -6468,7 +7152,9 @@
             "percentage": 38.8
           },
           "margin": 22.4,
-          "marginVotes": 5810
+          "marginVotes": 5810,
+          "dem_pct": 0.3882,
+          "rep_pct": 0.6118
         },
         "2022": {
           "year": 2022,
@@ -6486,7 +7172,9 @@
             "percentage": 41.1
           },
           "margin": 17.8,
-          "marginVotes": 2923
+          "marginVotes": 2923,
+          "dem_pct": 0.4111,
+          "rep_pct": 0.5889
         },
         "2020": {
           "year": 2020,
@@ -6504,7 +7192,9 @@
             "percentage": 44.1
           },
           "margin": 8.9,
-          "marginVotes": 2184
+          "marginVotes": 2184,
+          "dem_pct": 0.4413,
+          "rep_pct": 0.5301
         }
       },
       "competitiveness": {
@@ -6534,7 +7224,9 @@
             "percentage": 48.1
           },
           "margin": 3.8,
-          "marginVotes": 1004
+          "marginVotes": 1004,
+          "dem_pct": 0.5191,
+          "rep_pct": 0.4809
         },
         "2022": {
           "year": 2022,
@@ -6552,7 +7244,9 @@
             "percentage": 46.2
           },
           "margin": 7.6,
-          "marginVotes": 1519
+          "marginVotes": 1519,
+          "dem_pct": 0.5381,
+          "rep_pct": 0.4619
         },
         "2020": {
           "year": 2020,
@@ -6570,7 +7264,9 @@
             "percentage": 49.2
           },
           "margin": 1.6,
-          "marginVotes": 420
+          "marginVotes": 420,
+          "dem_pct": 0.508,
+          "rep_pct": 0.492
         }
       },
       "competitiveness": {
@@ -6600,7 +7296,9 @@
             "percentage": 48.8
           },
           "margin": 2.4,
-          "marginVotes": 592
+          "marginVotes": 592,
+          "dem_pct": 0.4879,
+          "rep_pct": 0.5121
         },
         "2022": {
           "year": 2022,
@@ -6618,7 +7316,9 @@
             "percentage": 48.3
           },
           "margin": 3.4,
-          "marginVotes": 581
+          "marginVotes": 581,
+          "dem_pct": 0.4829,
+          "rep_pct": 0.5171
         },
         "2020": {
           "year": 2020,
@@ -6636,7 +7336,9 @@
             "percentage": 49.1
           },
           "margin": 1.8,
-          "marginVotes": 418
+          "marginVotes": 418,
+          "dem_pct": 0.5087,
+          "rep_pct": 0.4913
         }
       },
       "competitiveness": {
@@ -6661,7 +7363,9 @@
           },
           "margin": 100.0,
           "marginVotes": 16281,
-          "uncontested": true
+          "uncontested": true,
+          "dem_pct": 0.0,
+          "rep_pct": 1.0
         },
         "2022": {
           "year": 2022,
@@ -6679,7 +7383,9 @@
             "percentage": 36.4
           },
           "margin": 27.2,
-          "marginVotes": 3641
+          "marginVotes": 3641,
+          "dem_pct": 0.364,
+          "rep_pct": 0.636
         },
         "2020": {
           "year": 2020,
@@ -6697,7 +7403,9 @@
             "percentage": 47.3
           },
           "margin": 5.4,
-          "marginVotes": 904
+          "marginVotes": 904,
+          "dem_pct": 0.5267,
+          "rep_pct": 0.4733
         }
       },
       "competitiveness": {
@@ -6727,7 +7435,9 @@
             "percentage": 35.2
           },
           "margin": 29.6,
-          "marginVotes": 7319
+          "marginVotes": 7319,
+          "dem_pct": 0.3524,
+          "rep_pct": 0.6476
         },
         "2022": {
           "year": 2022,
@@ -6740,7 +7450,9 @@
           },
           "margin": 100.0,
           "marginVotes": 12584,
-          "uncontested": true
+          "uncontested": true,
+          "dem_pct": 0.0,
+          "rep_pct": 1.0
         },
         "2020": {
           "year": 2020,
@@ -6758,7 +7470,9 @@
             "percentage": 38.2
           },
           "margin": 23.6,
-          "marginVotes": 6454
+          "marginVotes": 6454,
+          "dem_pct": 0.3824,
+          "rep_pct": 0.6176
         }
       },
       "competitiveness": {
@@ -6788,7 +7502,9 @@
             "percentage": 44.8
           },
           "margin": 10.4,
-          "marginVotes": 2505
+          "marginVotes": 2505,
+          "dem_pct": 0.5521,
+          "rep_pct": 0.4479
         },
         "2022": {
           "year": 2022,
@@ -6806,7 +7522,9 @@
             "percentage": 42.5
           },
           "margin": 15.0,
-          "marginVotes": 2690
+          "marginVotes": 2690,
+          "dem_pct": 0.5751,
+          "rep_pct": 0.4249
         },
         "2020": {
           "year": 2020,
@@ -6824,7 +7542,9 @@
             "percentage": 30.0
           },
           "margin": 40.0,
-          "marginVotes": 9617
+          "marginVotes": 9617,
+          "dem_pct": 0.6998,
+          "rep_pct": null
         }
       },
       "competitiveness": {
@@ -6854,7 +7574,9 @@
             "percentage": 33.3
           },
           "margin": 33.4,
-          "marginVotes": 8876
+          "marginVotes": 8876,
+          "dem_pct": 0.3326,
+          "rep_pct": 0.6674
         },
         "2022": {
           "year": 2022,
@@ -6867,7 +7589,9 @@
           },
           "margin": 100.0,
           "marginVotes": 13427,
-          "uncontested": true
+          "uncontested": true,
+          "dem_pct": 0.0,
+          "rep_pct": 1.0
         },
         "2020": {
           "year": 2020,
@@ -6880,7 +7604,9 @@
           },
           "margin": 100.0,
           "marginVotes": 18313,
-          "uncontested": true
+          "uncontested": true,
+          "dem_pct": 0.0,
+          "rep_pct": 1.0
         }
       },
       "competitiveness": {
@@ -6910,7 +7636,9 @@
             "percentage": 41.9
           },
           "margin": 16.2,
-          "marginVotes": 2764
+          "marginVotes": 2764,
+          "dem_pct": 0.581,
+          "rep_pct": 0.419
         },
         "2022": {
           "year": 2022,
@@ -6928,7 +7656,9 @@
             "percentage": 42.6
           },
           "margin": 14.8,
-          "marginVotes": 1675
+          "marginVotes": 1675,
+          "dem_pct": 0.5737,
+          "rep_pct": 0.4263
         },
         "2020": {
           "year": 2020,
@@ -6946,7 +7676,9 @@
             "percentage": 36.7
           },
           "margin": 26.6,
-          "marginVotes": 4628
+          "marginVotes": 4628,
+          "dem_pct": 0.6334,
+          "rep_pct": 0.3666
         }
       },
       "competitiveness": {
@@ -6976,7 +7708,9 @@
             "percentage": 46.4
           },
           "margin": 7.2,
-          "marginVotes": 1516
+          "marginVotes": 1516,
+          "dem_pct": 0.4638,
+          "rep_pct": 0.5362
         },
         "2022": {
           "year": 2022,
@@ -6994,7 +7728,9 @@
             "percentage": 46.0
           },
           "margin": 8.0,
-          "marginVotes": 1086
+          "marginVotes": 1086,
+          "dem_pct": 0.4601,
+          "rep_pct": 0.5399
         },
         "2020": {
           "year": 2020,
@@ -7012,7 +7748,9 @@
             "percentage": 43.0
           },
           "margin": 14.0,
-          "marginVotes": 2242
+          "marginVotes": 2242,
+          "dem_pct": 0.5698,
+          "rep_pct": 0.4302
         }
       },
       "competitiveness": {
@@ -7042,7 +7780,9 @@
             "percentage": 40.1
           },
           "margin": 19.8,
-          "marginVotes": 4999
+          "marginVotes": 4999,
+          "dem_pct": 0.4009,
+          "rep_pct": 0.5991
         },
         "2022": {
           "year": 2022,
@@ -7055,7 +7795,9 @@
           },
           "margin": 100.0,
           "marginVotes": 13455,
-          "uncontested": true
+          "uncontested": true,
+          "dem_pct": 0.0,
+          "rep_pct": 1.0
         },
         "2020": {
           "year": 2020,
@@ -7073,7 +7815,9 @@
             "percentage": 37.5
           },
           "margin": 25.0,
-          "marginVotes": 5853
+          "marginVotes": 5853,
+          "dem_pct": 0.3747,
+          "rep_pct": 0.6253
         }
       },
       "competitiveness": {
@@ -7103,7 +7847,9 @@
             "percentage": 36.7
           },
           "margin": 26.6,
-          "marginVotes": 5497
+          "marginVotes": 5497,
+          "dem_pct": 0.3671,
+          "rep_pct": 0.6329
         },
         "2022": {
           "year": 2022,
@@ -7121,7 +7867,9 @@
             "percentage": 37.2
           },
           "margin": 25.6,
-          "marginVotes": 3748
+          "marginVotes": 3748,
+          "dem_pct": 0.3717,
+          "rep_pct": 0.6283
         },
         "2020": {
           "year": 2020,
@@ -7139,7 +7887,9 @@
             "percentage": 36.7
           },
           "margin": 26.6,
-          "marginVotes": 5025
+          "marginVotes": 5025,
+          "dem_pct": 0.3669,
+          "rep_pct": 0.6331
         }
       },
       "competitiveness": {
@@ -7171,7 +7921,9 @@
             "percentage": 49.8
           },
           "margin": 0.4,
-          "marginVotes": 365
+          "marginVotes": 365,
+          "dem_pct": 0.4982,
+          "rep_pct": 0.5018
         },
         "2020": {
           "year": 2020,
@@ -7189,7 +7941,9 @@
             "percentage": 46.3
           },
           "margin": 7.4,
-          "marginVotes": 3184
+          "marginVotes": 3184,
+          "dem_pct": 0.5374,
+          "rep_pct": 0.4626
         }
       },
       "competitiveness": {
@@ -7214,7 +7968,9 @@
           },
           "margin": 100.0,
           "marginVotes": 41348,
-          "uncontested": true
+          "uncontested": true,
+          "dem_pct": 0.0,
+          "rep_pct": 1.0
         },
         "2020": {
           "year": 2020,
@@ -7227,7 +7983,9 @@
           },
           "margin": 100.0,
           "marginVotes": 39794,
-          "uncontested": true
+          "uncontested": true,
+          "dem_pct": 0.0,
+          "rep_pct": 1.0
         }
       },
       "competitiveness": {
@@ -7252,7 +8010,9 @@
           },
           "margin": 100.0,
           "marginVotes": 47204,
-          "uncontested": true
+          "uncontested": true,
+          "dem_pct": 0.0,
+          "rep_pct": 1.0
         },
         "2020": {
           "year": 2020,
@@ -7265,7 +8025,9 @@
           },
           "margin": 100.0,
           "marginVotes": 44116,
-          "uncontested": true
+          "uncontested": true,
+          "dem_pct": 0.0,
+          "rep_pct": 1.0
         }
       },
       "competitiveness": {
@@ -7295,7 +8057,9 @@
             "percentage": 24.5
           },
           "margin": 51.0,
-          "marginVotes": 31286
+          "marginVotes": 31286,
+          "dem_pct": 0.2451,
+          "rep_pct": 0.7549
         },
         "2020": {
           "year": 2020,
@@ -7313,7 +8077,9 @@
             "percentage": 25.9
           },
           "margin": 48.2,
-          "marginVotes": 28913
+          "marginVotes": 28913,
+          "dem_pct": 0.259,
+          "rep_pct": 0.741
         }
       },
       "competitiveness": {
@@ -7338,7 +8104,9 @@
           },
           "margin": 100.0,
           "marginVotes": 37010,
-          "uncontested": true
+          "uncontested": true,
+          "dem_pct": 0.0,
+          "rep_pct": 1.0
         },
         "2020": {
           "year": 2020,
@@ -7356,7 +8124,9 @@
             "percentage": 27.2
           },
           "margin": 45.6,
-          "marginVotes": 19478
+          "marginVotes": 19478,
+          "dem_pct": 0.2723,
+          "rep_pct": 0.7277
         }
       },
       "competitiveness": {
@@ -7381,7 +8151,9 @@
           },
           "margin": 100.0,
           "marginVotes": 49132,
-          "uncontested": true
+          "uncontested": true,
+          "dem_pct": 0.0,
+          "rep_pct": 1.0
         },
         "2020": {
           "year": 2020,
@@ -7399,7 +8171,9 @@
             "percentage": 23.8
           },
           "margin": 52.4,
-          "marginVotes": 30795
+          "marginVotes": 30795,
+          "dem_pct": 0.2382,
+          "rep_pct": 0.7618
         }
       },
       "competitiveness": {
@@ -7424,7 +8198,9 @@
           },
           "margin": 100.0,
           "marginVotes": 40759,
-          "uncontested": true
+          "uncontested": true,
+          "dem_pct": 0.0,
+          "rep_pct": 1.0
         },
         "2020": {
           "year": 2020,
@@ -7442,7 +8218,9 @@
             "percentage": 34.8
           },
           "margin": 30.4,
-          "marginVotes": 15532
+          "marginVotes": 15532,
+          "dem_pct": 0.3479,
+          "rep_pct": 0.6521
         }
       },
       "competitiveness": {
@@ -7467,7 +8245,9 @@
           },
           "margin": 100.0,
           "marginVotes": 29967,
-          "uncontested": true
+          "uncontested": true,
+          "dem_pct": 1.0,
+          "rep_pct": 0.0
         },
         "2020": {
           "year": 2020,
@@ -7485,7 +8265,9 @@
             "percentage": 37.3
           },
           "margin": 25.4,
-          "marginVotes": 10786
+          "marginVotes": 10786,
+          "dem_pct": 0.6267,
+          "rep_pct": 0.3733
         }
       },
       "competitiveness": {
@@ -7515,7 +8297,9 @@
             "percentage": 37.0
           },
           "margin": 26.0,
-          "marginVotes": 16240
+          "marginVotes": 16240,
+          "dem_pct": 0.3696,
+          "rep_pct": 0.6304
         },
         "2020": {
           "year": 2020,
@@ -7528,7 +8312,9 @@
           },
           "margin": 100.0,
           "marginVotes": 49180,
-          "uncontested": true
+          "uncontested": true,
+          "dem_pct": 0.0,
+          "rep_pct": 1.0
         }
       },
       "competitiveness": {
@@ -7558,7 +8344,9 @@
             "percentage": 29.7
           },
           "margin": 40.6,
-          "marginVotes": 22124
+          "marginVotes": 22124,
+          "dem_pct": 0.2968,
+          "rep_pct": 0.7032
         },
         "2020": {
           "year": 2020,
@@ -7571,7 +8359,9 @@
           },
           "margin": 100.0,
           "marginVotes": 39049,
-          "uncontested": true
+          "uncontested": true,
+          "dem_pct": 0.0,
+          "rep_pct": 1.0
         }
       },
       "competitiveness": {
@@ -7601,7 +8391,9 @@
             "percentage": 30.8
           },
           "margin": 38.4,
-          "marginVotes": 21645
+          "marginVotes": 21645,
+          "dem_pct": 0.3079,
+          "rep_pct": 0.6921
         },
         "2020": {
           "year": 2020,
@@ -7619,7 +8411,9 @@
             "percentage": 44.0
           },
           "margin": 12.0,
-          "marginVotes": 5148
+          "marginVotes": 5148,
+          "dem_pct": 0.4399,
+          "rep_pct": 0.5601
         }
       },
       "competitiveness": {
@@ -7649,7 +8443,9 @@
             "percentage": 34.7
           },
           "margin": 30.6,
-          "marginVotes": 14244
+          "marginVotes": 14244,
+          "dem_pct": 0.3468,
+          "rep_pct": 0.6532
         },
         "2020": {
           "year": 2020,
@@ -7667,7 +8463,9 @@
             "percentage": 44.6
           },
           "margin": 10.8,
-          "marginVotes": 5112
+          "marginVotes": 5112,
+          "dem_pct": 0.4458,
+          "rep_pct": 0.5542
         }
       },
       "competitiveness": {
@@ -7697,7 +8495,9 @@
             "percentage": 35.9
           },
           "margin": 28.2,
-          "marginVotes": 16170
+          "marginVotes": 16170,
+          "dem_pct": 0.3588,
+          "rep_pct": 0.6412
         },
         "2020": {
           "year": 2020,
@@ -7715,7 +8515,9 @@
             "percentage": 35.0
           },
           "margin": 30.0,
-          "marginVotes": 19442
+          "marginVotes": 19442,
+          "dem_pct": 0.3504,
+          "rep_pct": 0.6496
         }
       },
       "competitiveness": {
@@ -7740,7 +8542,9 @@
           },
           "margin": 100.0,
           "marginVotes": 44583,
-          "uncontested": true
+          "uncontested": true,
+          "dem_pct": 0.0,
+          "rep_pct": 1.0
         },
         "2020": {
           "year": 2020,
@@ -7753,7 +8557,9 @@
           },
           "margin": 100.0,
           "marginVotes": 43138,
-          "uncontested": true
+          "uncontested": true,
+          "dem_pct": 0.0,
+          "rep_pct": 1.0
         }
       },
       "competitiveness": {
@@ -7778,7 +8584,9 @@
           },
           "margin": 100.0,
           "marginVotes": 43933,
-          "uncontested": true
+          "uncontested": true,
+          "dem_pct": 0.0,
+          "rep_pct": 1.0
         },
         "2020": {
           "year": 2020,
@@ -7796,7 +8604,9 @@
             "percentage": 15.8
           },
           "margin": 68.4,
-          "marginVotes": 34449
+          "marginVotes": 34449,
+          "dem_pct": null,
+          "rep_pct": 0.8424
         }
       },
       "competitiveness": {
@@ -7826,7 +8636,9 @@
             "percentage": 23.6
           },
           "margin": 52.8,
-          "marginVotes": 28339
+          "marginVotes": 28339,
+          "dem_pct": null,
+          "rep_pct": 0.764
         },
         "2020": {
           "year": 2020,
@@ -7844,7 +8656,9 @@
             "percentage": 39.8
           },
           "margin": 20.4,
-          "marginVotes": 13273
+          "marginVotes": 13273,
+          "dem_pct": 0.3979,
+          "rep_pct": 0.6021
         }
       },
       "competitiveness": {
@@ -7874,7 +8688,9 @@
             "percentage": 20.8
           },
           "margin": 58.4,
-          "marginVotes": 33665
+          "marginVotes": 33665,
+          "dem_pct": null,
+          "rep_pct": 0.7918
         },
         "2020": {
           "year": 2020,
@@ -7892,7 +8708,9 @@
             "percentage": 36.7
           },
           "margin": 26.6,
-          "marginVotes": 20514
+          "marginVotes": 20514,
+          "dem_pct": 0.3669,
+          "rep_pct": 0.6331
         }
       },
       "competitiveness": {
@@ -7922,7 +8740,9 @@
             "percentage": 50.0
           },
           "margin": 0.0,
-          "marginVotes": 29
+          "marginVotes": 29,
+          "dem_pct": 0.4997,
+          "rep_pct": 0.5003
         },
         "2020": {
           "year": 2020,
@@ -7940,7 +8760,9 @@
             "percentage": 48.4
           },
           "margin": 3.2,
-          "marginVotes": 1610
+          "marginVotes": 1610,
+          "dem_pct": 0.5155,
+          "rep_pct": 0.4845
         }
       },
       "competitiveness": {
@@ -7965,7 +8787,9 @@
           },
           "margin": 100.0,
           "marginVotes": 51289,
-          "uncontested": true
+          "uncontested": true,
+          "dem_pct": 0.0,
+          "rep_pct": 1.0
         },
         "2020": {
           "year": 2020,
@@ -7983,7 +8807,9 @@
             "percentage": 27.7
           },
           "margin": 44.6,
-          "marginVotes": 28393
+          "marginVotes": 28393,
+          "dem_pct": 0.277,
+          "rep_pct": 0.723
         }
       },
       "competitiveness": {
@@ -8013,7 +8839,9 @@
             "percentage": 12.4
           },
           "margin": 75.2,
-          "marginVotes": 28924
+          "marginVotes": 28924,
+          "dem_pct": 0.8758,
+          "rep_pct": null
         },
         "2020": {
           "year": 2020,
@@ -8026,7 +8854,9 @@
           },
           "margin": 100.0,
           "marginVotes": 42097,
-          "uncontested": true
+          "uncontested": true,
+          "dem_pct": 1.0,
+          "rep_pct": 0.0
         }
       },
       "competitiveness": {
@@ -8056,7 +8886,9 @@
             "percentage": 26.2
           },
           "margin": 47.6,
-          "marginVotes": 20253
+          "marginVotes": 20253,
+          "dem_pct": 0.7378,
+          "rep_pct": null
         },
         "2020": {
           "year": 2020,
@@ -8074,7 +8906,9 @@
             "percentage": 46.7
           },
           "margin": 6.6,
-          "marginVotes": 3665
+          "marginVotes": 3665,
+          "dem_pct": 0.5334,
+          "rep_pct": 0.4666
         }
       },
       "competitiveness": {
@@ -8099,7 +8933,9 @@
           },
           "margin": 100.0,
           "marginVotes": 36370,
-          "uncontested": true
+          "uncontested": true,
+          "dem_pct": 1.0,
+          "rep_pct": 0.0
         },
         "2020": {
           "year": 2020,
@@ -8112,7 +8948,9 @@
           },
           "margin": 100.0,
           "marginVotes": 33279,
-          "uncontested": true
+          "uncontested": true,
+          "dem_pct": 1.0,
+          "rep_pct": 0.0
         }
       },
       "competitiveness": {
@@ -8137,7 +8975,9 @@
           },
           "margin": 100.0,
           "marginVotes": 41207,
-          "uncontested": true
+          "uncontested": true,
+          "dem_pct": 1.0,
+          "rep_pct": 0.0
         },
         "2020": {
           "year": 2020,
@@ -8155,7 +8995,9 @@
             "percentage": 37.8
           },
           "margin": 24.4,
-          "marginVotes": 13913
+          "marginVotes": 13913,
+          "dem_pct": 0.6221,
+          "rep_pct": 0.3779
         }
       },
       "competitiveness": {
@@ -8180,7 +9022,9 @@
           },
           "margin": 100.0,
           "marginVotes": 41467,
-          "uncontested": true
+          "uncontested": true,
+          "dem_pct": 0.0,
+          "rep_pct": 1.0
         },
         "2020": {
           "year": 2020,
@@ -8198,7 +9042,9 @@
             "percentage": 27.4
           },
           "margin": 45.2,
-          "marginVotes": 21201
+          "marginVotes": 21201,
+          "dem_pct": 0.274,
+          "rep_pct": 0.726
         }
       },
       "competitiveness": {
@@ -8228,7 +9074,9 @@
             "percentage": 33.0
           },
           "margin": 34.0,
-          "marginVotes": 19561
+          "marginVotes": 19561,
+          "dem_pct": 0.3295,
+          "rep_pct": 0.6705
         },
         "2020": {
           "year": 2020,
@@ -8241,7 +9089,9 @@
           },
           "margin": 100.0,
           "marginVotes": 43148,
-          "uncontested": true
+          "uncontested": true,
+          "dem_pct": 0.0,
+          "rep_pct": 1.0
         }
       },
       "competitiveness": {
@@ -8266,7 +9116,9 @@
           },
           "margin": 100.0,
           "marginVotes": 43300,
-          "uncontested": true
+          "uncontested": true,
+          "dem_pct": 0.0,
+          "rep_pct": 1.0
         },
         "2020": {
           "year": 2020,
@@ -8284,7 +9136,9 @@
             "percentage": 30.4
           },
           "margin": 39.2,
-          "marginVotes": 20856
+          "marginVotes": 20856,
+          "dem_pct": 0.3038,
+          "rep_pct": 0.6962
         }
       },
       "competitiveness": {
@@ -8314,7 +9168,9 @@
             "percentage": 45.1
           },
           "margin": 9.8,
-          "marginVotes": 3945
+          "marginVotes": 3945,
+          "dem_pct": 0.5491,
+          "rep_pct": 0.4509
         },
         "2020": {
           "year": 2020,
@@ -8332,7 +9188,9 @@
             "percentage": 45.5
           },
           "margin": 9.0,
-          "marginVotes": 3840
+          "marginVotes": 3840,
+          "dem_pct": 0.5447,
+          "rep_pct": 0.4553
         }
       },
       "competitiveness": {
@@ -8362,7 +9220,9 @@
             "percentage": 29.8
           },
           "margin": 40.4,
-          "marginVotes": 21717
+          "marginVotes": 21717,
+          "dem_pct": 0.2977,
+          "rep_pct": 0.7023
         },
         "2020": {
           "year": 2020,
@@ -8380,7 +9240,9 @@
             "percentage": 49.0
           },
           "margin": 2.0,
-          "marginVotes": 888
+          "marginVotes": 888,
+          "dem_pct": 0.4898,
+          "rep_pct": 0.5102
         }
       },
       "competitiveness": {
@@ -8405,7 +9267,9 @@
           },
           "margin": 100.0,
           "marginVotes": 56477,
-          "uncontested": true
+          "uncontested": true,
+          "dem_pct": 0.0,
+          "rep_pct": 1.0
         },
         "2020": {
           "year": 2020,
@@ -8418,7 +9282,9 @@
           },
           "margin": 100.0,
           "marginVotes": 48996,
-          "uncontested": true
+          "uncontested": true,
+          "dem_pct": 0.0,
+          "rep_pct": 1.0
         }
       },
       "competitiveness": {
@@ -8448,7 +9314,9 @@
             "percentage": 45.3
           },
           "margin": 9.4,
-          "marginVotes": 4406
+          "marginVotes": 4406,
+          "dem_pct": 0.5474,
+          "rep_pct": 0.4526
         },
         "2020": {
           "year": 2020,
@@ -8461,7 +9329,9 @@
           },
           "margin": 100.0,
           "marginVotes": 32882,
-          "uncontested": true
+          "uncontested": true,
+          "dem_pct": 1.0,
+          "rep_pct": 0.0
         }
       },
       "competitiveness": {
@@ -8491,7 +9361,9 @@
             "percentage": 34.0
           },
           "margin": 32.0,
-          "marginVotes": 15771
+          "marginVotes": 15771,
+          "dem_pct": 0.34,
+          "rep_pct": 0.66
         },
         "2020": {
           "year": 2020,
@@ -8504,7 +9376,9 @@
           },
           "margin": 100.0,
           "marginVotes": 37168,
-          "uncontested": true
+          "uncontested": true,
+          "dem_pct": 0.0,
+          "rep_pct": 1.0
         }
       },
       "competitiveness": {
@@ -8529,7 +9403,9 @@
           },
           "margin": 100.0,
           "marginVotes": 31477,
-          "uncontested": true
+          "uncontested": true,
+          "dem_pct": 1.0,
+          "rep_pct": 0.0
         },
         "2020": {
           "year": 2020,
@@ -8547,7 +9423,9 @@
             "percentage": 39.4
           },
           "margin": 21.2,
-          "marginVotes": 9570
+          "marginVotes": 9570,
+          "dem_pct": 0.6063,
+          "rep_pct": 0.3937
         }
       },
       "competitiveness": {
@@ -8577,7 +9455,9 @@
             "percentage": 31.4
           },
           "margin": 37.2,
-          "marginVotes": 21488
+          "marginVotes": 21488,
+          "dem_pct": 0.314,
+          "rep_pct": 0.686
         },
         "2020": {
           "year": 2020,
@@ -8590,7 +9470,9 @@
           },
           "margin": 100.0,
           "marginVotes": 49492,
-          "uncontested": true
+          "uncontested": true,
+          "dem_pct": 0.0,
+          "rep_pct": 1.0
         }
       },
       "competitiveness": {
@@ -8615,7 +9497,9 @@
           },
           "margin": 100.0,
           "marginVotes": 56987,
-          "uncontested": true
+          "uncontested": true,
+          "dem_pct": 0.0,
+          "rep_pct": 1.0
         },
         "2020": {
           "year": 2020,
@@ -8633,7 +9517,9 @@
             "percentage": 33.2
           },
           "margin": 33.6,
-          "marginVotes": 27303
+          "marginVotes": 27303,
+          "dem_pct": 0.3324,
+          "rep_pct": 0.6676
         }
       },
       "competitiveness": {
@@ -8663,7 +9549,9 @@
             "percentage": 47.7
           },
           "margin": 4.6,
-          "marginVotes": 2189
+          "marginVotes": 2189,
+          "dem_pct": 0.5226,
+          "rep_pct": 0.4774
         },
         "2020": {
           "year": 2020,
@@ -8676,7 +9564,9 @@
           },
           "margin": 100.0,
           "marginVotes": 36210,
-          "uncontested": true
+          "uncontested": true,
+          "dem_pct": 1.0,
+          "rep_pct": 0.0
         }
       },
       "competitiveness": {
@@ -8706,7 +9596,9 @@
             "percentage": 49.3
           },
           "margin": 1.4,
-          "marginVotes": 666
+          "marginVotes": 666,
+          "dem_pct": 0.4934,
+          "rep_pct": 0.5066
         },
         "2020": {
           "year": 2020,
@@ -8724,7 +9616,9 @@
             "percentage": 42.5
           },
           "margin": 15.0,
-          "marginVotes": 6572
+          "marginVotes": 6572,
+          "dem_pct": 0.575,
+          "rep_pct": 0.425
         }
       },
       "competitiveness": {
@@ -8749,7 +9643,9 @@
           },
           "margin": 100.0,
           "marginVotes": 40361,
-          "uncontested": true
+          "uncontested": true,
+          "dem_pct": 0.0,
+          "rep_pct": 1.0
         },
         "2020": {
           "year": 2020,
@@ -8767,7 +9663,9 @@
             "percentage": 38.7
           },
           "margin": 20.0,
-          "marginVotes": 14649
+          "marginVotes": 14649,
+          "dem_pct": 0.3867,
+          "rep_pct": 0.5872
         }
       },
       "competitiveness": {
@@ -8792,7 +9690,9 @@
           },
           "margin": 100.0,
           "marginVotes": 35738,
-          "uncontested": true
+          "uncontested": true,
+          "dem_pct": 0.0,
+          "rep_pct": 1.0
         },
         "2020": {
           "year": 2020,
@@ -8810,7 +9710,9 @@
             "percentage": 41.1
           },
           "margin": 17.8,
-          "marginVotes": 10606
+          "marginVotes": 10606,
+          "dem_pct": 0.4109,
+          "rep_pct": 0.5891
         }
       },
       "competitiveness": {
@@ -8840,7 +9742,9 @@
             "percentage": 48.9
           },
           "margin": 2.2,
-          "marginVotes": 1121
+          "marginVotes": 1121,
+          "dem_pct": 0.4893,
+          "rep_pct": 0.5107
         },
         "2020": {
           "year": 2020,
@@ -8858,7 +9762,9 @@
             "percentage": 43.5
           },
           "margin": 13.0,
-          "marginVotes": 5851
+          "marginVotes": 5851,
+          "dem_pct": 0.5652,
+          "rep_pct": 0.4348
         }
       },
       "competitiveness": {
@@ -8888,7 +9794,9 @@
             "percentage": 47.4
           },
           "margin": 5.2,
-          "marginVotes": 2424
+          "marginVotes": 2424,
+          "dem_pct": 0.5258,
+          "rep_pct": 0.4742
         },
         "2020": {
           "year": 2020,
@@ -8901,7 +9809,9 @@
           },
           "margin": 100.0,
           "marginVotes": 36118,
-          "uncontested": true
+          "uncontested": true,
+          "dem_pct": 1.0,
+          "rep_pct": 0.0
         }
       },
       "competitiveness": {
@@ -8931,7 +9841,9 @@
             "percentage": 42.5
           },
           "margin": 15.0,
-          "marginVotes": 8520
+          "marginVotes": 8520,
+          "dem_pct": 0.4251,
+          "rep_pct": 0.5749
         },
         "2020": {
           "year": 2020,
@@ -8949,7 +9861,9 @@
             "percentage": 49.1
           },
           "margin": 1.8,
-          "marginVotes": 1308
+          "marginVotes": 1308,
+          "dem_pct": 0.4911,
+          "rep_pct": 0.5089
         }
       },
       "competitiveness": {
@@ -8974,7 +9888,9 @@
           },
           "margin": 100.0,
           "marginVotes": 26088,
-          "uncontested": true
+          "uncontested": true,
+          "dem_pct": 1.0,
+          "rep_pct": 0.0
         },
         "2023": {
           "year": 2023,
@@ -8992,7 +9908,9 @@
             "percentage": 18.0
           },
           "margin": 64.0,
-          "marginVotes": 8243
+          "marginVotes": 8243,
+          "dem_pct": 0.8198,
+          "rep_pct": 0.1802
         },
         "2020": {
           "year": 2020,
@@ -9005,7 +9923,9 @@
           },
           "margin": 100.0,
           "marginVotes": 35299,
-          "uncontested": true
+          "uncontested": true,
+          "dem_pct": 1.0,
+          "rep_pct": 0.0
         }
       },
       "competitiveness": {
@@ -9035,7 +9955,9 @@
             "percentage": 38.9
           },
           "margin": 22.2,
-          "marginVotes": 15299
+          "marginVotes": 15299,
+          "dem_pct": 0.3886,
+          "rep_pct": 0.6114
         },
         "2020": {
           "year": 2020,
@@ -9053,7 +9975,9 @@
             "percentage": 43.8
           },
           "margin": 12.4,
-          "marginVotes": 8388
+          "marginVotes": 8388,
+          "dem_pct": 0.4379,
+          "rep_pct": 0.5621
         }
       },
       "competitiveness": {
@@ -9083,7 +10007,9 @@
             "percentage": 39.4
           },
           "margin": 21.2,
-          "marginVotes": 10478
+          "marginVotes": 10478,
+          "dem_pct": 0.3944,
+          "rep_pct": 0.6056
         },
         "2020": {
           "year": 2020,
@@ -9101,7 +10027,9 @@
             "percentage": 42.9
           },
           "margin": 14.2,
-          "marginVotes": 7805
+          "marginVotes": 7805,
+          "dem_pct": 0.4292,
+          "rep_pct": 0.5708
         }
       },
       "competitiveness": {
@@ -9126,7 +10054,9 @@
           },
           "margin": 100.0,
           "marginVotes": 31710,
-          "uncontested": true
+          "uncontested": true,
+          "dem_pct": 1.0,
+          "rep_pct": 0.0
         },
         "2020": {
           "year": 2020,
@@ -9144,7 +10074,9 @@
             "percentage": 40.5
           },
           "margin": 19.0,
-          "marginVotes": 9159
+          "marginVotes": 9159,
+          "dem_pct": 0.5947,
+          "rep_pct": 0.4053
         }
       },
       "competitiveness": {
@@ -9174,7 +10106,9 @@
             "percentage": 32.7
           },
           "margin": 34.6,
-          "marginVotes": 24709
+          "marginVotes": 24709,
+          "dem_pct": 0.3266,
+          "rep_pct": 0.6734
         },
         "2020": {
           "year": 2020,
@@ -9192,7 +10126,9 @@
             "percentage": 34.2
           },
           "margin": 31.6,
-          "marginVotes": 23097
+          "marginVotes": 23097,
+          "dem_pct": 0.3422,
+          "rep_pct": 0.6578
         }
       },
       "competitiveness": {

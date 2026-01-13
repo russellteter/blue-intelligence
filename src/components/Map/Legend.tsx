@@ -1,13 +1,15 @@
 interface LegendProps {
   className?: string;
+  showRepublicanData?: boolean;
 }
 
 /**
  * Compact legend component for opportunity tiers.
  * Minimal chart-style legend with small color indicators.
+ * Optionally shows Republican-related legend items when toggle is enabled.
  */
-export default function Legend({ className = '' }: LegendProps) {
-  const items = [
+export default function Legend({ className = '', showRepublicanData = false }: LegendProps) {
+  const baseItems = [
     { color: '#059669', label: 'High', description: 'High Opportunity (Score 70+)' },
     { color: '#0891B2', label: 'Emerging', description: 'Emerging (Score 50-69)' },
     { color: '#D97706', label: 'Build', description: 'Build (Score 30-49)' },
@@ -15,6 +17,13 @@ export default function Legend({ className = '' }: LegendProps) {
     { color: '#9CA3AF', label: 'Low', description: 'Non-Competitive (Score <30)' },
     { color: '#D1D5DB', label: 'Empty', description: 'No Candidates' },
   ];
+
+  // Add Republican items when toggle is enabled
+  const republicanItems = showRepublicanData ? [
+    { color: '#DC2626', label: 'GOP Only', description: 'Republican Only (No Democrat)' },
+  ] : [];
+
+  const items = [...baseItems, ...republicanItems];
 
   return (
     <div

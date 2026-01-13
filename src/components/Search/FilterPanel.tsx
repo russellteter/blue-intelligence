@@ -7,6 +7,8 @@ export interface FilterState {
   hasCandidate: 'all' | 'yes' | 'no';
   contested: 'all' | 'yes' | 'no';
   opportunity: string[];
+  showRepublicanData: boolean;
+  republicanDataMode: 'none' | 'incumbents' | 'challengers' | 'all';
 }
 
 interface FilterPanelProps {
@@ -20,6 +22,8 @@ export const defaultFilters: FilterState = {
   hasCandidate: 'all',
   contested: 'all',
   opportunity: [],
+  showRepublicanData: false,
+  republicanDataMode: 'none',
 };
 
 export default function FilterPanel({
@@ -60,7 +64,8 @@ export default function FilterPanel({
     filters.party.length +
     (filters.hasCandidate !== 'all' ? 1 : 0) +
     (filters.contested !== 'all' ? 1 : 0) +
-    filters.opportunity.length;
+    filters.opportunity.length +
+    (filters.showRepublicanData ? 1 : 0);
 
   const clearFilters = () => {
     onFilterChange(defaultFilters);
@@ -268,6 +273,97 @@ export default function FilterPanel({
                 );
               })}
             </div>
+          </fieldset>
+
+          {/* Republican Data Toggle */}
+          <fieldset className="mb-4 pt-4 border-t" style={{ borderColor: 'var(--class-purple-light, #DAD7FA)' }}>
+            <legend
+              className="text-xs font-semibold uppercase tracking-wider mb-2"
+              style={{ color: 'var(--color-text-muted, #4A5568)' }}
+            >
+              Opposition Data
+            </legend>
+            {/* Toggle switch */}
+            <label className="flex items-center gap-3 cursor-pointer mb-3">
+              <button
+                type="button"
+                role="switch"
+                aria-checked={filters.showRepublicanData}
+                onClick={() => {
+                  const newShowRepublican = !filters.showRepublicanData;
+                  onFilterChange({
+                    ...filters,
+                    showRepublicanData: newShowRepublican,
+                    republicanDataMode: newShowRepublican ? 'all' : 'none',
+                  });
+                }}
+                className="relative inline-flex h-6 w-11 items-center rounded-full transition-colors focus-visible:outline-2 focus-visible:outline-offset-2"
+                style={{
+                  background: filters.showRepublicanData ? '#DC2626' : 'var(--class-purple-light, #DAD7FA)',
+                  outlineColor: '#DC2626',
+                }}
+              >
+                <span
+                  className="inline-block h-4 w-4 transform rounded-full bg-white transition-transform shadow-sm"
+                  style={{
+                    transform: filters.showRepublicanData ? 'translateX(22px)' : 'translateX(4px)',
+                  }}
+                />
+              </button>
+              <span
+                className="text-sm font-medium"
+                style={{ color: filters.showRepublicanData ? '#DC2626' : 'var(--text-color, #0A1849)' }}
+              >
+                Show Republican Data
+              </span>
+            </label>
+
+            {/* Radio buttons when enabled */}
+            {filters.showRepublicanData && (
+              <div className="ml-0.5 space-y-2 animate-entrance">
+                {[
+                  { value: 'incumbents', label: 'Incumbents Only' },
+                  { value: 'challengers', label: 'Challengers Only' },
+                  { value: 'all', label: 'All Republicans' },
+                ].map((option) => {
+                  const isSelected = filters.republicanDataMode === option.value;
+                  return (
+                    <label key={option.value} className="flex items-center gap-2 cursor-pointer">
+                      <input
+                        type="radio"
+                        name="republicanDataMode"
+                        value={option.value}
+                        checked={isSelected}
+                        onChange={() =>
+                          onFilterChange({
+                            ...filters,
+                            republicanDataMode: option.value as 'incumbents' | 'challengers' | 'all',
+                          })
+                        }
+                        className="sr-only"
+                      />
+                      <span
+                        className="w-4 h-4 rounded-full border-2 flex items-center justify-center transition-all"
+                        style={{
+                          borderColor: isSelected ? '#DC2626' : 'var(--class-purple-light, #DAD7FA)',
+                          background: isSelected ? '#DC2626' : 'transparent',
+                        }}
+                      >
+                        {isSelected && (
+                          <span className="w-1.5 h-1.5 rounded-full bg-white" />
+                        )}
+                      </span>
+                      <span
+                        className="text-sm"
+                        style={{ color: isSelected ? '#DC2626' : 'var(--text-muted, #4A5568)' }}
+                      >
+                        {option.label}
+                      </span>
+                    </label>
+                  );
+                })}
+              </div>
+            )}
           </fieldset>
 
           {/* Clear filters */}
