@@ -36,6 +36,7 @@ export default function RaceProfileClient({ chamber: chamberParam, district: dis
   const [opportunityData, setOpportunityData] = useState<OpportunityData | null>(null);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  const [backToMapUrl, setBackToMapUrl] = useState<string>('/');
 
   // Validate chamber parameter
   const chamber = chamberParam.toLowerCase() as Chamber;
@@ -46,6 +47,20 @@ export default function RaceProfileClient({ chamber: chamberParam, district: dis
     !isNaN(districtNumber) &&
     districtNumber > 0 &&
     (chamber === 'house' ? districtNumber <= 124 : districtNumber <= 46);
+
+  // Parse return context from URL for "Back to Map" navigation (client-side only)
+  useEffect(() => {
+    if (typeof window === 'undefined') return;
+
+    const searchParams = new URLSearchParams(window.location.search);
+    const returnFilters = searchParams.get('returnFilters');
+
+    if (returnFilters) {
+      setBackToMapUrl(`/?${returnFilters}`);
+    } else {
+      setBackToMapUrl(`/?chamber=${chamber}&district=${districtNumber}`);
+    }
+  }, [chamber, districtNumber]);
 
   // Load data
   useEffect(() => {
@@ -145,7 +160,7 @@ export default function RaceProfileClient({ chamber: chamberParam, district: dis
       >
         <div className="max-w-4xl mx-auto px-4 py-3 flex items-center justify-between">
           <Link
-            href="/"
+            href={backToMapUrl}
             className="flex items-center gap-2 text-sm font-medium transition-colors hover:opacity-80"
             style={{ color: 'var(--class-purple)' }}
           >
@@ -155,8 +170,26 @@ export default function RaceProfileClient({ chamber: chamberParam, district: dis
             Back to Map
           </Link>
 
-          {/* Navigation between districts */}
-          <div className="flex items-center gap-2">
+          {/* Navigation between districts + Table View */}
+          <div className="flex items-center gap-3">
+            {/* View in Table button */}
+            <Link
+              href={`/table?chamber=${chamber}&highlight=${districtNumber}`}
+              className="hidden sm:flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium transition-all hover:opacity-70"
+              style={{
+                background: 'var(--card-bg, #FFFFFF)',
+                border: '1px solid var(--class-purple-light, #DAD7FA)',
+                color: 'var(--text-color, #0A1849)',
+              }}
+            >
+              <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 10h18M3 14h18m-9-4v8m-7 0h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" />
+              </svg>
+              View in Table
+            </Link>
+
+            {/* Prev/Next navigation */}
+            <div className="flex items-center gap-2 border-l pl-3" style={{ borderColor: 'var(--class-purple-light)' }}>
             {districtNumber > 1 && (
               <Link
                 href={`/race/${chamber}/${districtNumber - 1}`}
@@ -186,6 +219,7 @@ export default function RaceProfileClient({ chamber: chamberParam, district: dis
                 </svg>
               </Link>
             )}
+            </div>
           </div>
         </div>
       </header>

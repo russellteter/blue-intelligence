@@ -89,7 +89,7 @@ export default function StrategicTable({
           <table className="strategic-table" role="grid">
             <thead className="strategic-table-header">
               <tr>
-                {[1, 2, 3, 4, 5, 6].map((i) => (
+                {[1, 2, 3, 4, 5, 6, 7].map((i) => (
                   <th key={i} className="strategic-table-th">
                     <div className="skeleton-base skeleton-shimmer h-4 w-20 rounded" />
                   </th>
@@ -99,7 +99,7 @@ export default function StrategicTable({
             <tbody>
               {Array.from({ length: 10 }).map((_, i) => (
                 <tr key={i} className="strategic-table-row">
-                  {[1, 2, 3, 4, 5, 6].map((j) => (
+                  {[1, 2, 3, 4, 5, 6, 7].map((j) => (
                     <td key={j} className="strategic-table-td">
                       <div className="skeleton-base skeleton-shimmer h-4 w-full rounded" />
                     </td>
