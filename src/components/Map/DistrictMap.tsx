@@ -29,6 +29,7 @@ interface DistrictMapProps {
   selectedDistrict: number | null;
   onDistrictClick: (districtNumber: number) => void;
   onDistrictHover: (districtNumber: number | null) => void;
+  filteredDistricts?: Set<number>;
 }
 
 export default function DistrictMap({
@@ -37,6 +38,7 @@ export default function DistrictMap({
   selectedDistrict,
   onDistrictClick,
   onDistrictHover,
+  filteredDistricts,
 }: DistrictMapProps) {
   const containerRef = useRef<HTMLDivElement>(null);
   const [rawSvgContent, setRawSvgContent] = useState<string>('');
@@ -108,10 +110,16 @@ export default function DistrictMap({
         path.setAttribute('stroke', '#1e3a8a');
         path.setAttribute('stroke-width', '2');
       }
+
+      // Apply filtered state (reduce opacity for districts not in filter)
+      if (filteredDistricts && !filteredDistricts.has(districtNum)) {
+        path.setAttribute('opacity', '0.25');
+        path.setAttribute('filter', 'grayscale(0.5)');
+      }
     });
 
     return new XMLSerializer().serializeToString(svg);
-  }, [rawSvgContent, chamber, candidatesData, selectedDistrict]);
+  }, [rawSvgContent, chamber, candidatesData, selectedDistrict, filteredDistricts]);
 
   // Handle click events via event delegation (more efficient than per-path listeners)
   const handleClick = useCallback((e: React.MouseEvent) => {

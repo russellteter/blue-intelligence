@@ -1,10 +1,14 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef, useCallback, useMemo } from 'react';
 import DistrictMap from '@/components/Map/DistrictMap';
 import Legend from '@/components/Map/Legend';
 import ChamberToggle from '@/components/Map/ChamberToggle';
 import SidePanel from '@/components/Dashboard/SidePanel';
+import SearchBar from '@/components/Search/SearchBar';
+import FilterPanel, { FilterState, defaultFilters } from '@/components/Search/FilterPanel';
+import KeyboardShortcutsHelp from '@/components/Search/KeyboardShortcutsHelp';
+import { useKeyboardShortcuts } from '@/hooks/useKeyboardShortcuts';
 
 interface Candidate {
   name: string;
@@ -33,6 +37,9 @@ export default function Home() {
   const [hoveredDistrict, setHoveredDistrict] = useState<number | null>(null);
   const [candidatesData, setCandidatesData] = useState<CandidatesData | null>(null);
   const [isLoading, setIsLoading] = useState(true);
+  const [filters, setFilters] = useState<FilterState>(defaultFilters);
+  const [showShortcuts, setShowShortcuts] = useState(false);
+  const searchInputRef = useRef<HTMLInputElement>(null);
 
   // Load candidates data
   useEffect(() => {
@@ -52,10 +59,133 @@ export default function Home() {
       });
   }, []);
 
+  // Parse URL state on mount
+  useEffect(() => {
+    if (typeof window === 'undefined') return;
+
+    const params = new URLSearchParams(window.location.search);
+    const urlChamber = params.get('chamber');
+    const urlDistrict = params.get('district');
+    const urlParty = params.get('party');
+    const urlHasCandidate = params.get('hasCandidate');
+    const urlContested = params.get('contested');
+
+    if (urlChamber === 'senate') setChamber('senate');
+    if (urlDistrict) setSelectedDistrict(parseInt(urlDistrict, 10));
+
+    const parsedFilters: FilterState = {
+      party: urlParty ? urlParty.split(',').filter(Boolean) : [],
+      hasCandidate: (urlHasCandidate === 'yes' || urlHasCandidate === 'no') ? urlHasCandidate : 'all',
+      contested: (urlContested === 'yes' || urlContested === 'no') ? urlContested : 'all',
+    };
+    if (urlParty || urlHasCandidate || urlContested) {
+      setFilters(parsedFilters);
+    }
+  }, []);
+
+  // Update URL when state changes
+  const updateUrl = useCallback(() => {
+    if (typeof window === 'undefined') return;
+
+    const params = new URLSearchParams();
+    params.set('chamber', chamber);
+    if (selectedDistrict !== null) params.set('district', String(selectedDistrict));
+    if (filters.party.length > 0) params.set('party', filters.party.join(','));
+    if (filters.hasCandidate !== 'all') params.set('hasCandidate', filters.hasCandidate);
+    if (filters.contested !== 'all') params.set('contested', filters.contested);
+
+    const newUrl = `${window.location.pathname}?${params.toString()}`;
+    window.history.replaceState({}, '', newUrl);
+  }, [chamber, selectedDistrict, filters]);
+
+  useEffect(() => {
+    updateUrl();
+  }, [updateUrl]);
+
   // Clear selection when chamber changes
   useEffect(() => {
     setSelectedDistrict(null);
   }, [chamber]);
+
+  // Get total district count for navigation
+  const districtCount = useMemo(() => {
+    return chamber === 'house' ? 124 : 46;
+  }, [chamber]);
+
+  // Keyboard shortcuts
+  const handleNextDistrict = useCallback(() => {
+    setSelectedDistrict((prev) => {
+      if (prev === null) return 1;
+      return prev < districtCount ? prev + 1 : 1;
+    });
+  }, [districtCount]);
+
+  const handlePrevDistrict = useCallback(() => {
+    setSelectedDistrict((prev) => {
+      if (prev === null) return districtCount;
+      return prev > 1 ? prev - 1 : districtCount;
+    });
+  }, [districtCount]);
+
+  useKeyboardShortcuts({
+    onToggleChamber: () => setChamber((c) => (c === 'house' ? 'senate' : 'house')),
+    onFocusSearch: () => {
+      const searchInput = document.getElementById('search-input');
+      if (searchInput) searchInput.focus();
+    },
+    onClearSelection: () => {
+      setSelectedDistrict(null);
+      setShowShortcuts(false);
+    },
+    onNextDistrict: handleNextDistrict,
+    onPrevDistrict: handlePrevDistrict,
+    onToggleHelp: () => setShowShortcuts((prev) => !prev),
+    enabled: !showShortcuts,
+  });
+
+  // Filter districts based on current filters
+  const filteredDistricts = useMemo(() => {
+    if (!candidatesData) return new Set<number>();
+
+    const districts = candidatesData[chamber];
+    const filtered = new Set<number>();
+
+    for (const [districtNum, district] of Object.entries(districts)) {
+      const num = parseInt(districtNum, 10);
+      const hasCandidates = district.candidates.length > 0;
+
+      // Check hasCandidate filter
+      if (filters.hasCandidate === 'yes' && !hasCandidates) continue;
+      if (filters.hasCandidate === 'no' && hasCandidates) continue;
+
+      // Check contested filter (both parties running)
+      if (hasCandidates) {
+        const hasDem = district.candidates.some((c) => c.party?.toLowerCase() === 'democratic');
+        const hasRep = district.candidates.some((c) => c.party?.toLowerCase() === 'republican');
+        const isContested = hasDem && hasRep;
+
+        if (filters.contested === 'yes' && !isContested) continue;
+        if (filters.contested === 'no' && isContested) continue;
+      }
+
+      // Check party filter
+      if (filters.party.length > 0 && hasCandidates) {
+        const matchesParty = filters.party.some((filterParty) => {
+          if (filterParty === 'unknown') {
+            return district.candidates.some((c) => !c.party);
+          }
+          return district.candidates.some(
+            (c) => c.party?.toLowerCase() === filterParty.toLowerCase()
+          );
+        });
+        if (!matchesParty) continue;
+      }
+
+      filtered.add(num);
+    }
+
+    return filtered;
+  }, [candidatesData, chamber, filters]);
 
   const selectedDistrictData = selectedDistrict && candidatesData
     ? candidatesData[chamber][String(selectedDistrict)]
@@ -110,19 +240,67 @@ export default function Home() {
           : ''}
       </div>
 
+      {/* Keyboard shortcuts help modal */}
+      <KeyboardShortcutsHelp
+        isOpen={showShortcuts}
+        onClose={() => setShowShortcuts(false)}
+      />
+
       {/* Header - Glassmorphic */}
       <header className="glass-surface border-b" style={{ borderColor: 'var(--class-purple-light, #DAD7FA)' }}>
         <div className="max-w-7xl mx-auto px-4 py-4">
-          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
-            <div>
-              <h1 className="text-2xl font-bold" style={{ color: 'var(--text-color, #0A1849)' }}>
-                SC 2026 Election Map
-              </h1>
-              <p className="text-sm mt-1" style={{ color: 'var(--color-text-muted, #4A5568)' }}>
-                Tracking {chamber === 'house' ? '124 House' : '46 Senate'} districts
-              </p>
+          <div className="flex flex-col gap-4">
+            {/* Top row: Title and Chamber toggle */}
+            <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+              <div>
+                <h1 className="text-2xl font-bold" style={{ color: 'var(--text-color, #0A1849)' }}>
+                  SC 2026 Election Map
+                </h1>
+                <p className="text-sm mt-1" style={{ color: 'var(--color-text-muted, #4A5568)' }}>
+                  Tracking {chamber === 'house' ? '124 House' : '46 Senate'} districts
+                  {filteredDistricts.size < districtCount && (
+                    <span> • Showing {filteredDistricts.size} of {districtCount}</span>
+                  )}
+                </p>
+              </div>
+              <div className="flex items-center gap-3">
+                <ChamberToggle chamber={chamber} onChange={setChamber} />
+                <button
+                  type="button"
+                  onClick={() => setShowShortcuts(true)}
+                  className="p-2 rounded-lg border transition-all hover:opacity-70"
+                  style={{
+                    background: 'var(--card-bg, #FFFFFF)',
+                    borderColor: 'var(--class-purple-light, #DAD7FA)',
+                    color: 'var(--color-text-muted, #4A5568)',
+                  }}
+                  aria-label="Show keyboard shortcuts"
+                  title="Keyboard shortcuts (?)"
+                >
+                  <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                </button>
+              </div>
             </div>
-            <ChamberToggle chamber={chamber} onChange={setChamber} />
+
+            {/* Bottom row: Search and Filters */}
+            <div className="flex flex-col sm:flex-row gap-3">
+              <SearchBar
+                candidatesData={candidatesData}
+                onSelectResult={(result) => {
+                  if (result.chamber !== chamber) {
+                    setChamber(result.chamber);
+                  }
+                  setTimeout(() => setSelectedDistrict(result.districtNumber), 0);
+                }}
+                className="flex-1 max-w-md"
+              />
+              <FilterPanel
+                filters={filters}
+                onFilterChange={setFilters}
+              />
+            </div>
           </div>
         </div>
       </header>
@@ -183,6 +361,7 @@ export default function Home() {
               selectedDistrict={selectedDistrict}
               onDistrictClick={setSelectedDistrict}
               onDistrictHover={setHoveredDistrict}
+              filteredDistricts={filteredDistricts}
             />
           </div>
 

@@ -3,6 +3,9 @@ import '@testing-library/jest-dom';
 // Mock window.fetch for tests
 global.fetch = jest.fn();
 
+// Mock scrollIntoView (not available in jsdom)
+Element.prototype.scrollIntoView = jest.fn();
+
 // Mock DOMParser for SVG processing
 class MockDOMParser {
   parseFromString(text: string, type: string) {
